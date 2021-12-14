@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/login/index";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      see you 
-    </div>
-  );
+      <Routes>
+        <Route  path="/login" element={<Login />} />
+      </Routes>
+  )
 }
 
 export default App;
