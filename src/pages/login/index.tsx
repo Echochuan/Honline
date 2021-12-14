@@ -3,18 +3,15 @@ import "./index.css";
 
 import LoginBox from "../../components/loginBox/index";
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
 
 const Login = () => {
   return (
     <div>
-      <Layout>
+<Layout style={{height:"100vh"}}>
         <Header>Header</Header>
         <Layout>
-          <Content>Content</Content>
-          <Sider>
-            <LoginBox />
-          </Sider>
+          <Content>            <LoginBox /></Content>
         </Layout>
         <Footer>Footer</Footer>
       </Layout>
