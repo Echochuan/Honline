@@ -27,7 +27,7 @@ const LoginBox = () => {
             name="username"
             rules={[{ required: true, message: "Please input your username!" }]}
           >
-            <Input />
+            {/* <Input size="large" placeholder="large size" prefix={<UserOutlined />} /> */}
           </Form.Item>
 
           <Form.Item
