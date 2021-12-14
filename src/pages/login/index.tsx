@@ -11,7 +11,7 @@ const Login = () => {
       <Layout style={{ height: "100vh" }}>
         <Header>Header</Header>
         <Layout>
-          <Content>
+          <Content style= {{ background:"../../assets/LogBackground.jpeg" }}>
             {" "}
             <LoginBox />
           </Content>
