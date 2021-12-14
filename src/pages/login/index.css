@@ -1,7 +1,35 @@
 @import "~antd/dist/antd.css";
 
 .ant-layout-content {
-    background: no-repeat url("../../assets/LogBackground.jpeg");
+    background: no-repeat url("../../assets/LogBackground.jpg");
     background-size:100% 100%;
+}
 
+.ant-layout-header {
+    height: 80px;
+    background-color: white;
+    color: red;
+    text-align: center;
+}
+
+.ant-layout-footer {
+    text-align: center;
+}
+
+.logo {
+    background: no-repeat url("../../assets/Logo.jpg");
+    width: 160px;
+    height: 80px;
+    background-size: 100% 100%;
+    float: left;
+}
+
+.welcome {
+    display: block;
+    background: no-repeat url("../../assets//welcome.png");
+    position: absolute;
+    width: 110px;
+    height: 40px;
+    top: 25px;
+    left: 250px;
 }

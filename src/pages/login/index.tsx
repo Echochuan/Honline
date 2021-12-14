@@ -9,14 +9,20 @@ const Login = () => {
   return (
     <div>
       <Layout style={{ height: "100vh" }}>
-        <Header>Header</Header>
+        <Header>
+            <div className="logo" >
+            <div className="welcome">
+            </div>
+            </div>
+
+        </Header>
         <Layout>
-          <Content style= {{ background:"../../assets/LogBackground.jpeg" }}>
+          <Content>
             {" "}
             <LoginBox />
           </Content>
         </Layout>
-        <Footer>Footer</Footer>
+        <Footer>Copyright © 2021  Created by 524 & 525</Footer>
       </Layout>
     </div>
   );
