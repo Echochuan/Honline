@@ -1,25 +1,24 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
 
 .loginBox {
-    display: flex;
-    /* width: 50%; */
-    width: 25vw;
-    height: 40vh;
-    margin: 0px auto;
-    margin-right: 200px;
-    margin-top: 20vh;
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: saturate(180%) blur(3px);
-    border-radius: 12px;
-    padding: 10px;
-  }
-  
-  p {
-    text-align: center;
-  }
-  
-  .loginBox1 {
-    margin: 0px auto;
-    margin-top: 8vh;
-  }
+  display: flex;
+  /* width: 50%; */
+  width: 25vw;
+  height: 40vh;
+  margin: 0px auto;
+  margin-right: 200px;
+  margin-top: 20vh;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: saturate(180%) blur(3px);
+  border-radius: 12px;
+  padding: 10px;
+}
 
+p {
+  text-align: center;
+}
+
+.loginBox1 {
+  margin: 0px auto;
+  margin-top: 8vh;
+}

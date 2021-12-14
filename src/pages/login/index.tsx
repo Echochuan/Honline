@@ -8,10 +8,13 @@ const { Header, Footer, Content } = Layout;
 const Login = () => {
   return (
     <div>
-<Layout style={{height:"100vh"}}>
+      <Layout style={{ height: "100vh" }}>
         <Header>Header</Header>
         <Layout>
-          <Content>            <LoginBox /></Content>
+          <Content>
+            {" "}
+            <LoginBox />
+          </Content>
         </Layout>
         <Footer>Footer</Footer>
       </Layout>
