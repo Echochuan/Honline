@@ -1,12 +1,25 @@
-import React from 'react';
-import './index.css';
+import { Layout } from "antd";
+import "./index.css";
+
+import LoginBox from "../../components/loginBox/index";
+
+const { Header, Footer, Sider, Content } = Layout;
 
 const Login = () => {
-    return (
-        <div >
-        see you 
-      </div>
-    )
-}
+  return (
+    <div>
+      <Layout>
+        <Header>Header</Header>
+        <Layout>
+          <Content>Content</Content>
+          <Sider>
+            <LoginBox />
+          </Sider>
+        </Layout>
+        <Footer>Footer</Footer>
+      </Layout>
+    </div>
+  );
+};
 
 export default Login;

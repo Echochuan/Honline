@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Login from "./pages/login/index";
+import Login from "./components/loginBox/index";
 
 const App = () => {
   return (
