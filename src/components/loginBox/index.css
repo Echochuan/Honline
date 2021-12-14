@@ -20,3 +20,11 @@ p {
   margin: 0px auto;
   margin-top: 10vh;
 }
+
+.btn1 {
+  text-align: left;
+  float: left;
+}
+.btn2 {
+  text-align: right;
+}

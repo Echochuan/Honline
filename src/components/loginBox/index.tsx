@@ -1,5 +1,6 @@
 import { Form, Input, Button, Checkbox } from "antd";
 import './index.css';
+import { UserOutlined , KeyOutlined } from '@ant-design/icons';
 
 const LoginBox = () => {
   const onFinish = (values: any) => {
@@ -16,26 +17,24 @@ const LoginBox = () => {
         <Form
           name="basic"
           labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
+          wrapperCol={{ span: 24 }}
           initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <Form.Item
-            label="Username"
             name="username"
             rules={[{ required: true, message: "Please input your username!" }]}
           >
-            {/* <Input size="large" placeholder="large size" prefix={<UserOutlined />} /> */}
+            <Input size="large" placeholder="请输入账号" prefix={<UserOutlined />} />
           </Form.Item>
 
           <Form.Item
-            label="Password"
             name="password"
             rules={[{ required: true, message: "Please input your password!" }]}
           >
-            <Input.Password />
+            <Input.Password size="large" placeholder="请输入密码" prefix={<KeyOutlined />}/>
           </Form.Item>
 
           <Form.Item
@@ -43,14 +42,22 @@ const LoginBox = () => {
             valuePropName="checked"
             wrapperCol={{ offset: 8, span: 16 }}
           >
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>记住密码</Checkbox>
           </Form.Item>
 
-          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
-              Submit
+
+          <div className="btn1">
+            <Button size="large" type="primary" htmlType="submit">
+              注册
+            </Button>
+          </div>
+
+          <Form.Item wrapperCol={{ offset: 8, span: 24 }} className="btn2">
+            <Button size="large" type="primary" htmlType="submit">
+              登陆
             </Button>
           </Form.Item>
+
         </Form>
       </div>
     </div>
