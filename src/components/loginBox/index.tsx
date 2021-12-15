@@ -1,19 +1,21 @@
-import { Form, Input, Button, Checkbox } from "antd";
-import './index.css';
-import { UserOutlined , KeyOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Checkbox, message } from "antd";
+import "./index.css";
+import { UserOutlined, KeyOutlined } from "@ant-design/icons";
 
 const LoginBox = () => {
   const onFinish = (values: any) => {
-    console.log("Success:", values);
+    //在这里调用登陆接口，判断返回的状态码是不是 200 ，如果是则跳转进主页， 如果不是则发出警告
+    message.success("登陆成功");
+    message.error("账户不存在或密码错误");
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
+    message.error("请输入正确信息");
   };
 
   const register = () => {
-    window.location.href = "/register"
-  }
+    window.location.href = "/register";
+  };
 
   return (
     <div className="loginBox">
@@ -31,14 +33,22 @@ const LoginBox = () => {
             name="username"
             rules={[{ required: true, message: "Please input your username!" }]}
           >
-            <Input size="large" placeholder="请输入账号" prefix={<UserOutlined />} />
+            <Input
+              size="large"
+              placeholder="请输入账号"
+              prefix={<UserOutlined />}
+            />
           </Form.Item>
 
           <Form.Item
             name="password"
             rules={[{ required: true, message: "Please input your password!" }]}
           >
-            <Input.Password size="large" placeholder="请输入密码" prefix={<KeyOutlined />}/>
+            <Input.Password
+              size="large"
+              placeholder="请输入密码"
+              prefix={<KeyOutlined />}
+            />
           </Form.Item>
 
           <Form.Item
@@ -49,9 +59,13 @@ const LoginBox = () => {
             <Checkbox>记住密码</Checkbox>
           </Form.Item>
 
-
           <div className="btn1">
-            <Button size="large" type="primary" htmlType="submit" onClick={ register }>
+            <Button
+              size="large"
+              type="primary"
+              htmlType="submit"
+              onClick={register}
+            >
               注册
             </Button>
           </div>
@@ -61,7 +75,6 @@ const LoginBox = () => {
               登陆
             </Button>
           </Form.Item>
-
         </Form>
       </div>
     </div>

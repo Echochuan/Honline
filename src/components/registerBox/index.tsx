@@ -2,16 +2,14 @@ import { Form, Input, Button, message } from "antd";
 import "./index.css";
 import { UserOutlined, KeyOutlined } from "@ant-design/icons";
 
-const error = () => {
-  message.error("请输入两次一致的密码");
-};
-
 const RegisterBox = () => {
   const onFinish = (values: any) => {
     console.log("Success:", values);
     if (values.password !== values.password2) {
-      error();
+      message.error("请输入两次一致的密码");
     } else {
+      //在这里调用接口，把账户和密码发送给后端存储
+      //然后跳转到主页
       window.location.href = "/login";
     }
   };
