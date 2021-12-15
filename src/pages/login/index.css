@@ -26,7 +26,7 @@
 
 .welcome {
     display: block;
-    background: no-repeat url("../../assets//welcome.png");
+    background: no-repeat url("../../assets/welcome.png");
     position: absolute;
     width: 110px;
     height: 40px;
