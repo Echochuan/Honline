@@ -11,6 +11,10 @@ const LoginBox = () => {
     console.log("Failed:", errorInfo);
   };
 
+  const register = () => {
+    window.location.href = "/register"
+  }
+
   return (
     <div className="loginBox">
       <div className="loginBox1">
@@ -47,7 +51,7 @@ const LoginBox = () => {
 
 
           <div className="btn1">
-            <Button size="large" type="primary" htmlType="submit">
+            <Button size="large" type="primary" htmlType="submit" onClick={ register }>
               注册
             </Button>
           </div>
