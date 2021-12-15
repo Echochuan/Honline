@@ -1,10 +1,20 @@
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
 import './index.css';
 import { UserOutlined , KeyOutlined } from '@ant-design/icons';
+
+const error = () => {
+    message.error('请输入两次一致的密码');
+  };
 
 const RegisterBox = () => {
   const onFinish = (values: any) => {
     console.log("Success:", values);
+    if (values.password !== values.password2) {
+        error();
+    }
+    else {
+        window.location.href = '/login'
+    }
   };
 
   const onFinishFailed = (errorInfo: any) => {

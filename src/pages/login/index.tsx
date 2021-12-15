@@ -17,7 +17,7 @@ const Login = () => {
 
         </Header>
         <Layout>
-          <Content>
+          <Content className="content">
             {" "}
             <LoginBox />
           </Content>

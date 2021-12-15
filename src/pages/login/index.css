@@ -1,6 +1,6 @@
 @import "~antd/dist/antd.css";
 
-.ant-layout-content {
+.content {
     background: no-repeat url("../../assets/LogBackground.jpg");
     background-size:100% 100%;
 }

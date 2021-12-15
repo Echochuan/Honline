@@ -11,7 +11,7 @@ const Register = () => {
       <Layout style={{ height: "100vh" }}>
         <Header>
             <div className="logo" >
-            <div className="welcome">欢迎注册
+            <div className="welcome1">欢迎注册
             </div>
             </div>
         </Header>
