@@ -10,11 +10,9 @@ const Login = () => {
     <div>
       <Layout style={{ height: "100vh" }}>
         <Header>
-            <div className="logo" >
-            <div className="welcome">
-            </div>
-            </div>
-
+          <div className="logo">
+            <div className="welcome"></div>
+          </div>
         </Header>
         <Layout>
           <Content className="content">
@@ -22,7 +20,7 @@ const Login = () => {
             <LoginBox />
           </Content>
         </Layout>
-        <Footer>Copyright © 2021  Created by 524 & 525</Footer>
+        <Footer>Copyright © 2021 Created by 524 & 525</Footer>
       </Layout>
     </div>
   );

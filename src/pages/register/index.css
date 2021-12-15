@@ -1,14 +1,9 @@
-.ant-layout-content {
-
-}
-
 .welcome1 {
-
-    display: block;
-    position: absolute;
-    width: 130px;
-    height: 40px;
-    top: 10px;
-    left: 250px;
-    font-size: 30px
+  display: block;
+  position: absolute;
+  width: 130px;
+  height: 40px;
+  top: 10px;
+  left: 250px;
+  font-size: 30px;
 }
