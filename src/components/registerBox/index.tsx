@@ -1,12 +1,25 @@
 import { Form, Input, Button, message } from "antd";
 import "./index.css";
 import { UserOutlined, KeyOutlined } from "@ant-design/icons";
+import store from "../../redux/store";
 
 const RegisterBox = () => {
+
   const onFinish = (values: any) => {
+    console.log("subscribe", store.getState());
+    const name = store.getState().name;
+
     console.log("Success:", values);
     if (values.password !== values.password2) {
       message.error("请输入两次一致的密码");
+
+      //测试取出 store
+    console.log("next :")
+    console.log(name);
+
+    store.subscribe(() => {
+        console.log("subscribe", store.getState());
+      });
     } else {
       //在这里调用接口，把账户和密码发送给后端存储
       //然后跳转到主页
@@ -73,5 +86,7 @@ const RegisterBox = () => {
     </div>
   );
 };
+
+
 
 export default RegisterBox;
