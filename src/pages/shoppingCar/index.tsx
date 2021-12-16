@@ -1,10 +1,10 @@
-import { Layout, Button } from "antd";
+import { Layout } from "antd";
 import "./index.css";
 
 const { Header, Footer, Content } = Layout;
 
 const ShoppingCar = () => {
-  return (
+  return ( 
     <div>
       <Layout style={{ height: "100vh" }}>
         <Header className="header-init">

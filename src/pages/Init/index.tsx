@@ -4,9 +4,14 @@ import "./index.css";
 import Search from "../../components/search/index";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
+import goods from "../../mock/goods.json";
+
 const { Header, Footer, Content } = Layout;
 
 const Init = () => {
+
+const goodsList = goods.goodsList;
+
   const onClick = () => {
     window.location.href = "/shoppingCar";
   };
