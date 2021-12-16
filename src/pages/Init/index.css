@@ -15,7 +15,8 @@
 
 .Button-Car {
     border-color: #f15b42;
-    background: #f15b42;
+    background: #ffffff;
+    color: #f15b42;
     width: 10vw;
     position: absolute;
     top: 50px;
