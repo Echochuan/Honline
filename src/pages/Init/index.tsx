@@ -7,10 +7,9 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 const { Header, Footer, Content } = Layout;
 
 const Init = () => {
-
   const onClick = () => {
-    window.location.href = "/shoppingCar"
-  }
+    window.location.href = "/shoppingCar";
+  };
 
   return (
     <div>
@@ -18,7 +17,15 @@ const Init = () => {
         <Header className="header-init">
           <div className="logo-init"></div>
           <Search />
-          <Button type="primary" size="large" className="Button-Car" icon={<ShoppingCartOutlined /> } onClick={ onClick }>我的购物车</Button>
+          <Button
+            type="primary"
+            size="large"
+            className="Button-Car"
+            icon={<ShoppingCartOutlined />}
+            onClick={onClick}
+          >
+            我的购物车
+          </Button>
         </Header>
         <Layout>
           <Content> </Content>
