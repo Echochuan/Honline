@@ -19,7 +19,7 @@
 .bar button {
   height: 40px;
   width: 40px;
-  top: 11px;
+  top: 42px;
   right: 0px;
   background: #f15b42;
 }
@@ -37,8 +37,8 @@ div.search {
 
 form {
   position: relative;
-  width: 300px;
-  margin: 0 auto;
+  width: 400px;
+  margin: 0 auto 0 -10vw;
 }
 
 input,
