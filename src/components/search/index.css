@@ -9,21 +9,21 @@
   border-radius: 30px;
 }
 
-.bar input,
-.bar button {
+.bar .Search-input,
+.bar .searchBtn {
   border-radius: 3px;
 }
-.bar input {
+.bar .Search-input {
   background: #f9f0da;
 }
-.bar button {
+.bar .searchBtn {
   height: 40px;
   width: 40px;
   top: 42px;
   right: 0px;
   background: #f15b42;
 }
-.bar button:before {
+.bar .searchBtn:before {
   content: "\f105";
   font-family: FontAwesome;
   color: #f9f0da;
@@ -35,26 +35,26 @@ div.search {
   padding: 30px 0;
 }
 
-form {
+.Search-form {
   position: relative;
   width: 400px;
   margin: 0 auto 0 -10vw;
 }
 
-input,
-button {
+.Search-input,
+.searchBtn {
   border: none;
   outline: none;
 }
 
-input {
+.Search-input {
   width: 100%;
   height: 42px;
   padding-left: 13px;
   padding-right: 46px;
 }
 
-button {
+.searchBtn {
   height: 42px;
   width: 42px;
   cursor: pointer;

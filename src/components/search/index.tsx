@@ -9,14 +9,14 @@ const Search = () => {
 
   return (
     <div className="search bar">
-      <form>
+      <form className="Search-form">
         <input
           className="Search-input"
           type="text"
           placeholder="请输入您要搜索的内容......"
         />
       </form>
-      <button onClick={onClick}>
+      <button onClick={onClick} className="searchBtn">
         <div className="icon-logo">
           <RightCircleTwoTone
             twoToneColor="f9f0da"
