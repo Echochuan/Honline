@@ -11,7 +11,7 @@ const Init = () => {
           <div className="logo"></div>
         </Header>
         <Layout>
-          <Content className="content">
+          <Content >
             {" "}
           </Content>
         </Layout>

@@ -26,7 +26,6 @@ const LoginBox = () => {
     } else {
       message.error("账户不存在或密码错误");
     }
-
     // store.subscribe(() => {
     //   console.log("subscribe", store.getState());
     // });
