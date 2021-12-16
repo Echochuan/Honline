@@ -5,6 +5,7 @@ interface dataList  {
     img: Array<string>;
     context: Array<string>;
     price: Array<string>;
+    i: number;
 }
 
 const GoodsList = () => {
@@ -14,4 +15,13 @@ const GoodsList = () => {
          img.push(goodsList[i].img)
     }
     console.log(img);
+    return(
+        <div>
+            {img.map(item => (
+                <img src={item} ></img>
+            ))}
+        </div>
+    )
 }
+
+export default GoodsList;

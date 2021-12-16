@@ -2,15 +2,12 @@ import { Layout, Button } from "antd";
 import "./index.css";
 
 import Search from "../../components/search/index";
+import GoodsList from "../../components/goodsList/index"
 import { ShoppingCartOutlined } from "@ant-design/icons";
-
-import goods from "../../mock/goods.json";
 
 const { Header, Footer, Content } = Layout;
 
 const Init = () => {
-
-  const goodsList = goods.goodsList;
 
   const onClick = () => {
     window.location.href = "/shoppingCar";
@@ -33,7 +30,7 @@ const Init = () => {
           </Button>
         </Header>
         <Layout>
-          <Content> </Content>
+          <Content><GoodsList /></Content>
         </Layout>
         <Footer>Copyright © 2021 Created by 524 & 525</Footer>
       </Layout>
