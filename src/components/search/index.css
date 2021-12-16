@@ -6,12 +6,12 @@
 }
 
 .search-bar {
-    border-radius: 30px;
+  border-radius: 30px;
 }
 
 .bar input,
 .bar button {
-    border-radius: 3px;
+  border-radius: 3px;
 }
 .bar input {
   background: #f9f0da;
@@ -62,9 +62,9 @@ button {
 }
 
 .icon-logo {
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    top: -5px;
-    right: 0px;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: -5px;
+  right: 0px;
 }
