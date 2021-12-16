@@ -8,4 +8,7 @@
 
 .header-init {
     height: 150px;
+    background-color: white;
+    /* color: white; */
+    text-align: center;
 }

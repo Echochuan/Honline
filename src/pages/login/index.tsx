@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <div>
       <Layout style={{ height: "100vh" }}>
-        <Header>
+        <Header className="header-login">
           <div className="logo">
             <div className="welcome"></div>
           </div>
