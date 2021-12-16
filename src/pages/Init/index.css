@@ -20,6 +20,7 @@
     position: absolute;
     top: 50px;
     right: 15vw;
+    font-size: 1vw;
 }
 
 .Button-Car:hover {
