@@ -18,5 +18,6 @@ const storageConfig = {
 
 const myPersistReducer = persistReducer(storageConfig, reducer)
 const store = createStore(myPersistReducer)
+
 export const persistor = persistStore(store)
 export default store
