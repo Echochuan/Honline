@@ -10,7 +10,7 @@ const { Header, Footer, Content } = Layout;
 
 const Init = () => {
 
-const goodsList = goods.goodsList;
+  const goodsList = goods.goodsList;
 
   const onClick = () => {
     window.location.href = "/shoppingCar";
