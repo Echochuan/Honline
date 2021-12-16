@@ -1,7 +1,8 @@
-import { Layout } from "antd";
+import { Layout, Button } from "antd";
 import "./index.css";
 
 import Search from "../../components/search/index";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 
 const { Header, Footer, Content } = Layout;
 
@@ -12,6 +13,7 @@ const Init = () => {
         <Header className="header-init">
           <div className="logo-init"></div>
           <Search />
+          <Button type="primary" size="large" className="Button-Car" icon={<ShoppingCartOutlined />}>我的购物车</Button>
         </Header>
         <Layout>
           <Content> </Content>

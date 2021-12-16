@@ -12,3 +12,10 @@
   /* color: white; */
   text-align: center;
 }
+
+.Button-Car {
+    width: 10vw;
+    position: absolute;
+    top: 50px;
+    right: 15vw;
+}
