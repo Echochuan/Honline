@@ -5,21 +5,29 @@ import { UserOutlined, KeyOutlined } from "@ant-design/icons";
 import { getName } from "../../redux/action"
 import store from "../../redux/store";
 
+const data = {
+  username: "1",
+  password:"1",
+  login: false,
+}
+
 const LoginBox = () => {
   const onFinish = (values: any) => {
     //在这里调用登陆接口，判断返回的状态码是不是 200 ，如果是则跳转进主页， 如果不是则发出警告
-    message.success("登陆成功");
-    //测试存入 store
+    if (values.username === data.username && values.password === data.password) {
+      message.success("登陆成功");
+          //测试存入 store
     const action = getName(values.username);
-    console.log("1");
     store.dispatch(action);
+      window.location.href = "/init";
+    }
+    else {
+      message.error("账户不存在或密码错误");
+    }
 
-    store.subscribe(() => {
-      console.log("subscribe", store.getState());
-    });
-
-    message.error("账户不存在或密码错误");
-
+    // store.subscribe(() => {
+    //   console.log("subscribe", store.getState());
+    // });
   };
 
   const onFinishFailed = (errorInfo: any) => {
