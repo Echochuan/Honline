@@ -8,9 +8,7 @@ const Init = () => {
     <div>
       <Layout style={{ height: "100vh" }}>
         <Header>
-          <div className="logo">
-            <div className="welcome"></div>
-          </div>
+          <div className="logo"></div>
         </Header>
         <Layout>
           <Content className="content">
