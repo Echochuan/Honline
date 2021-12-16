@@ -8,6 +8,16 @@ interface dataList  {
     i: number;
 }
 
+const List = (img:Array<string>) => {
+    return (
+        <div>
+        {img.map(item => (
+            <img src={item} ></img>
+        ))}
+        </div>
+    )
+}
+
 const GoodsList = () => {
     const goodsList = goods.goodsList;
     const img: string[] = [];
@@ -17,9 +27,7 @@ const GoodsList = () => {
     console.log(img);
     return(
         <div>
-            {img.map(item => (
-                <img src={item} ></img>
-            ))}
+            {List(img)}
         </div>
     )
 }
