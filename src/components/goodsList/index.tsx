@@ -1,33 +1,34 @@
 import goods from '../../mock/goods.json'
 
 interface dataList  {
-    goodsList: any;
-    img: Array<string>;
-    context: Array<string>;
-    price: Array<string>;
-    i: number;
+    img: string;
+    context: string;
+    price: string;
 }
 
-const List = (img:Array<string>) => {
+const List = (goodsList:dataList[]) => {
     return (
-        <div>
-        {img.map(item => (
-            <img src={item} ></img>
-        ))}
+         <div>
+             {/* 当 goods 不是对象数组的时候能渲染 */}
+         {goodsList.map((goods) => {
+             <img src={goods.img}></img>
+        })} 
         </div>
     )
 }
 
 const GoodsList = () => {
-    const goodsList = goods.goodsList;
-    const img: string[] = [];
+    const goodsList:dataList[] = goods.goodsList;
+    console.log(goodsList)
+    const imgList: string[] = [];
+    const contextList: string[] = [];
     for(const i in goodsList) {
-         img.push(goodsList[i].img)
+         imgList.push(goodsList[i].img)
+         contextList.push(goodsList[i].context)
     }
-    console.log(img);
     return(
         <div>
-            {List(img)}
+            {List(goodsList)}
         </div>
     )
 }
