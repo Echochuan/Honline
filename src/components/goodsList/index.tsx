@@ -15,7 +15,7 @@ const List = (goodsList: dataList[]) => {
   {
     goodsList.map((item, i) => {
       stageList.push(
-        <Col span={12}>
+        <Col span={6}>
           <div key={i}>
             <Card
               hoverable
@@ -30,7 +30,7 @@ const List = (goodsList: dataList[]) => {
       return 0;
     });
   }
-  return {stageList};
+  return <Row>{stageList}</Row>;
 };
 
 const GoodsList = () => {
@@ -44,14 +44,9 @@ const GoodsList = () => {
   }
   return (
     <div>
-        <Row>
+        <div>
         {List(goodsList)}
-        </Row>
-
-      <Row>
-        <Col span={12}>col-12</Col>
-        <Col span={12}>col-12</Col>
-      </Row>
+        </div>
     </div>
   );
 };
