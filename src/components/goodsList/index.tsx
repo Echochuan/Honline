@@ -19,12 +19,7 @@ const List = (goodsList: dataList[]) => {
           <Card
             hoverable
             style={{ width: 240 }}
-            cover={
-              <img
-                alt=""
-                src={item.img}
-              />
-            }
+            cover={<img alt="" src={item.img} />}
           >
             <Meta title={item.context} description={item.price} />
           </Card>
