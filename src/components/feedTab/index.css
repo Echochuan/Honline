@@ -1,0 +1,34 @@
+.feedTab {
+    background: white;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.feedUl {
+    margin: 0 auto;
+    height: 60px;
+    width: 1080px;
+}
+
+.feedLi {
+    position: relative;
+    float: left;
+    width: 180px;
+    height: 60px;
+    text-align: center;
+}
+
+.feedText {
+    font-size: 14px;
+}
+
+.feedSpanText {
+    color: #333;
+    margin-top: 7px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 27px;
+    height: 27px;
+}

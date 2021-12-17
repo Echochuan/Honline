@@ -3,7 +3,7 @@ import { Card, Col, message, Row } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { Button } from "antd";
 import goods from "../../mock/goods.json";
-import './index.css';
+import "./index.css";
 
 interface dataList {
   id: string;
@@ -12,10 +12,10 @@ interface dataList {
   price: string;
 }
 
-const enterCar = (item:dataList) => {
+const enterCar = (item: dataList) => {
   //点击后将商品的 id 发送给后端
-  message.success(item.id)
-}
+  message.success(item.id);
+};
 
 const List = (goodsList: dataList[]) => {
   let stageList: any = [];
@@ -30,10 +30,18 @@ const List = (goodsList: dataList[]) => {
               hoverable
               style={{ width: 190, height: 266 }}
               cover={<img alt="" src={item.img} />}
-              extra={<Button type="text" className="btn-enter" icon={<ShoppingCartOutlined />} onClick={(ev) => {enterCar(item)}}></Button>}
+              extra={
+                <Button
+                  type="text"
+                  className="btn-enter"
+                  icon={<ShoppingCartOutlined />}
+                  onClick={ev => {
+                    enterCar(item);
+                  }}
+                ></Button>
+              }
             >
               <Meta title={item.context} description={item.price} />
-
             </Card>
           </div>
         </Col>

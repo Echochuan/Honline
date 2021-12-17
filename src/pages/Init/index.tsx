@@ -1,9 +1,11 @@
-import { Layout, Button, Row, Col } from "antd";
 import "./index.css";
+
+import { Layout, Button, Row, Col } from "antd";
+import { ShoppingCartOutlined, SmileOutlined } from "@ant-design/icons";
 
 import Search from "../../components/search/index";
 import GoodsList from "../../components/goodsList/index";
-import { ShoppingCartOutlined, SmileOutlined } from "@ant-design/icons";
+import FeedTab from "../../components/feedTab/index";
 
 const { Header, Footer, Content } = Layout;
 
@@ -38,6 +40,7 @@ const Init = () => {
                 <Col span={8}></Col>
               </Row>
             </div>
+            <FeedTab />
             <GoodsList />
           </Content>
         </Layout>
