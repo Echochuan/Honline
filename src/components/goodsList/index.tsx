@@ -15,7 +15,7 @@ const List = (goodsList: dataList[]) => {
   {
     goodsList.map((item, i) => {
       stageList.push(
-        <Col span={6}>
+        <Col span={4.8}>
           <div key={i}>
             <Card
               hoverable
