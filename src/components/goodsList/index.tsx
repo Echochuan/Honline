@@ -1,4 +1,4 @@
-import { Card } from "antd";
+import { Card, Col, Row } from "antd";
 import Meta from "antd/lib/card/Meta";
 import goods from "../../mock/goods.json";
 
@@ -15,20 +15,22 @@ const List = (goodsList: dataList[]) => {
   {
     goodsList.map((item, i) => {
       stageList.push(
-        <div key={i}>
-          <Card
-            hoverable
-            style={{ width: 240 }}
-            cover={<img alt="" src={item.img} />}
-          >
-            <Meta title={item.context} description={item.price} />
-          </Card>
-        </div>
+        <Col span={12}>
+          <div key={i}>
+            <Card
+              hoverable
+              style={{ width: 240 }}
+              cover={<img alt="" src={item.img} />}
+            >
+              <Meta title={item.context} description={item.price} />
+            </Card>
+          </div>
+        </Col>
       );
       return 0;
     });
   }
-  return <div>{stageList}</div>;
+  return {stageList};
 };
 
 const GoodsList = () => {
@@ -40,7 +42,18 @@ const GoodsList = () => {
     imgList.push(goodsList[i].img);
     contextList.push(goodsList[i].context);
   }
-  return <div>{List(goodsList)}</div>;
+  return (
+    <div>
+        <Row>
+        {List(goodsList)}
+        </Row>
+
+      <Row>
+        <Col span={12}>col-12</Col>
+        <Col span={12}>col-12</Col>
+      </Row>
+    </div>
+  );
 };
 
 export default GoodsList;
