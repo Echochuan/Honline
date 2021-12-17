@@ -1,5 +1,5 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import { Card, Col, Row } from "antd";
+import { Card, Col, message, Row } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { Button } from "antd";
 import goods from "../../mock/goods.json";
@@ -13,7 +13,8 @@ interface dataList {
 }
 
 const enterCar = (item:dataList) => {
-  console.log({item})
+  //点击后将商品的 id 发送给后端
+  message.success(item.id)
 }
 
 const List = (goodsList: dataList[]) => {

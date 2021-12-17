@@ -30,6 +30,7 @@ const Init = () => {
         </Header>
         <Layout style={{ height: "auto", display: "block" }}>
           <Content className="content-list">
+            <div className="banner" ></div>
             <GoodsList />
           </Content>
         </Layout>
