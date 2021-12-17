@@ -15,7 +15,7 @@ const Init = () => {
 
   return (
     <div>
-      <Layout style={{ height: "100vh" }}>
+      <Layout style={{ height: "100vh", display:"block" }}>
         <Header className="header-init">
           <div className="logo-init"></div>
           <Search />
