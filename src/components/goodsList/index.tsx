@@ -1,6 +1,8 @@
 import { Card, Col, Row } from "antd";
 import Meta from "antd/lib/card/Meta";
+import { Button } from "antd/lib/radio";
 import goods from "../../mock/goods.json";
+import './index.css';
 
 interface dataList {
   img: string;
@@ -16,13 +18,14 @@ const List = (goodsList: dataList[]) => {
     goodsList.map((item, i) => {
       stageList.push(
         <Col span={4.8}>
-          <div key={i}>
+          <div key={i} className="eachGood">
             <Card
               hoverable
-              style={{ width: 240 }}
+              style={{ width: 190, height: 266 }}
               cover={<img alt="" src={item.img} />}
             >
               <Meta title={item.context} description={item.price} />
+              {/* <Button >1</Button> */}
             </Card>
           </div>
         </Col>
@@ -44,9 +47,7 @@ const GoodsList = () => {
   }
   return (
     <div>
-        <div>
-        {List(goodsList)}
-        </div>
+      <div className="goodsList">{List(goodsList)}</div>
     </div>
   );
 };

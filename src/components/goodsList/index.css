@@ -1,0 +1,9 @@
+.goodsList {
+    width: 80%;
+    margin:0 auto;
+    margin-top: 5%;
+}
+
+.eachGood {
+    margin: 0 5px 8px;
+}
