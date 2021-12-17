@@ -1,3 +1,5 @@
+import { Card } from "antd";
+import Meta from "antd/lib/card/Meta";
 import goods from "../../mock/goods.json";
 
 interface dataList {
@@ -8,17 +10,24 @@ interface dataList {
 
 const List = (goodsList: dataList[]) => {
   let stageList: any = [];
+  //可以给每一个商品卡片套一层栅格
   //eslint-disable-next-line
   {
     goodsList.map((item, i) => {
       stageList.push(
         <div key={i}>
-          <div className="imgBox">
-            <img src={item.img} alt="" />
-          </div>
-          <div className="contextBox" >
-            {item.context}
-          </div>
+          <Card
+            hoverable
+            style={{ width: 240 }}
+            cover={
+              <img
+                alt=""
+                src={item.img}
+              />
+            }
+          >
+            <Meta title={item.context} description={item.price} />
+          </Card>
         </div>
       );
       return 0;
