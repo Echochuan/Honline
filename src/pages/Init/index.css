@@ -40,3 +40,11 @@
   height: 70vh;
   width: 75vw;
 }
+
+.floorhd {
+  text-align: center;
+  height: 0vh;
+  width: 1vw;
+  font-size: 2rem;
+  margin-top: 20px;
+}

@@ -1,9 +1,9 @@
-import { Layout, Button } from "antd";
+import { Layout, Button, Row, Col } from "antd";
 import "./index.css";
 
 import Search from "../../components/search/index";
 import GoodsList from "../../components/goodsList/index";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, SmileOutlined } from "@ant-design/icons";
 
 const { Header, Footer, Content } = Layout;
 
@@ -30,7 +30,14 @@ const Init = () => {
         </Header>
         <Layout style={{ height: "auto", display: "block" }}>
           <Content className="content-list">
-            <div className="banner" ></div>
+            <div className="banner"></div>
+            <div className="floor">
+              <Row>
+                <Col span={8}></Col>
+                <Col span={8} className="floorhd"><SmileOutlined /> <b>为您推荐</b></Col>
+                <Col span={8}></Col>
+              </Row>
+            </div>
             <GoodsList />
           </Content>
         </Layout>
