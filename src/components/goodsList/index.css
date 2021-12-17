@@ -7,3 +7,26 @@
 .eachGood {
     margin: 0 5px 8px;
 }
+
+.ant-card-head {
+    position: absolute;
+    float: right;
+    bottom: -6%;
+    right: -10%;
+}
+
+/* .ant-radio-button-wrapper:first-child {
+    border: none;
+} */
+
+.btn-enter {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+}
+
+
+.btn-enter:hover {
+    color: red;
+}

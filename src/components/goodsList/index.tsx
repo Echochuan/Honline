@@ -1,13 +1,19 @@
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Card, Col, Row } from "antd";
 import Meta from "antd/lib/card/Meta";
-import { Button } from "antd/lib/radio";
+import { Button } from "antd";
 import goods from "../../mock/goods.json";
 import './index.css';
 
 interface dataList {
+  id: string;
   img: string;
   context: string;
   price: string;
+}
+
+const enterCar = (item:dataList) => {
+  console.log({item})
 }
 
 const List = (goodsList: dataList[]) => {
@@ -23,9 +29,10 @@ const List = (goodsList: dataList[]) => {
               hoverable
               style={{ width: 190, height: 266 }}
               cover={<img alt="" src={item.img} />}
+              extra={<Button type="text" className="btn-enter" icon={<ShoppingCartOutlined />} onClick={(ev) => {enterCar(item)}}></Button>}
             >
               <Meta title={item.context} description={item.price} />
-              {/* <Button >1</Button> */}
+
             </Card>
           </div>
         </Col>
