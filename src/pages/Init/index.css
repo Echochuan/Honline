@@ -27,3 +27,8 @@
 .Button-Car:hover {
   background: #f15b42;
 }
+
+.content-list {
+  width: auto;
+  height: auto;
+}

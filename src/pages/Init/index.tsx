@@ -29,8 +29,8 @@ const Init = () => {
             我的购物车
           </Button>
         </Header>
-        <Layout>
-          <Content><GoodsList /></Content>
+        <Layout style={{ height:"auto", display:"block" }}>
+          <Content className="content-list"><GoodsList /></Content>
         </Layout>
         <Footer>Copyright © 2021 Created by 524 & 525</Footer>
       </Layout>
