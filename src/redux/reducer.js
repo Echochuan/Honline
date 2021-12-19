@@ -43,7 +43,8 @@ export default (state = defaultState, action) => {
   
   else if (action["type"] === "check_goods") {
     let checkList = state.list;
-    checkList.map((item, index) => {
+    // eslint-disable-next-line
+    checkList.map((item) => {
       if (item.list.id === action.value) {
         item.check = !item.check;
       }
