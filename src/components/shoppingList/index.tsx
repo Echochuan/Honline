@@ -39,6 +39,9 @@ const List = (goodsList: dataList[]) => {
           <div className="shopping-content">
             {item.context}
           </div>
+          <div className="shopping-price">
+            {item.price}
+          </div>
         </li>
       );
       return 0;

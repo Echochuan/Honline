@@ -16,6 +16,12 @@ li {
 
 .shopping-content {
     position: absolute;
-    margin-top: -10vh;
+    margin-top: -12vh;
     left: 40vw;
+}
+
+.shopping-price {
+    position: absolute;
+    margin-top: -12vh;
+    left: 60vw;
 }
