@@ -49,7 +49,7 @@ const List = (goodsList: dataList[]) => {
       return 0;
     });
   }
-  return <Row>{stageList}</Row>;
+  return <Row className="row-goodsList">{stageList}</Row>;
 };
 
 const GoodsList = () => {
