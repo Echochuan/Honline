@@ -11,8 +11,9 @@ export default (state = defaultState, action) => {
   if (action["type"] === "get_name") {
     return Object.assign({}, state, action);
   } else if (action["type"] === "get_goods") {
+
     return Object.assign({}, state, {
-      list: [...state.list, { id: action.value.id }]  //用对应的键值对在 store 里存储对应的信息
+      list: [...state.list, { list: action.value }]  //用对应的键值对在 store 里存储对应的信息
     });
   }
 
