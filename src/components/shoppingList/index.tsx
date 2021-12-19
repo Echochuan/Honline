@@ -63,22 +63,17 @@ const List = (goodsList: dataList[]) => {
 
 const ShoppingList = () => {
   //获取用户购物车的所有信息，存入 store 的 list 中
-  const goodsList: dataList[] = goods.goodsList;
+  const list = JSON.parse(JSON.parse(localStorage.getItem('persist:root') || "0").list);
+  console.log(list)
+const goodList = [];
 
-  // eslint-disable-next-line
-  {
-    // eslint-disable-next-line
-    goodsList.map((item, i) => {
-      const action_list = getGoods(item);
-      store.dispatch(action_list);
-    });
+  for (let i = 0;i < list.length; i++) {
+    goodList.push(list[i].list)
   }
 
-  console.log(store.getState().list);
-  // console.log(goodsList);
   return (
     <div>
-      <div className="goodsList">{List(goodsList)}</div>
+      <div className="goodsList">{List(goodList)}</div>
     </div>
   );
 };

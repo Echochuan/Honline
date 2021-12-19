@@ -13,7 +13,7 @@ const data = {
 
 const LoginBox = () => {
   const onFinish = (values: any) => {
-    // console.log(values);
+    console.log(values);
     //在这里调用登陆接口，判断返回的状态码是不是 200 ，如果是则跳转进主页， 如果不是则发出警告
     if (
       values.username === data.username &&
@@ -22,14 +22,17 @@ const LoginBox = () => {
       message.success("登陆成功");
       //测试存入 store
       const action = getName(values.username);
+      console.log("coming");
       store.dispatch(action);
+      console.log(store.getState())
+      store.subscribe(() => {
+        console.log("subscribe", store.getState());
+      });
       window.location.href = "/init";
     } else {
       message.error("账户不存在或密码错误");
     }
-    // store.subscribe(() => {
-    //   console.log("subscribe", store.getState());
-    // });
+
   };
 
   const onFinishFailed = (errorInfo: any) => {
