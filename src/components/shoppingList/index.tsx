@@ -1,6 +1,6 @@
-import { Checkbox } from "antd";
+import { Button, Checkbox } from "antd";
 import goods from "../../mock/goods.json";
-import { checkGoods, getGoods } from "../../redux/action";
+import { checkGoods, DeleteGoods, getGoods } from "../../redux/action";
 import store from "../../redux/store";
 import "./index.css";
 
@@ -15,7 +15,7 @@ const List = (goodsList: dataList[]) => {
   let stageList: any = [];
   // console.log(goodsList);
 
-  const onFinish = (values: any) => {
+  const changeCheck = (values: any) => {
     //用户点击商品 改变商品的是否被选中的状态
     const action_check = checkGoods(values.id);
     store.dispatch(action_check);
@@ -24,6 +24,14 @@ const List = (goodsList: dataList[]) => {
     
   };
 
+  const deleteGood = (values: any) => {
+    const action_delete = DeleteGoods(values);
+    store.dispatch(action_delete);
+
+    console.log(store.getState().list);
+    //调用接口 删除
+  }
+
   //eslint-disable-next-line
   {
       //eslint-disable-next-line
@@ -31,7 +39,7 @@ const List = (goodsList: dataList[]) => {
       stageList.push(
         <li key={i} className="each-shopping-good">
           <div className="checkBox">
-            <Checkbox  className="checkBox" onChange={() => onFinish(item)} />
+            <Checkbox  className="checkBox" onChange={() => changeCheck(item)} />
           </div>
           <div>
             <img src={item.img} style={{ width:"100px",height:"100px" }} alt=""/>
@@ -41,6 +49,9 @@ const List = (goodsList: dataList[]) => {
           </div>
           <div className="shopping-price">
             {item.price}
+          </div>
+          <div className="shopping-delete">
+            <Button type="primary" danger onClick={() => deleteGood(item)}>删除</Button>
           </div>
         </li>
       );

@@ -67,5 +67,12 @@ export default (state = defaultState, action) => {
     checkList = delObj(checkList);
     return Object.assign({}, state, {list : [...checkList]});
   }
+
+  else if (action["type"] === "delete_goods") {
+    let newState = JSON.parse(JSON.stringify(state)) 
+    newState.list.splice(action.index,1)  //删除数组中对应的值
+    return newState
+  }
+
   return state;
 };
