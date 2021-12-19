@@ -1,4 +1,4 @@
-import { message, Form, Button } from "antd";
+import { message, Form, Button, Checkbox } from "antd";
 import goods from "../../mock/goods.json";
 import "./index.css";
 
@@ -9,29 +9,22 @@ interface dataList {
   price: string;
 }
 
-const enterCar = (item: dataList) => {
-  //点击后将商品的 id ，用户的id，发送给后端
-  message.success(item.id);
-};
-
 const List = (goodsList: dataList[]) => {
   let stageList: any = [];
 
   const onFinish = (values: any) => {
-    console.log(values);
+    //将
+    console.log(values.id);
+    console.log();
   };
 
   //eslint-disable-next-line
   {
     goodsList.map((item, i) => {
       stageList.push(
-        <li key={i} className="eachGood">
-          <div>
+        <li key={i} className="eachGood" >
+          <div onClick={() => onFinish(item)}>
             <img src={item.img} />
-            {item.context}
-            <Form.Item name="id-goods" initialValue={item.context}>
-              <button></button>
-            </Form.Item>
           </div>
         </li>
       );
@@ -39,9 +32,9 @@ const List = (goodsList: dataList[]) => {
     });
   }
   return (
-    <Form onFinish={onFinish} className="row-goodsList">
+    <div className="row-goodsList">
       {stageList}
-    </Form>
+    </div>
   );
 };
 
@@ -56,3 +49,4 @@ const ShoppingList = () => {
 };
 
 export default ShoppingList;
+ 
