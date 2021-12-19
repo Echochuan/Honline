@@ -18,14 +18,23 @@ class FeedTab extends React.Component {
     const { current } = this.state;
     return (
       <Menu className="feedTab" onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
-        <Menu.Item key="mail" icon={<MailOutlined />}>
-          Navigation One
+        <Menu.Item className="menu-item" key="mail" icon={<MailOutlined />}>
+            猜你喜欢
         </Menu.Item>
-        <Menu.Item key="a" icon={<MailOutlined />}>
-          Navigation One
+        <Menu.Item className="menu-item" key="a" icon={<MailOutlined />}>
+            智能先锋
         </Menu.Item>
-        <Menu.Item key="b" icon={<MailOutlined />}>
-          Navigation One
+        <Menu.Item className="menu-item" key="b" icon={<MailOutlined />}>
+            居家优品
+        </Menu.Item>
+        <Menu.Item className="menu-item" key="c" icon={<MailOutlined />}>
+            超市百货
+        </Menu.Item>
+        <Menu.Item className="menu-item" key="d" icon={<MailOutlined />}>
+            时尚达人
+        </Menu.Item>
+        <Menu.Item className="menu-item" key="e" icon={<MailOutlined />}>
+            紧扣好物
         </Menu.Item>
       </Menu>
     );
