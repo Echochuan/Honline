@@ -10,6 +10,7 @@ function delObj(obj) {
   var stringify = {};
   for (var i = 0; i < obj.length; i++) {
       var keys = Object.keys(obj[i]);
+      keys.splice(1)
       keys.sort(function(a, b) {
           return (Number(a) - Number(b));
       });
@@ -23,7 +24,6 @@ function delObj(obj) {
           stringify[str] = true;
       }
   }
-  uniques = uniques;
   return uniques;
 }
 
@@ -35,6 +35,7 @@ export default (state = defaultState, action) => {
   } 
   
   else if (action["type"] === "get_goods") {
+    state.list = delObj(state.list)
     return Object.assign({}, state, {
       list: [...state.list, { list: action.value, check: false }]
     });
