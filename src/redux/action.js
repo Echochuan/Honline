@@ -6,10 +6,15 @@ const getName = (value) => ({
     type: 'get_name',
     name: value
   });
-  
+
+const getGoods = (value) => ({
+  type: 'get_goods',
+  value
+})
 
   
   //将getName方法暴露出去
   module.exports = {
     getName,
+    getGoods,
   }

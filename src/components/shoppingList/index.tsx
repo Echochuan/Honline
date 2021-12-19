@@ -1,5 +1,7 @@
 import { message, Form, Button, Checkbox } from "antd";
 import goods from "../../mock/goods.json";
+import { getGoods } from "../../redux/action";
+import store from "../../redux/store";
 import "./index.css";
 
 interface dataList {
@@ -15,7 +17,10 @@ const List = (goodsList: dataList[]) => {
   const onFinish = (values: any) => {
     //将
     console.log(values.id);
-    console.log();
+    const action_list = getGoods(values);
+    store.dispatch(action_list)
+
+    console.log(store.getState().list)
   };
 
   //eslint-disable-next-line
