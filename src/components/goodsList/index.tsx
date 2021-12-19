@@ -13,7 +13,7 @@ interface dataList {
 }
 
 const enterCar = (item: dataList) => {
-  //点击后将商品的 id 发送给后端
+  //点击后将商品的 id ，用户的id，发送给后端
   message.success(item.id);
 };
 
