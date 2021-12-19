@@ -5,17 +5,50 @@ const defaultState = {
   list: []
 };
 
+function delObj(obj) {
+  var uniques = [];
+  var stringify = {};
+  for (var i = 0; i < obj.length; i++) {
+      var keys = Object.keys(obj[i]);
+      keys.sort(function(a, b) {
+          return (Number(a) - Number(b));
+      });
+      var str = '';
+      for (var j = 0; j < keys.length; j++) {
+          str += JSON.stringify(keys[j]);
+          str += JSON.stringify(obj[i][keys[j]]);
+      }
+      if (!stringify.hasOwnProperty(str)) {
+          uniques.push(obj[i]);
+          stringify[str] = true;
+      }
+  }
+  uniques = uniques;
+  return uniques;
+}
+
 // eslint-disable-next-line
 export default (state = defaultState, action) => {
   //在这里对type进行判断，从而更新store中存放的数据
   if (action["type"] === "get_name") {
     return Object.assign({}, state, action);
-  } else if (action["type"] === "get_goods") {
-
+  } 
+  
+  else if (action["type"] === "get_goods") {
     return Object.assign({}, state, {
-      list: [...state.list, { list: action.value }]  //用对应的键值对在 store 里存储对应的信息
+      list: [...state.list, { list: action.value, check: false }]
     });
+  } 
+  
+  else if (action["type"] === "check_goods") {
+    let checkList = state.list;
+    checkList.map((item, index) => {
+      if (item.list.id === action.value) {
+        item.check = !item.check;
+      }
+    });
+    checkList = delObj(checkList);
+    return Object.assign({}, state, {list : [...checkList]});
   }
-
   return state;
 };

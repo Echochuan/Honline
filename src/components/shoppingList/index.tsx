@@ -1,6 +1,6 @@
 import { message, Form, Button, Checkbox } from "antd";
 import goods from "../../mock/goods.json";
-import { getGoods } from "../../redux/action";
+import { checkGoods, getGoods } from "../../redux/action";
 import store from "../../redux/store";
 import "./index.css";
 
@@ -19,7 +19,10 @@ const List = (goodsList: dataList[]) => {
     //先使用 redux 获取用户的信息，把这个信息加入在 values 中，一并再作为  的参数
 
     //存储商品有关的信息，但是真正传进去的应该包括用户的信息
-    
+    const action_check = checkGoods(values.id);
+    store.dispatch(action_check);
+
+    console.log(store.getState().list);
   };
 
   //eslint-disable-next-line
@@ -45,6 +48,7 @@ const ShoppingList = () => {
 
   {
     goodsList.map((item, i) => {
+      //还要给每个数据存一个 check : false 
       const action_list = getGoods(item);
       store.dispatch(action_list);
     })
