@@ -1,4 +1,6 @@
+
 //用于判断调用的方法，相当于是一个中介？用户调用他，然后他判断我们要使用哪一种操作，匹配之后通知action运行相对应的操作
+
 //初始化状态，这里存放的是store里会存储的数据
 const defaultState = {
   name: "",
@@ -36,9 +38,22 @@ export default (state = defaultState, action) => {
   
   else if (action["type"] === "get_goods") {
     state.list = delObj(state.list)
-    return Object.assign({}, state, {
-      list: [...state.list, { list: action.value, check: false }]
+
+    let checkList = state.list;
+    checkList.map((item) => {
+      console.log(item);
+      item.check = false;
     });
+    Object.assign({}, state, {list : [...checkList]});
+    if (state.list.check !== undefined) {
+      return Object.assign({}, state, {list : [...checkList]})
+    }
+    else {
+      return Object.assign({}, state, {
+        list: [...state.list, { list: action.value, check: false }]
+      });
+    }
+
   } 
   
   else if (action["type"] === "check_goods") {

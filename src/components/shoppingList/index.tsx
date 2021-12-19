@@ -13,7 +13,7 @@ interface dataList {
 
 const List = (goodsList: dataList[]) => {
   let stageList: any = [];
-  console.log(goodsList);
+  // console.log(goodsList);
 
   const onFinish = (values: any) => {
     //用户点击商品 改变商品的是否被选中的状态
@@ -25,10 +25,12 @@ const List = (goodsList: dataList[]) => {
 
   //eslint-disable-next-line
   {
+    let checked = false;
     goodsList.map((item, i) => {
+      {checked = store.getState().check}
       stageList.push(
         <li key={i} className="eachGood">
-          <Checkbox className="shoppingCartWarp_content_check" onClick={() => onFinish(item)}>
+          <Checkbox className="shoppingCartWarp_content_check" onChange={() => onFinish(item)}>
           </Checkbox>
           <div onClick={() => onFinish(item)} >
             <img src={item.img} alt=""/>
