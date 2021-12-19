@@ -40,8 +40,8 @@ export default (state = defaultState, action) => {
     state.list = delObj(state.list)
 
     let checkList = state.list;
+      //eslint-disable-next-line
     checkList.map((item) => {
-      console.log(item);
       item.check = false;
     });
     Object.assign({}, state, {list : [...checkList]});

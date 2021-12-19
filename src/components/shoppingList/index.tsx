@@ -21,19 +21,23 @@ const List = (goodsList: dataList[]) => {
     store.dispatch(action_check);
 
     console.log(store.getState().list);
+    
   };
 
   //eslint-disable-next-line
   {
-    let checked = false;
+      //eslint-disable-next-line
     goodsList.map((item, i) => {
-      {checked = store.getState().check}
       stageList.push(
-        <li key={i} className="eachGood">
-          <Checkbox className="shoppingCartWarp_content_check" onChange={() => onFinish(item)}>
-          </Checkbox>
-          <div onClick={() => onFinish(item)} >
-            <img src={item.img} alt=""/>
+        <li key={i} className="each-shopping-good">
+          <div className="checkBox">
+            <Checkbox  className="checkBox" onChange={() => onFinish(item)} />
+          </div>
+          <div>
+            <img src={item.img} style={{ width:"100px",height:"100px" }} alt=""/>
+          </div>
+          <div className="shopping-content">
+            {item.context}
           </div>
         </li>
       );
