@@ -1,3 +1,4 @@
+import { Checkbox } from "antd";
 import goods from "../../mock/goods.json";
 import { checkGoods, getGoods } from "../../redux/action";
 import store from "../../redux/store";
@@ -12,6 +13,7 @@ interface dataList {
 
 const List = (goodsList: dataList[]) => {
   let stageList: any = [];
+  console.log(goodsList);
 
   const onFinish = (values: any) => {
     //用户点击商品 改变商品的是否被选中的状态
@@ -24,9 +26,18 @@ const List = (goodsList: dataList[]) => {
   //eslint-disable-next-line
   {
     goodsList.map((item, i) => {
+      let checked = false;
       stageList.push(
         <li key={i} className="eachGood">
-          <div onClick={() => onFinish(item)}>
+          <Checkbox className="shoppingCartWarp_content_check" onClick={() => onFinish(item)}>
+            {/* {(checked = store.getState().list[i].check)}
+            {checked ? (
+              <img className="check" alt="" />
+            ) : (
+              <img className="check" alt="" />
+            )} */}
+          </Checkbox>
+          <div onClick={() => onFinish(item)} >
             <img src={item.img} alt=""/>
           </div>
         </li>
@@ -45,10 +56,9 @@ const ShoppingList = () => {
   {
     // eslint-disable-next-line
     goodsList.map((item, i) => {
-      //还要给每个数据存一个 check : false 
       const action_list = getGoods(item);
       store.dispatch(action_list);
-    })
+    });
   }
 
   console.log(store.getState().list);
