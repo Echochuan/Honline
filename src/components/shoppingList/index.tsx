@@ -26,16 +26,9 @@ const List = (goodsList: dataList[]) => {
   //eslint-disable-next-line
   {
     goodsList.map((item, i) => {
-      let checked = false;
       stageList.push(
         <li key={i} className="eachGood">
           <Checkbox className="shoppingCartWarp_content_check" onClick={() => onFinish(item)}>
-            {/* {(checked = store.getState().list[i].check)}
-            {checked ? (
-              <img className="check" alt="" />
-            ) : (
-              <img className="check" alt="" />
-            )} */}
           </Checkbox>
           <div onClick={() => onFinish(item)} >
             <img src={item.img} alt=""/>
