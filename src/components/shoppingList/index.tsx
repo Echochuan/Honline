@@ -1,5 +1,4 @@
-import { message } from "antd";
-import { Button } from "antd";
+import { message, Form, Button } from "antd";
 import goods from "../../mock/goods.json";
 import "./index.css";
 
@@ -17,7 +16,11 @@ const enterCar = (item: dataList) => {
 
 const List = (goodsList: dataList[]) => {
   let stageList: any = [];
-  //可以给每一个商品卡片套一层栅格
+
+  const onFinish = (values: any) => {
+    console.log(values);
+  };
+
   //eslint-disable-next-line
   {
     goodsList.map((item, i) => {
@@ -26,24 +29,25 @@ const List = (goodsList: dataList[]) => {
           <div>
             <img src={item.img} />
             {item.context}
+            <Form.Item name="id-goods" initialValue={item.context}>
+              <button></button>
+            </Form.Item>
           </div>
         </li>
       );
       return 0;
     });
   }
-  return <ul className="row-goodsList">{stageList}</ul>;
+  return (
+    <Form onFinish={onFinish} className="row-goodsList">
+      {stageList}
+    </Form>
+  );
 };
 
 const ShoppingList = () => {
   const goodsList: dataList[] = goods.goodsList;
-  console.log(goodsList);
-  const imgList: string[] = [];
-  const contextList: string[] = [];
-  for (const i in goodsList) {
-    imgList.push(goodsList[i].img);
-    contextList.push(goodsList[i].context);
-  }
+  // console.log(goodsList);
   return (
     <div>
       <div className="goodsList">{List(goodsList)}</div>

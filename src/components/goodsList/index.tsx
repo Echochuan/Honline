@@ -54,13 +54,7 @@ const List = (goodsList: dataList[]) => {
 
 const GoodsList = () => {
   const goodsList: dataList[] = goods.goodsList;
-  console.log(goodsList);
-  const imgList: string[] = [];
-  const contextList: string[] = [];
-  for (const i in goodsList) {
-    imgList.push(goodsList[i].img);
-    contextList.push(goodsList[i].context);
-  }
+  // console.log(goodsList);
   return (
     <div>
       <div className="goodsList">{List(goodsList)}</div>
