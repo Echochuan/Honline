@@ -13,6 +13,7 @@ const data = {
 
 const LoginBox = () => {
   const onFinish = (values: any) => {
+    // console.log(values);
     //在这里调用登陆接口，判断返回的状态码是不是 200 ，如果是则跳转进主页， 如果不是则发出警告
     if (
       values.username === data.username &&

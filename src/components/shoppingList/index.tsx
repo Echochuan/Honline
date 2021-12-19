@@ -1,6 +1,4 @@
-import { ShoppingCartOutlined } from "@ant-design/icons";
-import { Card, Col, message, Row } from "antd";
-import Meta from "antd/lib/card/Meta";
+import { message } from "antd";
 import { Button } from "antd";
 import goods from "../../mock/goods.json";
 import "./index.css";
@@ -24,27 +22,12 @@ const List = (goodsList: dataList[]) => {
   {
     goodsList.map((item, i) => {
       stageList.push(
-          <li key={i} className="eachGood">
-            {/* <Card
-              hoverable
-              style={{ width: 190, height: 266 }}
-              cover={<img alt="" src={item.img} />}
-              extra={
-                <Button
-                  type="text"
-                  className="btn-enter"
-                  icon={<ShoppingCartOutlined />}
-                  onClick={ev => {
-                    enterCar(item);
-                  }}
-                ></Button>
-              }
-            >
-              <Meta title={item.context} description={item.price} />
-            </Card> */}
-            <img src={ item.img } />
+        <li key={i} className="eachGood">
+          <div>
+            <img src={item.img} />
             {item.context}
-          </li>
+          </div>
+        </li>
       );
       return 0;
     });
