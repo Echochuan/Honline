@@ -15,7 +15,7 @@ const ShoppingCar = () => {
     <div>
       <Layout style={{ height: "100vh" , display: "block"}}>
         <Header className="header-init">
-          <div className="logo-init"></div>
+        <a href="/init"><div className="logo-init"></div></a>
         </Header>
         <Layout>
           <Content>
