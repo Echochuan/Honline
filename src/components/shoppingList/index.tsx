@@ -2,6 +2,7 @@ import { Button, List, Modal, Typography } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import shopping from "../../mock/shopping.json";
+import store from "../../redux/store";
 import "./index.css";
 import ItemCard from "./ItemCard";
 import { useChecked } from "./use-check";
@@ -50,10 +51,14 @@ const ShoppingList = () => {
   const total = sumPrice(filterChecked());
 
   const payBtn = () => {
-    //通过这个函数可以得到被选中的数据
-    console.log(filterChecked());
     //把商品的 ID 和用户的 id 发送给后端
-    //然后刷新页面
+    //获取商品的 id 
+    const checkedGoodId = filterChecked().map((item) => {return item.id})
+    //获取用户的 id
+    const userId = store.getState().name;
+    //将两者一起发送给后端
+    //如果成功则刷新页面
+    window.location.href="/shoppingCar"
   };
 
   const Footer = (
