@@ -9,6 +9,7 @@ li {
 }
 
 .checkBox {
+  position: absolute;
   float: left;
   height: 3vh;
   width: 3vw;
@@ -17,6 +18,16 @@ li {
 .each-shopping-good {
   margin: 0 5px 8px;
   margin-top: 2vh;
+}
+
+.shopping-img {
+  margin-left: 5vw;
+}
+
+.shopping-title {
+  position: absolute;
+  margin-top: -12vh;
+  left: 20vw;
 }
 
 .shopping-content {
