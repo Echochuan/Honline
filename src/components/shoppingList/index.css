@@ -71,8 +71,9 @@ li {
   left: 60vw;
 }
 
-.shopping-delete {
+.btn-delete {
   position: absolute;
   margin-top: -12vh;
-  left: 80vw;
+  left: 70vw;
 }
+
