@@ -1,5 +1,4 @@
 import "./index.css";
-import goods from "../../mock/goods.json";
 
 import { Layout, Button, Row, Col } from "antd";
 import { ShoppingCartOutlined, SmileOutlined } from "@ant-design/icons";
@@ -7,7 +6,6 @@ import { ShoppingCartOutlined, SmileOutlined } from "@ant-design/icons";
 import Search from "../../components/search/index";
 import GoodsList from "../../components/goodsList/index";
 import FeedTab from "../../components/feedTab/index";
-import { getGoods } from "../../redux/action";
 import store from "../../redux/store";
 
 const { Header, Footer, Content } = Layout;
@@ -23,19 +21,6 @@ const Init = () => {
   const onClick = () => {
     window.location.href = "/shoppingCar";
   };
-
-  const goodsList: dataList[] = goods.goodsList;
-
-  // eslint-disable-next-line
-  {
-    // eslint-disable-next-line
-    goodsList.map((item, i) => {
-      const action_list = getGoods(item);
-      store.dispatch(action_list);
-    });
-  }
-
-  console.log("111")
 
   store.subscribe(() => {
     console.log("subscribe", store.getState());
