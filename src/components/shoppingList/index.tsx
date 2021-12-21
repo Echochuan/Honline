@@ -1,5 +1,6 @@
-import { Button, Checkbox, Form, List, Typography } from "antd";
+import { Button, List, Modal, Typography } from "antd";
 import axios from "axios";
+import { useState } from "react";
 import shopping from "../../mock/shopping.json";
 import "./index.css";
 import ItemCard from "./ItemCard";
@@ -19,6 +20,8 @@ const getData = () => {
 };
 
 const ShoppingList = () => {
+  const [visible, setVisible] = useState(false);
+
   // console.log(getData());
   const goodList = shopping;
   const userid = shopping.userId;
@@ -36,21 +39,38 @@ const ShoppingList = () => {
 
   // cartItems的积分总和
   const sumPrice = (cartItems: CartItem[]) => {
-    return cartItems.reduce((sum, cur) => sum + Number(cur.goodsPrice), 0)
-  }
+    return cartItems.reduce((sum, cur) => sum + Number(cur.goodsPrice), 0);
+  };
 
   const onWrapCheckedAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const checkAll = e.target.checked
-    onCheckedAllChange(checkAll)
-  }
+    const checkAll = e.target.checked;
+    onCheckedAllChange(checkAll);
+  };
 
-  const total = sumPrice(filterChecked())
+  const total = sumPrice(filterChecked());
+
+  const payBtn = () => {
+    //通过这个函数可以得到被选中的数据
+    console.log(filterChecked());
+    //把商品的 ID 和用户的 id 发送给后端
+    //然后刷新页面
+  };
 
   const Footer = (
     <div className="footer-check">
+      <Modal
+        visible={visible}
+        title="确认支付吗？"
+        okText="确认"
+        cancelText="再想想"
+        onCancel={() => {setVisible(false)}}
+        onOk={() => {
+          payBtn();
+        }}
+      ></Modal>
       <div>
         <input
-         className="checkBox"
+          className="checkBox"
           checked={checkedAll}
           onChange={onWrapCheckedAllChange}
           type="checkbox"
@@ -60,8 +80,15 @@ const ShoppingList = () => {
       <div className="checked-price">
         价格总计 <Typography.Text mark>${total}</Typography.Text>
       </div>
+      <Button
+      className="btn-pay"
+        type="primary"
+        onClick={() => {
+          setVisible(true);
+        }}
+      >去支付</Button>
     </div>
-  )
+  );
 
   return (
     <div>

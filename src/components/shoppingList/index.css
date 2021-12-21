@@ -38,6 +38,11 @@ li {
   margin-left: 4vw;
 }
 
+.btn-pay {
+  position: absolute;
+  margin-left: 70vw; 
+}
+
 /* 购物车列表的样式 */
 .each-shopping-good {
   margin: 0 5px 8px;
