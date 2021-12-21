@@ -2,6 +2,7 @@ import React from "react"
 import { CartItem } from "./"
 import { OnCheckedChange } from './use-check'
 import { Typography } from "antd"
+import './index.css'
 
 interface Props {
   item: CartItem
@@ -19,7 +20,7 @@ function areEqual(prevProps: Props, nextProps: Props) {
 const ItemCard = React.memo((props: Props) => {
   console.log('cart item rerender')
   const { item, checked, onCheckedChange } = props
-  const { goodsTitle, goodsPrice } = item
+  const { goodsTitle, goodsPrice, goodsSrc } = item
 
   const onWrapCheckedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target
@@ -27,16 +28,23 @@ const ItemCard = React.memo((props: Props) => {
   }
   
   return (
-    <div className="item-card">
+    <div className="each-shopping-good">
       <div className="checkbox-wrap">
         <input
-          type="checkbox"
+            className="checkBox"
+          type="checkBox"
           checked={checked}
           onChange={onWrapCheckedChange}
         />
       </div>
       <p className="item-info">
-        {goodsTitle} <Typography.Text mark>${goodsPrice}</Typography.Text>
+      <div>
+            <img src={goodsSrc} style={{ width:"100px",height:"100px" }} alt=""/>
+          </div>
+          <div className="shopping-content">
+            {goodsTitle}
+          </div>
+        <Typography.Text mark className="shopping-price">${goodsPrice}</Typography.Text>
       </p>
     </div>
   )

@@ -3,10 +3,15 @@ li {
   margin-top: 30vh;
 }
 
+.ant-list-item {
+  margin: 0 5px 8px;
+  margin-top: 2vh;
+}
+
 .checkBox {
   float: left;
-  height: 5vh;
-  width: 5vw;
+  height: 3vh;
+  width: 3vw;
 }
 
 .each-shopping-good {

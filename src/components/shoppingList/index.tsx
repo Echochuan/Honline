@@ -78,13 +78,14 @@ const ShoppingList = () => {
   return (
     <div>
       <List
+        className="goodsList"
         header={<div>购物车</div>}
         footer={Footer}
         bordered
         dataSource={goodsList}
         renderItem={item => {
           const checked = checkedMap[item.id] || false;
-          console.log(checked)
+          // console.log(checked)
           return (
             <List.Item>
               <ItemCard
