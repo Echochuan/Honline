@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { CartItem } from "./";
 import { OnCheckedChange } from "./use-check";
-import { Modal, Typography } from "antd";
+import { Modal, Typography, Popconfirm, message } from "antd";
 import "./index.css";
-import { Button } from "antd/lib/radio";
 import store from "../../redux/store";
 
 interface Props {
@@ -37,6 +36,14 @@ const ItemCard = React.memo((props: Props) => {
     //将数据发给后端，后端返回正确的状态码之后刷新页面
     window.location.href = "/shoppingCar";
   };
+
+  function confirm() {
+    deleteGood()
+  }
+
+  function cancel() {
+    console.log("click no")
+  }
 
   return (
     <div className="each-shopping-good">
@@ -75,14 +82,15 @@ const ItemCard = React.memo((props: Props) => {
           ${goodsPrice}
         </Typography.Text>
         <div className="btn-delete">
-          <Button
-            type="primary"
-            onClick={() => {
-              setVisible(true);
-            }}
+          <Popconfirm
+            title="确认要从购物车中删除吗？"
+            onConfirm={confirm}
+            onCancel={cancel}
+            okText="是的"
+            cancelText="再想想"
           >
-            删除
-          </Button>
+            <a href="#">删除</a>
+          </Popconfirm>
         </div>
       </p>
     </div>
