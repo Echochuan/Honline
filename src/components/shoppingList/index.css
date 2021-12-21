@@ -15,6 +15,30 @@ li {
   width: 3vw;
 }
 
+/* 付款栏的样式 */
+.footer {
+  width: 80%;
+  height: 5vh;
+  margin: 0 auto;
+}
+
+.footer-check {
+  margin: 0 5px 8px;
+  margin-top: 2vh;
+}
+
+.checked-price {
+  position: absolute;
+  margin-left: 60vw;
+}
+
+.check-all-box {
+  position: absolute;
+  margin: 0 5px 8px;
+  margin-left: 4vw;
+}
+
+/* 购物车列表的样式 */
 .each-shopping-good {
   margin: 0 5px 8px;
   margin-top: 2vh;
@@ -31,19 +55,19 @@ li {
 }
 
 .shopping-content {
-    position: absolute;
-    margin-top: -12vh;
-    left: 40vw;
+  position: absolute;
+  margin-top: -12vh;
+  left: 40vw;
 }
 
 .shopping-price {
-    position: absolute;
-    margin-top: -12vh;
-    left: 60vw;
+  position: absolute;
+  margin-top: -12vh;
+  left: 60vw;
 }
 
 .shopping-delete {
-    position: absolute;
-    margin-top: -12vh;
-    left: 80vw;
+  position: absolute;
+  margin-top: -12vh;
+  left: 80vw;
 }

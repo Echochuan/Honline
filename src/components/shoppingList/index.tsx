@@ -18,26 +18,13 @@ const getData = () => {
   return axios("../../mock/shopping.json");
 };
 
-// const List = (goodsList:any) => {
-//   return (
-//     <Form className="row-goodsList" onFinish={(values) => {console.log(values)}}>
-//       <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-//         <Checkbox></Checkbox>
-//       </Form.Item>
-//       <Form.Item>
-//         <Button type="primary" htmlType="submit">1</Button>
-//       </Form.Item>
-//     </Form>
-//   );
-// };
-
 const ShoppingList = () => {
   // console.log(getData());
   const goodList = shopping;
   const userid = shopping.userId;
   const goodsList = goodList.list;
-  console.log(userid);
-  console.log(goodsList);
+  // console.log(userid);
+  // console.log(goodsList);
 
   const {
     checkedAll,
@@ -60,16 +47,17 @@ const ShoppingList = () => {
   const total = sumPrice(filterChecked())
 
   const Footer = (
-    <div className="footer">
-      <div className="check-all">
+    <div className="footer-check">
+      <div>
         <input
+         className="checkBox"
           checked={checkedAll}
           onChange={onWrapCheckedAllChange}
           type="checkbox"
         />
-        全选
+        <div className="check-all-box">全选</div>
       </div>
-      <div>
+      <div className="checked-price">
         价格总计 <Typography.Text mark>${total}</Typography.Text>
       </div>
     </div>
@@ -80,7 +68,7 @@ const ShoppingList = () => {
       <List
         className="goodsList"
         header={<div>购物车</div>}
-        footer={Footer}
+        // footer={Footer}
         bordered
         dataSource={goodsList}
         renderItem={item => {
@@ -97,6 +85,7 @@ const ShoppingList = () => {
           );
         }}
       />
+      <div className="footer">{Footer}</div>
     </div>
   );
 };
