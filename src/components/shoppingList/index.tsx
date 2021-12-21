@@ -6,7 +6,7 @@ import ItemCard from "./ItemCard";
 import { useChecked } from "./use-check";
 
 export interface CartItem {
-  goodsId: string;
+  id: number;
   goodsSrc: string;
   goodsTitle: string;
   goodsSubtitle: string;
@@ -83,7 +83,7 @@ const ShoppingList = () => {
         bordered
         dataSource={goodsList}
         renderItem={item => {
-          const checked = checkedMap[item.goodsId] || false;
+          const checked = checkedMap[item.id] || false;
           console.log(checked)
           return (
             <List.Item>
