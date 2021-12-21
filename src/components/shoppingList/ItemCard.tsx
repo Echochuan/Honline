@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CartItem } from "./";
 import { OnCheckedChange } from "./use-check";
-import { Modal, Typography, Popconfirm, message } from "antd";
+import { Modal, Typography, Popconfirm, message, Button, Drawer } from "antd";
 import "./index.css";
 import store from "../../redux/store";
 
@@ -18,6 +18,7 @@ function areEqual(prevProps: Props, nextProps: Props) {
 
 const ItemCard = React.memo((props: Props) => {
   const [visible, setVisible] = useState(false);
+  const [childrenDrawer, setChlidrenDrawer] = useState(false);
 
   console.log("cart item rerender");
   const { item, checked, onCheckedChange } = props;
@@ -38,27 +39,31 @@ const ItemCard = React.memo((props: Props) => {
   };
 
   function confirm() {
-    deleteGood()
+    deleteGood();
   }
 
   function cancel() {
-    console.log("click no")
+    console.log("click no");
   }
+
+  const showDrawer = () => {
+    setVisible(true);
+  };
+
+  const onClose = () => {
+    setVisible(false);
+  };
+
+  const showChildrenDrawer = () => {
+    setChlidrenDrawer(true);
+  };
+
+  const onChildrenDrawerClose = () => {
+    setChlidrenDrawer(false)
+  };
 
   return (
     <div className="each-shopping-good">
-      <Modal
-        visible={visible}
-        title="确认删除吗？"
-        okText="确认"
-        cancelText="再想想"
-        onCancel={() => {
-          setVisible(false);
-        }}
-        onOk={() => {
-          deleteGood();
-        }}
-      ></Modal>
       <div className="checkbox-wrap">
         <input
           className="checkBox"
@@ -91,6 +96,32 @@ const ItemCard = React.memo((props: Props) => {
           >
             <a href="#">删除</a>
           </Popconfirm>
+        </div>
+        <div className="btn-delete">
+          <Button type="primary" onClick={showDrawer}>
+            Open drawer
+          </Button>
+          <Drawer
+            title="Multi-level drawer"
+            width={520}
+            closable={false}
+            onClose={onClose}
+
+            visible={visible}
+          >
+            <Button type="primary" onClick={showChildrenDrawer}>
+              Two-level drawer
+            </Button>
+            <Drawer
+              title="Two-level Drawer"
+              width={320}
+              closable={false}
+              onClose={onChildrenDrawerClose}
+              visible={childrenDrawer}
+            >
+              This is two-level drawer
+            </Drawer>
+          </Drawer>
         </div>
       </p>
     </div>
