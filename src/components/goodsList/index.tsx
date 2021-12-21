@@ -4,6 +4,7 @@ import Meta from "antd/lib/card/Meta";
 import { Button } from "antd";
 import goods from "../../mock/goods.json";
 import "./index.css";
+import store from "../../redux/store";
 
 interface dataList {
   id: string;
@@ -14,7 +15,15 @@ interface dataList {
 
 const enterCar = (item: dataList) => {
   //点击后将商品的 id ，用户的id，发送给后端
-  message.success(item.id);
+  //获取用户的 ID 
+  const userId = store.getState().name;
+  // console.log(userId);
+  // 获取商品的 id 
+  const goodId = item.id
+  //将他们作为参数发送给后端
+  //如果成功则弹出 message.success 
+  message.success("添加成功");
+  //如果失败则弹出 message.error
 };
 
 const List = (goodsList: dataList[]) => {
