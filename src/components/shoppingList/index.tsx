@@ -1,79 +1,101 @@
-import { Button, Checkbox } from "antd";
-import goods from "../../mock/goods.json";
-import { checkGoods, DeleteGoods, getGoods } from "../../redux/action";
-import store from "../../redux/store";
+import { Button, Checkbox, Form, List, Typography } from "antd";
+import axios from "axios";
+import shopping from "../../mock/shopping.json";
 import "./index.css";
+import ItemCard from "./ItemCard";
+import { useChecked } from "./use-check";
 
-interface dataList {
-  id: string;
-  img: string;
-  context: string;
-  price: string;
+export interface CartItem {
+  goodsId: string;
+  goodsSrc: string;
+  goodsTitle: string;
+  goodsSubtitle: string;
+  goodsPrice: string;
+  goodsNum: string;
 }
 
-const List = (goodsList: dataList[]) => {
-  let stageList: any = [];
-  // console.log(goodsList);
-
-  const changeCheck = (values: any) => {
-    //用户点击商品 改变商品的是否被选中的状态
-    const action_check = checkGoods(values.id);
-    store.dispatch(action_check);
-
-    console.log(store.getState().list);
-    
-  };
-
-  const deleteGood = (values: any) => {
-    const action_delete = DeleteGoods(values);
-    store.dispatch(action_delete);
-
-    console.log(store.getState().list);
-    //调用接口 删除
-  }
-
-  //eslint-disable-next-line
-  {
-      //eslint-disable-next-line
-    goodsList.map((item, i) => {
-      stageList.push(
-        <li key={i} className="each-shopping-good">
-          <div className="checkBox">
-            <Checkbox  className="checkBox" onChange={() => changeCheck(item)} />
-          </div>
-          <div>
-            <img src={item.img} style={{ width:"100px",height:"100px" }} alt=""/>
-          </div>
-          <div className="shopping-content">
-            {item.context}
-          </div>
-          <div className="shopping-price">
-            {item.price}
-          </div>
-          <div className="shopping-delete">
-            <Button type="primary" danger onClick={() => deleteGood(item)}>删除</Button>
-          </div>
-        </li>
-      );
-      return 0;
-    });
-  }
-  return <div className="row-goodsList">{stageList}</div>;
+const getData = () => {
+  return axios("../../mock/shopping.json");
 };
 
-const ShoppingList = () => {
-  //获取用户购物车的所有信息，存入 store 的 list 中
-  const list = JSON.parse(JSON.parse(localStorage.getItem('persist:root') || "0").list);
-  console.log(list)
-const goodList = [];
+// const List = (goodsList:any) => {
+//   return (
+//     <Form className="row-goodsList" onFinish={(values) => {console.log(values)}}>
+//       <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+//         <Checkbox></Checkbox>
+//       </Form.Item>
+//       <Form.Item>
+//         <Button type="primary" htmlType="submit">1</Button>
+//       </Form.Item>
+//     </Form>
+//   );
+// };
 
-  for (let i = 0;i < list.length; i++) {
-    goodList.push(list[i].list)
+const ShoppingList = () => {
+  // console.log(getData());
+  const goodList = shopping;
+  const userid = shopping.userId;
+  const goodsList = goodList.list;
+  console.log(userid);
+  console.log(goodsList);
+
+  const {
+    checkedAll,
+    checkedMap,
+    onCheckedAllChange,
+    onCheckedChange,
+    filterChecked
+  } = useChecked(goodsList);
+
+  // cartItems的积分总和
+  const sumPrice = (cartItems: CartItem[]) => {
+    return cartItems.reduce((sum, cur) => sum + Number(cur.goodsPrice), 0)
   }
+
+  const onWrapCheckedAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const checkAll = e.target.checked
+    onCheckedAllChange(checkAll)
+  }
+
+  const total = sumPrice(filterChecked())
+
+  const Footer = (
+    <div className="footer">
+      <div className="check-all">
+        <input
+          checked={checkedAll}
+          onChange={onWrapCheckedAllChange}
+          type="checkbox"
+        />
+        全选
+      </div>
+      <div>
+        价格总计 <Typography.Text mark>${total}</Typography.Text>
+      </div>
+    </div>
+  )
 
   return (
     <div>
-      <div className="goodsList">{List(goodList)}</div>
+      <List
+        header={<div>购物车</div>}
+        footer={Footer}
+        bordered
+        dataSource={goodsList}
+        renderItem={item => {
+          const checked = checkedMap[item.goodsId] || false;
+          console.log(checked)
+          return (
+            <List.Item>
+              <ItemCard
+                item={item}
+                checked={checked}
+                onCheckedChange={onCheckedChange}
+              />
+            </List.Item>
+          );
+        }}
+      />
     </div>
   );
 };
