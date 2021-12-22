@@ -1,7 +1,19 @@
 import React, { useState } from "react";
 import { CartItem } from "./";
 import { OnCheckedChange } from "./use-check";
-import { Modal, Typography, Popconfirm, message, Button, Drawer } from "antd";
+import {
+  Modal,
+  Typography,
+  Popconfirm,
+  message,
+  Button,
+  Drawer,
+  Form,
+  Row,
+  Col,
+  Input,
+  Space
+} from "antd";
 import "./index.css";
 import store from "../../redux/store";
 
@@ -38,6 +50,7 @@ const ItemCard = React.memo((props: Props) => {
     window.location.href = "/shoppingCar";
   };
 
+  //气泡确认框的相关函数
   function confirm() {
     deleteGood();
   }
@@ -46,6 +59,7 @@ const ItemCard = React.memo((props: Props) => {
     console.log("click no");
   }
 
+  //双层抽屉的相关函数
   const showDrawer = () => {
     setVisible(true);
   };
@@ -59,7 +73,7 @@ const ItemCard = React.memo((props: Props) => {
   };
 
   const onChildrenDrawerClose = () => {
-    setChlidrenDrawer(false)
+    setChlidrenDrawer(false);
   };
 
   return (
@@ -106,7 +120,6 @@ const ItemCard = React.memo((props: Props) => {
             width={520}
             closable={false}
             onClose={onClose}
-
             visible={visible}
           >
             <Button type="primary" onClick={showChildrenDrawer}>
@@ -118,8 +131,45 @@ const ItemCard = React.memo((props: Props) => {
               closable={false}
               onClose={onChildrenDrawerClose}
               visible={childrenDrawer}
+              extra={
+                <Space>
+                  <Button onClick={onChildrenDrawerClose}>Cancel</Button>
+                </Space>
+              }
             >
               This is two-level drawer
+              <Form
+                layout="vertical"
+                onFinish={values => {
+                  console.log(values);
+                }}
+                hideRequiredMark
+              >
+                <Row gutter={16}>
+                  <Col span={24}>
+                    <Form.Item
+                      name="description"
+                      label="Description"
+                      rules={[
+                        {
+                          required: true,
+                          message: "please enter url description"
+                        }
+                      ]}
+                    >
+                      <Input.TextArea
+                        rows={4}
+                        placeholder="please enter url description"
+                      />
+                    </Form.Item>
+                    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                      <Button type="primary" htmlType="submit">
+                        Submit
+                      </Button>
+                    </Form.Item>
+                  </Col>
+                </Row>
+              </Form>
             </Drawer>
           </Drawer>
         </div>
