@@ -36,13 +36,7 @@ const ItemCard = React.memo((props: Props) => {
 
   console.log("cart item rerender");
   const { item, checked, onCheckedChange } = props;
-  const {
-    id,
-    goodsTitle,
-    goodsPrice,
-    goodsSrc,
-    goodsSubtitle
-  } = item;
+  const { id, goodsTitle, goodsPrice, goodsSrc, goodsSubtitle } = item;
 
   const onWrapCheckedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target;
@@ -77,8 +71,16 @@ const ItemCard = React.memo((props: Props) => {
   };
 
   const update = (values: any) => {
-    console.log(values)
-  }
+    //用户更新的内容
+    console.log(values);
+    //商品的 id 
+    console.log(id);
+    //用户的 id
+    console.log(store.getState().name);
+    //将用户的 id , 商品的 id , 用户更新的内容传输给后端
+    //若成功则刷新页面
+    window.location.href="/storeMenu"
+  };
 
   return (
     <div className="each-shopping-good">
@@ -131,17 +133,22 @@ const ItemCard = React.memo((props: Props) => {
               </Space>
             }
           >
-            <Form layout="vertical" hideRequiredMark>
+            <Form
+              layout="vertical"
+              onFinish={values => {
+                update(values)
+              }}
+              hideRequiredMark
+            >
               <Row gutter={16}>
                 <Col span={12}>
                   <Form.Item
                     name="goodsTitle"
                     label="商品名称"
-                    rules={[
-                      { required: false }
-                    ]}
+                    rules={[{ required: false }]}
+                    initialValue={goodsTitle}
                   >
-                    <Input placeholder={goodsTitle} defaultValue={goodsTitle} />
+                    <Input placeholder={goodsTitle} />
                   </Form.Item>
                 </Col>
                 <Col span={12}>
@@ -149,8 +156,9 @@ const ItemCard = React.memo((props: Props) => {
                     name="goodsPrice"
                     label="商品描述"
                     rules={[{ required: false }]}
+                    initialValue={goodsPrice}
                   >
-                    <Input placeholder={goodsPrice} defaultValue={goodsPrice} />
+                    <Input placeholder={goodsPrice} />
                   </Form.Item>
                 </Col>
               </Row>
@@ -161,25 +169,26 @@ const ItemCard = React.memo((props: Props) => {
                     label="商品描述"
                     rules={[
                       {
-                        required: false,
+                        required: false
                       }
                     ]}
+                    initialValue={goodsSubtitle}
                   >
                     <Input.TextArea
                       rows={4}
-                      placeholder={ goodsSubtitle }
-                      defaultValue={ goodsSubtitle }
+                      placeholder={goodsSubtitle}
+                      defaultValue={goodsSubtitle}
                     />
                   </Form.Item>
-              <Row gutter={16}>
-                <Col span={24}>
-                  <Form.Item>
-                  <Button onClick={(e) => update(e)} style={{ width: "100%" }} type="primary">
-                  更新
-                </Button>
-                  </Form.Item>
-                </Col>
-              </Row>
+                  <Row gutter={16}>
+                    <Col span={24}>
+                      <Form.Item>
+                        <Button style={{ width: "100%" }} type="primary" htmlType="submit">
+                          更新
+                        </Button>
+                      </Form.Item>
+                    </Col>
+                  </Row>
                 </Col>
               </Row>
             </Form>
