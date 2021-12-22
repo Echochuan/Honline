@@ -51,11 +51,11 @@ const ItemCard = React.memo((props: Props) => {
   };
 
   //气泡确认框的相关函数
-  function confirm() {
+  const confirm = () => {
     deleteGood();
   }
 
-  function cancel() {
+  const cancel = () => {
     console.log("click no");
   }
 
@@ -75,6 +75,11 @@ const ItemCard = React.memo((props: Props) => {
   const onChildrenDrawerClose = () => {
     setChlidrenDrawer(false);
   };
+
+  //二级抽屉的提交函数
+  const uploadComments = (values:string) => {
+    console.log(values)
+  }
 
   return (
     <div className="each-shopping-good">
@@ -140,26 +145,23 @@ const ItemCard = React.memo((props: Props) => {
               This is two-level drawer
               <Form
                 layout="vertical"
-                onFinish={values => {
-                  console.log(values);
-                }}
+                onFinish={(values) => {uploadComments(values)}}
                 hideRequiredMark
               >
                 <Row gutter={16}>
                   <Col span={24}>
                     <Form.Item
-                      name="description"
-                      label="Description"
+                      name="comment"
                       rules={[
                         {
                           required: true,
-                          message: "please enter url description"
+                          message: "内容不能为空"
                         }
                       ]}
                     >
                       <Input.TextArea
                         rows={4}
-                        placeholder="please enter url description"
+                        placeholder="请输入你对商品的评价"
                       />
                     </Form.Item>
                     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
