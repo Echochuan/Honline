@@ -8,6 +8,7 @@ import store from "../../redux/store";
 
 interface dataList {
   id: string;
+  storeName: string,
   img: string;
   context: string;
   price: string;
@@ -50,7 +51,7 @@ const List = (goodsList: dataList[]) => {
                 ></Button>
               }
             >
-              <Meta title={item.context} description={item.price} />
+              <Meta title={item.context} description={item.storeName+item.price} />
             </Card>
           </div>
         </Col>
