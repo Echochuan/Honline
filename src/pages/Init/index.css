@@ -48,3 +48,13 @@
   font-size: 2rem;
   margin-top: 20px;
 }
+
+.shortcut {
+  border-bottom: 1px solid #ddd;
+  background-color: #e3e4e5;
+}
+
+.btn-store {
+  margin-left: 90vw; 
+  color: #999;
+}

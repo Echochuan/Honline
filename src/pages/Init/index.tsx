@@ -26,8 +26,31 @@ const Init = () => {
     console.log("subscribe", store.getState());
   });
 
+  const topMenu = () =>{
+    console.log("111")
+    //向后端发送请求，询问该用户是不是已经有商店
+    const haveStore = false;
+    // const donthave = false;
+    if (haveStore) {
+      return(
+        <div className="shortcut">111</div>
+      )
+    }
+    else {
+      return(
+        <div className="shortcut">
+          <a href="#" className="btn-store">
+            我要开店
+          </a>
+        </div>
+      )
+    }
+  }
+
   return (
     <div>
+      {/* <button>111</button> */}
+      { topMenu() }
       <Layout style={{ height: "100vh", display: "block" }}>
         <Header className="header-init">
           <a href="/init"><div className="logo-init"></div></a>
