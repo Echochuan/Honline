@@ -83,3 +83,9 @@ li {
   margin-top: 10vh;
 }
 
+.btn-comment {
+  position: absolute;
+  margin-top: -8vh;
+  left: 70vw;
+}
+

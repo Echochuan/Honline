@@ -160,10 +160,10 @@ const ItemCard = React.memo((props: Props) => {
             <a href="#">删除</a>
           </Popconfirm>
         </div>
-        <div className="btn-delete">
-          <Button type="primary" onClick={showDrawer}>
-            Open drawer
-          </Button>
+        <div className="btn-comment">
+          <a href="#" type="primary" onClick={showDrawer}>
+            评论
+          </a>
           <Drawer
             title="商品评价"
             width={520}
