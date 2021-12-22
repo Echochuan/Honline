@@ -1,5 +1,5 @@
 import { BankOutlined } from "@ant-design/icons";
-import { Button, List, Modal, Typography } from "antd";
+import { Button, Form, Input, List, Modal, Typography } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import shopping from "../../mock/storeMenu.json";
@@ -17,12 +17,25 @@ export interface CartItem {
   goodsNum: string;
 }
 
+interface Values {
+  title: string;
+  description: string;
+  modifier: string;
+}
+
+interface CollectionCreateFormProps {
+  Uploadvisible: boolean;
+  onCreate: (values: Values) => void;
+  onCancel: () => void;
+}
+
 const getData = () => {
   return axios("../../mock/shopping.json");
 };
 
 const StoreList = () => {
   const [visible, setVisible] = useState(false);
+  const [Uploadvisible, setUploadVisible] = useState(false);
 
   // console.log(getData());
   const goodList = shopping;
@@ -45,17 +58,23 @@ const StoreList = () => {
     onCheckedAllChange(checkAll);
   };
 
+  const uploadGood = (values: any) => {
+    console.log("Received values of form: ", values);
+    setVisible(false);
+  };
 
   const deleteBtn = () => {
     //把商品的 ID 和用户的 id 发送给后端
-    //获取商品的 id 
-    const checkedGoodId = filterChecked().map((item) => {return item.id})
+    //获取商品的 id
+    const checkedGoodId = filterChecked().map(item => {
+      return item.id;
+    });
     //获取用户的 id
     const userId = store.getState().name;
     //将两者一起发送给后端
     //如果成功则刷新页面
     // console.log(checkedGoodId,userId);
-    window.location.href="/storeMenu"
+    window.location.href = "/storeMenu";
   };
 
   const Footer = (
@@ -65,7 +84,9 @@ const StoreList = () => {
         title="被选中的商品将被下架"
         okText="确认"
         cancelText="再想想"
-        onCancel={() => {setVisible(false)}}
+        onCancel={() => {
+          setVisible(false);
+        }}
         onOk={() => {
           deleteBtn();
         }}
@@ -80,25 +101,99 @@ const StoreList = () => {
         <div className="check-all-box">全选</div>
       </div>
       <Button
-      className="btn-pay"
+        className="btn-pay"
         type="primary"
         onClick={() => {
           setVisible(true);
         }}
-      >下架</Button>
+      >
+        下架
+      </Button>
     </div>
   );
 
+  const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
+    Uploadvisible,
+    onCreate,
+    onCancel
+  }) => {
+    const [form] = Form.useForm();
+    return (
+      <Modal
+        visible={Uploadvisible}
+        title="Create a new collection"
+        okText="Create"
+        cancelText="Cancel"
+        onCancel={onCancel}
+        onOk={() => {
+          form
+            .validateFields()
+            .then(values => {
+              form.resetFields();
+              onCreate(values);
+            })
+            .catch(info => {
+              console.log("Validate Failed:", info);
+            });
+        }}
+      >
+        <Form
+          form={form}
+          layout="vertical"
+          name="form_in_modal"
+          initialValues={{ modifier: "public" }}
+        >
+          <Form.Item
+            name="title"
+            label="Title"
+            rules={[
+              {
+                required: true,
+                message: "Please input the title of collection!"
+              }
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item name="description" label="Description">
+            <Input type="textarea" />
+          </Form.Item>
+        </Form>
+      </Modal>
+    );
+  };
+
   return (
     <div>
+      <div className="btn-upload">
+        <Button
+          type="primary"
+          onClick={() => {
+            setUploadVisible(true);
+          }}
+        >
+          New Collection
+        </Button>
+        <CollectionCreateForm
+          Uploadvisible={Uploadvisible}
+          onCreate={uploadGood}
+          onCancel={() => {
+            setUploadVisible(false);
+          }}
+        />
+      </div>
       <List
         className="goodsList"
-        header={<div><BankOutlined />{storeName}</div>}
+        header={
+          <div>
+            <BankOutlined />
+            {storeName}
+          </div>
+        }
         bordered
         dataSource={goodsList}
         renderItem={item => {
           const checked = checkedMap[item.id] || false;
-          // console.log(checked)
           return (
             <List.Item>
               <ItemCard
