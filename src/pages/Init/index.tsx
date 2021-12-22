@@ -126,25 +126,25 @@ const Init = () => {
       return (
         <div className="shortcut">
           {" "}
-            <div>
-              <a
+          <div>
+            <a
               href="#"
               className="btn-store"
-                type="primary"
-                onClick={() => {
-                  setVisible(true);
-                }}
-              >
-                我要开店
-              </a>
-              <CollectionCreateForm
-                visible={visible}
-                onCreate={onCreate}
-                onCancel={() => {
-                  setVisible(false);
-                }}
-              />
-            </div>
+              type="primary"
+              onClick={() => {
+                setVisible(true);
+              }}
+            >
+              我要开店
+            </a>
+            <CollectionCreateForm
+              visible={visible}
+              onCreate={onCreate}
+              onCancel={() => {
+                setVisible(false);
+              }}
+            />
+          </div>
         </div>
       );
     }
