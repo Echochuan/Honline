@@ -50,11 +50,11 @@ const Init = () => {
         <div className="shortcut">
           {" "}
           <Popconfirm
-            title="Are you sure to delete this task?"
+            title="确定要开店吗?"
             onConfirm={confirm}
             onCancel={cancel}
-            okText="Yes"
-            cancelText="No"
+            okText="是的"
+            cancelText="再想想"
           >
             <a href="#" className="btn-store" onClick={openStore}>
               我要开店
