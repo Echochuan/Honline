@@ -60,7 +60,7 @@ const StoreList = () => {
 
   const uploadGood = (values: any) => {
     console.log("Received values of form: ", values);
-    setVisible(false);
+    setUploadVisible(false);
   };
 
   const deleteBtn = () => {
@@ -112,6 +112,7 @@ const StoreList = () => {
     </div>
   );
 
+  //上架商品的信息弹出框
   const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
     Uploadvisible,
     onCreate,
@@ -121,9 +122,9 @@ const StoreList = () => {
     return (
       <Modal
         visible={Uploadvisible}
-        title="Create a new collection"
-        okText="Create"
-        cancelText="Cancel"
+        title="上架商品"
+        okText="上架"
+        cancelText="再想想"
         onCancel={onCancel}
         onOk={() => {
           form
@@ -144,19 +145,40 @@ const StoreList = () => {
           initialValues={{ modifier: "public" }}
         >
           <Form.Item
-            name="title"
-            label="Title"
+            name="goodsTitle"
+            label="商品名称"
             rules={[
               {
                 required: true,
-                message: "Please input the title of collection!"
+                message: "商品名称不能为空"
               }
             ]}
           >
             <Input />
           </Form.Item>
-          <Form.Item name="description" label="Description">
+          <Form.Item
+            name="goodsSubtitle"
+            label="商品描述"
+            rules={[
+              {
+                required: true,
+                message: "商品描述不能为空"
+              }
+            ]}
+          >
             <Input type="textarea" />
+          </Form.Item>
+          <Form.Item
+            name="goodsPrice"
+            label="商品价格"
+            rules={[
+              {
+                required: true,
+                message: "商品价格不能为空"
+              }
+            ]}
+          >
+            <Input />
           </Form.Item>
         </Form>
       </Modal>
@@ -172,7 +194,7 @@ const StoreList = () => {
             setUploadVisible(true);
           }}
         >
-          New Collection
+          上架商品
         </Button>
         <CollectionCreateForm
           Uploadvisible={Uploadvisible}
