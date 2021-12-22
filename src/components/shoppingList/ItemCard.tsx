@@ -138,21 +138,20 @@ const ItemCard = React.memo((props: Props) => {
             visible={visible}
           >
             <Button type="primary" onClick={showChildrenDrawer}>
-              Two-level drawer
+              去评论
             </Button>
             <Drawer
-              title="Two-level Drawer"
+              title="评论"
               width={320}
               closable={false}
               onClose={onChildrenDrawerClose}
               visible={childrenDrawer}
               extra={
                 <Space>
-                  <Button onClick={onChildrenDrawerClose}>Cancel</Button>
+                  <Button onClick={onChildrenDrawerClose}>取消</Button>
                 </Space>
               }
             >
-              This is two-level drawer
               <Form
                 layout="vertical"
                 onFinish={(values) => {uploadComments(values)}}
