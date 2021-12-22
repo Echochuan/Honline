@@ -8,7 +8,7 @@ const { Header, Footer, Content } = Layout;
 const StoreMenu = () => {
   return (
     <div>
-      <Layout style={{ height: "100vh" }}>
+        <Layout style={{ height: "auto", display: "block" }}>
         <Header className="header-storeMenu">
         <a href="/init"><div className="logo-init"></div></a>
         </Header>
