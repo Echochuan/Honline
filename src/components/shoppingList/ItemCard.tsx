@@ -32,6 +32,8 @@ const ItemCard = React.memo((props: Props) => {
   const [visible, setVisible] = useState(false);
   const [childrenDrawer, setChlidrenDrawer] = useState(false);
 
+  const [form] = Form.useForm();
+
   console.log("cart item rerender");
   const { item, checked, onCheckedChange } = props;
   const { id, goodsTitle, goodsPrice, goodsSrc, goodsSubtitle } = item;
@@ -78,7 +80,8 @@ const ItemCard = React.memo((props: Props) => {
 
   //二级抽屉的提交函数
   const uploadComments = (values:string) => {
-    console.log(values)
+    console.log(values);
+    form.resetFields();
   }
 
   return (
@@ -146,6 +149,7 @@ const ItemCard = React.memo((props: Props) => {
               <Form
                 layout="vertical"
                 onFinish={(values) => {uploadComments(values)}}
+                form={form}
                 hideRequiredMark
               >
                 <Row gutter={16}>
@@ -166,7 +170,7 @@ const ItemCard = React.memo((props: Props) => {
                     </Form.Item>
                     <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                       <Button type="primary" htmlType="submit">
-                        Submit
+                        评论
                       </Button>
                     </Form.Item>
                   </Col>
