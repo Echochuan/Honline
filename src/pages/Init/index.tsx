@@ -46,7 +46,7 @@ const Init = () => {
     // const donthave = false;
     if (haveStore) {
       return <div className="shortcut">
-        <a href="#" className="btn-store">我的店铺</a>
+        <a href="/storeMenu" className="btn-store">我的店铺</a>
       </div>;
     } else {
       return (
