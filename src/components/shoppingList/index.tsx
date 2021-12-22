@@ -9,6 +9,7 @@ import { useChecked } from "./use-check";
 
 export interface CartItem {
   id: number;
+  storeName: string;
   goodsSrc: string;
   goodsTitle: string;
   goodsSubtitle: string;
