@@ -26,25 +26,28 @@ const Init = () => {
     console.log("subscribe", store.getState());
   });
 
-  const openStore = () => {
-    console.log("111");
-  };
-
+  //询问是否开店的相关函数
   const confirm = () => {
+    const userId = store.getState().name;
+    console.log(userId);
+    //向后端发送用户的 Id 告诉后端该用户开启了商店
     message.success('注册成功');
+    window.location.href="/init"
   }
   
   const cancel = () => {
     message.error('下次一定');
   }
 
+  //头部栏
   const topMenu = () => {
-    console.log("111");
     //向后端发送请求，询问该用户是不是已经有商店
-    const haveStore = false;
+    const haveStore = true;
     // const donthave = false;
     if (haveStore) {
-      return <div className="shortcut">111</div>;
+      return <div className="shortcut">
+        <a href="#" className="btn-store">我的店铺</a>
+      </div>;
     } else {
       return (
         <div className="shortcut">
@@ -56,7 +59,7 @@ const Init = () => {
             okText="是的"
             cancelText="再想想"
           >
-            <a href="#" className="btn-store" onClick={openStore}>
+            <a href="#" className="btn-store">
               我要开店
             </a>
           </Popconfirm>
