@@ -77,3 +77,9 @@ li {
   left: 70vw;
 }
 
+/* 评论区的样式 */
+.btn-to-comment {
+  float: right;
+  margin-top: 10vh;
+}
+

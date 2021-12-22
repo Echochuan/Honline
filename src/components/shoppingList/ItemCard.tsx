@@ -172,7 +172,7 @@ const ItemCard = React.memo((props: Props) => {
             visible={visible}
           >
             {comments}
-            <Button type="primary" onClick={showChildrenDrawer}>
+            <Button className="btn-to-comment" type="primary" onClick={showChildrenDrawer}>
               去评论
             </Button>
             <Drawer
