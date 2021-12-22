@@ -60,6 +60,16 @@ const StoreList = () => {
 
   const uploadGood = (values: any) => {
     console.log("Received values of form: ", values);
+    //获取商品的名称
+    console.log(values.goodsTitle);
+    //获取商品的描述
+    console.log(values.goodsSubtitle);
+    //获取商品的价格
+    console.log(values.goodsPrice);
+    //获取用户的 id
+    console.log(store.getState().name);
+    //将上述数据传送给后端，如果成功，则刷新页面
+    window.location.href="/storeMenu"
     setUploadVisible(false);
   };
 
