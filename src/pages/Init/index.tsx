@@ -49,9 +49,9 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
   return (
     <Modal
       visible={visible}
-      title="Create a new collection"
-      okText="Create"
-      cancelText="Cancel"
+      title="我要开店"
+      okText="确认"
+      cancelText="再想想"
       onCancel={onCancel}
       onOk={() => {
         form
@@ -72,16 +72,13 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
         initialValues={{ modifier: "public" }}
       >
         <Form.Item
-          name="title"
-          label="Title"
+          name="storeName"
+          label="您的商铺名"
           rules={[
-            { required: true, message: "Please input the title of collection!" }
+            { required: true, message: "店铺名不能为空" }
           ]}
         >
           <Input />
-        </Form.Item>
-        <Form.Item name="description" label="Description">
-          <Input type="textarea" />
         </Form.Item>
       </Form>
     </Modal>
@@ -91,11 +88,13 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
 const Init = () => {
   const [visible, setVisible] = useState(false);
 
+  //开店确认后的函数
   const onCreate = (values: any) => {
-    console.log("Received values of form: ", values);
+    //获取店铺的名称
+    console.log(values.storeName)
     const userId = store.getState().name;
     console.log(userId);
-    //向后端发送用户的 Id 告诉后端该用户开启了商店
+    //向后端发送店铺的名称，用户的 Id 告诉后端该用户开启了商店
     message.success("注册成功");
     // window.location.href = "/init";
     setVisible(false);
