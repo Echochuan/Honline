@@ -101,7 +101,6 @@ const ShoppingList = () => {
       <List
         className="goodsList"
         header={<div>购物车</div>}
-        // footer={Footer}
         bordered
         dataSource={goodsList}
         renderItem={item => {
