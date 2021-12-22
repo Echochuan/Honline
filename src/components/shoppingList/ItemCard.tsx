@@ -11,10 +11,15 @@ import {
   Row,
   Col,
   Input,
-  Space
+  Space,
+  List,
+  Comment,
+  Avatar
 } from "antd";
 import "./index.css";
 import store from "../../redux/store";
+
+import commentsList from '../../mock/comments.json';
 
 interface Props {
   item: CartItem;
@@ -93,8 +98,31 @@ const ItemCard = React.memo((props: Props) => {
     window.location.href="/shoppingCar"
   }
 
+  const commentList = commentsList.comments;
+  console.log(commentList)
+
   const comments = (
-    <div>hello world</div>
+    <List
+    className="goodsList"
+    // footer={Footer}
+    bordered
+    dataSource={commentList}
+    renderItem={item => {
+      // console.log(checked)
+      return (
+        <Comment
+        style={{ width:"80%", margin: "0 auto" }}
+        author={<p>{item.id}</p>}
+        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt={ item.id } />}
+        content={
+          <p>
+            {item.comment}
+          </p>
+        }
+      />
+      );
+    }}
+  />
   )
 
   return (
