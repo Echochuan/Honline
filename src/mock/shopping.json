@@ -2,6 +2,7 @@
   "list": [
     {
       "id": 10001,
+      "storeName": "NewYear",
       "goodsSrc": "https://aplus-img.oss-cn-beijing.aliyuncs.com/vVORwq7j4JJPH3LfR55.jpg",
       "goodsTitle": "南酸枣粒 酸甜解暑",
       "goodsSubtitle": "江西特产 五眼果 249g",
@@ -10,6 +11,7 @@
     },
     {
       "id": 10002,
+      "storeName": "NewYear",
       "goodsSrc": "https://aplus-img.oss-cn-beijing.aliyuncs.com/kSJmZOJWythpbOFnMnb.jpg",
       "goodsTitle": "麻花小辫 迷你酥条",
       "goodsSubtitle": "山药小麻花 249g",
@@ -18,6 +20,7 @@
     },
     {
       "id": 10003,
+      "storeName": "NewYear",
       "goodsSrc": "https://timgsa.oss-cn-beijing.aliyuncs.com/dearcoo/thumb/8015.png",
       "goodsTitle": "香菇脆 即食果蔬",
       "goodsSubtitle": "江西风味 249g",
@@ -26,6 +29,7 @@
     },
     {
       "id": 10004,
+      "storeName": "NewYear",
       "goodsSrc": "https://timgsa.oss-cn-beijing.aliyuncs.com/dearcoo/thumb/8002_v1.png",
       "goodsTitle": "酸甜可口 风味独特",
       "goodsSubtitle": "菩提圣果 圣果可串手串 220g",
