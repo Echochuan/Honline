@@ -49,6 +49,12 @@ li {
   margin-top: 2vh;
 }
 
+.shopping-store {
+  position: absolute;
+  margin-top: -8vh;
+  left: 20vw;
+}
+
 .shopping-img {
   margin-left: 5vw;
 }

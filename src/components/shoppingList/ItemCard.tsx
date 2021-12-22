@@ -20,6 +20,7 @@ import "./index.css";
 import store from "../../redux/store";
 
 import commentsList from '../../mock/comments.json';
+import { BankOutlined } from "@ant-design/icons";
 
 interface Props {
   item: CartItem;
@@ -40,7 +41,7 @@ const ItemCard = React.memo((props: Props) => {
 
   console.log("cart item rerender");
   const { item, checked, onCheckedChange } = props;
-  const { id, goodsTitle, goodsPrice, goodsSrc, goodsSubtitle } = item;
+  const { id, storeName, goodsTitle, goodsPrice, goodsSrc, goodsSubtitle } = item;
 
   const onWrapCheckedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target;
@@ -146,6 +147,7 @@ const ItemCard = React.memo((props: Props) => {
         </div>
         <div className="shopping-title">{goodsTitle}</div>
         <div className="shopping-content">{goodsSubtitle}</div>
+        <div className="shopping-store"><BankOutlined />{storeName}</div>
         <Typography.Text mark className="shopping-price">
           ${goodsPrice}
         </Typography.Text>
