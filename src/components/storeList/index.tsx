@@ -69,7 +69,7 @@ const StoreList = () => {
     //获取用户的 id
     console.log(store.getState().name);
     //将上述数据传送给后端，如果成功，则刷新页面
-    window.location.href="/storeMenu"
+    window.location.href = "/storeMenu";
     setUploadVisible(false);
   };
 
@@ -197,6 +197,10 @@ const StoreList = () => {
 
   return (
     <div>
+      <div className="store-name">
+        <BankOutlined />
+        {storeName}
+      </div>
       <div className="btn-upload">
         <Button
           type="primary"
@@ -216,12 +220,7 @@ const StoreList = () => {
       </div>
       <List
         className="goodsList"
-        header={
-          <div>
-            <BankOutlined />
-            {storeName}
-          </div>
-        }
+        header={<div>您店铺的商品列表</div>}
         bordered
         dataSource={goodsList}
         renderItem={item => {
