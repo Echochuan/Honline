@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { CartItem } from "./";
 import { OnCheckedChange } from "./use-check";
 import {
-  Modal,
   Typography,
   Popconfirm,
   message,
@@ -80,8 +79,16 @@ const ItemCard = React.memo((props: Props) => {
 
   //二级抽屉的提交函数
   const uploadComments = (values:string) => {
+    //获取评论内容
     console.log(values);
+    //获取用户的 id 
+    const userId = store.getState().name;
+    //将用户的 id 和评论内容提交给后端存储起来
+
+    //清空表单内容
     form.resetFields();
+    //刷新页面
+    window.location.href="/shoppingCar"
   }
 
   return (
