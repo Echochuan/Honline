@@ -76,6 +76,10 @@ const ItemCard = React.memo((props: Props) => {
     setVisible(false);
   };
 
+  const update = (values: any) => {
+    console.log(values)
+  }
+
   return (
     <div className="each-shopping-good">
       <div className="checkbox-wrap">
@@ -116,17 +120,14 @@ const ItemCard = React.memo((props: Props) => {
             编辑
           </a>
           <Drawer
-            title="Create a new account"
+            title="编辑你的商品信息"
             width={720}
             onClose={onClose}
             visible={visible}
             bodyStyle={{ paddingBottom: 80 }}
             extra={
               <Space>
-                <Button onClick={onClose}>Cancel</Button>
-                <Button onClick={onClose} type="primary">
-                  Submit
-                </Button>
+                <Button onClick={onClose}>取消</Button>
               </Space>
             }
           >
@@ -134,47 +135,51 @@ const ItemCard = React.memo((props: Props) => {
               <Row gutter={16}>
                 <Col span={12}>
                   <Form.Item
-                    name="name"
-                    label="Name"
+                    name="goodsTitle"
+                    label="商品名称"
                     rules={[
-                      { required: true, message: "Please enter user name" }
+                      { required: false }
                     ]}
                   >
-                    <Input placeholder="Please enter user name" />
+                    <Input placeholder={goodsTitle} defaultValue={goodsTitle} />
                   </Form.Item>
                 </Col>
                 <Col span={12}>
                   <Form.Item
-                    name="url"
-                    label="Url"
-                    rules={[{ required: true, message: "Please enter url" }]}
+                    name="goodsPrice"
+                    label="商品描述"
+                    rules={[{ required: false }]}
                   >
-                    <Input
-                      style={{ width: "100%" }}
-                      addonBefore="http://"
-                      addonAfter=".com"
-                      placeholder="Please enter url"
-                    />
+                    <Input placeholder={goodsPrice} defaultValue={goodsPrice} />
                   </Form.Item>
                 </Col>
               </Row>
               <Row gutter={16}>
                 <Col span={24}>
                   <Form.Item
-                    name="description"
-                    label="Description"
+                    name="goodsSubtitle"
+                    label="商品描述"
                     rules={[
                       {
-                        required: true,
-                        message: "please enter url description"
+                        required: false,
                       }
                     ]}
                   >
                     <Input.TextArea
                       rows={4}
-                      placeholder="please enter url description"
+                      placeholder={ goodsSubtitle }
+                      defaultValue={ goodsSubtitle }
                     />
                   </Form.Item>
+              <Row gutter={16}>
+                <Col span={24}>
+                  <Form.Item>
+                  <Button onClick={(e) => update(e)} style={{ width: "100%" }} type="primary">
+                  更新
+                </Button>
+                  </Form.Item>
+                </Col>
+              </Row>
                 </Col>
               </Row>
             </Form>
