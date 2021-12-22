@@ -1,6 +1,8 @@
 import { Layout } from "antd";
 import "./index.css"
 
+import StoreList from "../../components/storeList"
+
 const { Header, Footer, Content } = Layout;
 
 const StoreMenu = () => {
@@ -13,6 +15,7 @@ const StoreMenu = () => {
         <Layout>
           <Content>
             {" "}
+            <StoreList />
           </Content>
         </Layout>
         <Footer>Copyright © 2021  Created by 524 & 525</Footer>

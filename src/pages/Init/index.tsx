@@ -96,7 +96,7 @@ const Init = () => {
     console.log(userId);
     //向后端发送店铺的名称，用户的 Id 告诉后端该用户开启了商店
     message.success("注册成功");
-    // window.location.href = "/init";
+    window.location.href = "/init";
     setVisible(false);
   };
 
@@ -111,7 +111,7 @@ const Init = () => {
   //头部栏
   const topMenu = () => {
     //向后端发送请求，询问该用户是不是已经有商店
-    const haveStore = false;
+    const haveStore = true;
     // const donthave = false;
     if (haveStore) {
       return (
