@@ -79,17 +79,23 @@ const ItemCard = React.memo((props: Props) => {
 
   //二级抽屉的提交函数
   const uploadComments = (values:string) => {
+    //获取商品的 id
+    console.log(id);
     //获取评论内容
     console.log(values);
     //获取用户的 id 
     const userId = store.getState().name;
-    //将用户的 id 和评论内容提交给后端存储起来
+    //将商品的 id , 用户的 id 和评论内容提交给后端存储起来
 
     //清空表单内容
     form.resetFields();
     //刷新页面
     window.location.href="/shoppingCar"
   }
+
+  const comments = (
+    <div>hello world</div>
+  )
 
   return (
     <div className="each-shopping-good">
@@ -131,12 +137,13 @@ const ItemCard = React.memo((props: Props) => {
             Open drawer
           </Button>
           <Drawer
-            title="Multi-level drawer"
+            title="商品评价"
             width={520}
             closable={false}
             onClose={onClose}
             visible={visible}
           >
+            {comments}
             <Button type="primary" onClick={showChildrenDrawer}>
               去评论
             </Button>
