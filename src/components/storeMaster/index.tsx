@@ -126,7 +126,7 @@ const StoreMaster = () => {
     return (
       <Modal
         visible={Uploadvisible}
-        title="开启系统维护"
+        title="普通用户将无法访问网站"
         okText="确定"
         cancelText="再想想"
         onCancel={onCancel}
