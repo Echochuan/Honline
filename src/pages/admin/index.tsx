@@ -12,7 +12,7 @@ const Admin = () => {
           </div>
         </Header>
         <Layout>
-          <Content className="">
+          <Content className="content-list">
               这里是管理员模块
           </Content>
         </Layout>
