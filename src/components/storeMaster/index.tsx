@@ -20,6 +20,7 @@ interface Values {
 }
 
 interface CollectionCreateFormProps {
+  value: number;
   Uploadvisible: boolean;
   onCreate: (values: Values) => void;
   onCancel: () => void;
@@ -61,6 +62,7 @@ const StoreMaster = () => {
 
   const safeguard = () => {
     console.log("系统维护中");
+    console.log({value})
   };
 
   //商铺关停的相关函数
@@ -141,10 +143,8 @@ const StoreMaster = () => {
         }}
       >
         <Radio.Group onChange={onChange} value={value}>
-          <Radio value={1}>A</Radio>
-          <Radio value={2}>B</Radio>
-          <Radio value={3}>C</Radio>
-          <Radio value={4}>D</Radio>
+          <Radio value={1}>开启</Radio>
+          <Radio value={2}>关闭</Radio>
         </Radio.Group>
       </Modal>
     );
@@ -163,6 +163,7 @@ const StoreMaster = () => {
           系统维护
         </Button>
         <CollectionCreateForm
+        value={value}
           Uploadvisible={Uploadvisible}
           onCreate={safeguard}
           onCancel={() => {
