@@ -1,5 +1,5 @@
 import { BankOutlined } from "@ant-design/icons";
-import { Button, Form, Input, List, Modal, Typography } from "antd";
+import { Button, Form, Input, List, Modal } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import shopping from "../../mock/storeMenu.json";

@@ -2,21 +2,12 @@ import React, { useState } from "react";
 import { CartItem } from ".";
 import { OnCheckedChange } from "./use-check";
 import {
-  Typography,
   Popconfirm,
-  message,
   Button,
-  Drawer,
   Form,
-  Row,
-  Col,
-  Input,
-  Space
 } from "antd";
 import "./index.css";
 import store from "../../redux/store";
-
-import storeMenu from "../../mock/storeMenu.json";
 
 interface Props {
   item: CartItem;
