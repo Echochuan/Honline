@@ -1,15 +1,11 @@
-.btn-upload {
-    margin-top:3vh;
-    margin-left: 80vw;
-}
-
-.store-name {
-    margin:0 auto;
-    font-size: 30px;
-    text-align: center;
-}
-
 .each-store-name {
     position: absolute;
-    margin-top:3vh;
+    margin-top: -1vh;
+    left: 20vw;
+}
+
+.btn-store-delete {
+    position: absolute;
+    margin-top: -1vh;
+    left: 70vw;
 }

@@ -188,7 +188,7 @@ const StoreMaster = () => {
             setUploadVisible(true);
           }}
         >
-          上架商品
+          系统维护
         </Button>
         <CollectionCreateForm
           Uploadvisible={Uploadvisible}
@@ -200,7 +200,7 @@ const StoreMaster = () => {
       </div>
       <List
         className="goodsList"
-        header={<div>您店铺的商品列表</div>}
+        header={<div>现有的商铺列表</div>}
         bordered
         dataSource={goodsList}
         renderItem={item => {
