@@ -1,6 +1,4 @@
-import { BankOutlined } from "@ant-design/icons";
-import { Button, Form, Input, List, Modal, Typography, Radio, message } from "antd";
-import axios from "axios";
+import { Button, Form, List, Modal, Radio, message } from "antd";
 import { useState } from "react";
 import storeList from "../../mock/storeList.json";
 import store from "../../redux/store";
