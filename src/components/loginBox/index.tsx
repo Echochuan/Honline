@@ -15,7 +15,7 @@ const LoginBox = () => {
   const onFinish = (values: any) => {
     console.log(values);
     //在这里调用登陆接口，判断返回的状态码是不是 200 ，如果是则跳转进主页， 如果不是则发出警告
-    //对返回的数据进行判断，是否为管理员，如果是则转向管理员主页，如果不为，则正常转入主页
+    //对返回的数据进行判断，是否为管理员，如果是则转向管理员主页，如果不为，则判断是否在维护，若在则转入维护页面
     if (
       values.username === data.username &&
       values.password === data.password
@@ -30,6 +30,7 @@ const LoginBox = () => {
         console.log("subscribe", store.getState());
       });
       window.location.href = "/init";
+      // window.location.href = "/safeguard"
     } else {
       message.error("账户不存在或密码错误");
     }

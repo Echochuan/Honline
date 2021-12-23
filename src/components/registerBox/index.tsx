@@ -20,8 +20,9 @@ const RegisterBox = () => {
       store.subscribe(() => {
         console.log("subscribe", store.getState());
       });
-      //然后跳转到主页
+      //然后判断是否在维护中，若在 则跳转到维护页面，若不在 则正常跳转到主页
       window.location.href = "/init";
+      // window.location.href = "/safeguard"
     }
   };
 
