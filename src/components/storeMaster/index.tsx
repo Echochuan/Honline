@@ -1,5 +1,5 @@
 import { BankOutlined } from "@ant-design/icons";
-import { Button, Form, Input, List, Modal, Typography, Radio } from "antd";
+import { Button, Form, Input, List, Modal, Typography, Radio, message } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import storeList from "../../mock/storeList.json";
@@ -29,16 +29,14 @@ interface CollectionCreateFormProps {
 const StoreMaster = () => {
   const [visible, setVisible] = useState(false);
   const [Uploadvisible, setUploadVisible] = useState(false);
-  const [value, setValue] = useState(1);
 
-  //获取数据判断当前网络状态
-  const getData = () => {
-    //请求数据判断当前网站状态是否为维护状态
-    //如果是，则修改当前状态
-    //1 为 开启，2 为关闭
-    setValue(2)
-    return 0;
-  };
+
+  //请求数据判断当前网站状态是否为维护状态
+  //如果是，则修改当前状态
+  //1 为 开启，2 为关闭
+  const state = 2;
+
+  const [value, setValue] = useState(state);
 
   const onChange = (e:any) => {
     console.log('radio checked', e.target.value);
@@ -47,7 +45,7 @@ const StoreMaster = () => {
 
   const goodList = storeList;
   const goodsList = goodList.list;
-  console.log(goodsList);
+  // console.log(goodsList);
   // console.log(userid);
   // console.log(goodsList);
 
@@ -65,8 +63,19 @@ const StoreMaster = () => {
   };
 
   const safeguard = () => {
-    console.log("系统维护中");
+    //获取当前网站是否开启维护的信息
     console.log({value})
+    const a = {value};
+    //将该信息发送给后端告知当前状态
+
+    //消息通知
+    if (a === {value: 1}) {
+      message.success("已开启系统维护")
+    }
+    else {
+      message.success("已关闭系统维护")
+    }
+    setUploadVisible(false);
   };
 
   //商铺关停的相关函数
@@ -127,7 +136,6 @@ const StoreMaster = () => {
     onCancel
   }) => {
     const [form] = Form.useForm();
-    getData();
     return (
       <Modal
         visible={Uploadvisible}
