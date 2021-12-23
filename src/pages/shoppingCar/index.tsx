@@ -10,12 +10,15 @@ const ShoppingCar = () => {
   store.subscribe(() => {
     console.log("subscribe", store.getState());
   });
-  
-  return ( 
+
+  return (
     <div>
-      <Layout style={{ height: "100vh" , display: "block"}}>
+      <Layout style={{ height: "100vh", display: "block" }}>
         <Header className="header-init">
-        <a href="/init"><div className="logo-init"></div></a>
+          <a href="/init">
+            <div className="logo-init"></div>
+          </a>
+          <div className="welcome1">购物车</div>
         </Header>
         <Layout>
           <Content>

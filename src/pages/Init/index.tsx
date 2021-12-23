@@ -74,9 +74,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
         <Form.Item
           name="storeName"
           label="您的商铺名"
-          rules={[
-            { required: true, message: "店铺名不能为空" }
-          ]}
+          rules={[{ required: true, message: "店铺名不能为空" }]}
         >
           <Input />
         </Form.Item>
@@ -91,7 +89,7 @@ const Init = () => {
   //开店确认后的函数
   const onCreate = (values: any) => {
     //获取店铺的名称
-    console.log(values.storeName)
+    console.log(values.storeName);
     const userId = store.getState().name;
     console.log(userId);
     //向后端发送店铺的名称，用户的 Id 告诉后端该用户开启了商店

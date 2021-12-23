@@ -1,5 +1,5 @@
 import { Layout } from "antd";
-import "./index.css"
+import "./index.css";
 
 const { Header, Footer, Content } = Layout;
 
@@ -7,15 +7,13 @@ const InSafeguard = () => {
   return (
     <div>
       <Layout style={{ height: "100vh" }}>
-        <Header>
-            <div className="logo" >
-            </div>
+        <Header className="header-storeMenu">
+          <div className="logo"></div>
         </Header>
         <Layout>
-          <Content>
-          </Content>
+          <Content></Content>
         </Layout>
-        <Footer>Copyright © 2021  Created by 524 & 525</Footer>
+        <Footer>Copyright © 2021 Created by 524 & 525</Footer>
       </Layout>
     </div>
   );
