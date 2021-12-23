@@ -5,6 +5,7 @@ import Register from "./pages/register/index";
 import Init from "./pages/Init/index"
 import ShoppingCar from "./pages/shoppingCar/index"
 import StoreMenu from "./pages/storeMenu/index"
+import Admin from "./pages/admin";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/shoppingCar" element={<ShoppingCar />} />
       <Route path="/storeMenu" element={<StoreMenu />} />
+      <Route path="/admin" element={<Admin />} />
     </Routes>
   );
 };
