@@ -11,7 +11,10 @@ const InSafeguard = () => {
           <div className="logo"></div>
         </Header>
         <Layout>
-          <Content></Content>
+          <Content>
+            {" "}
+            <div className="error-message">系统维护中</div>{" "}
+          </Content>
         </Layout>
         <Footer>Copyright © 2021 Created by 524 & 525</Footer>
       </Layout>
