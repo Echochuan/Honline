@@ -53,6 +53,7 @@ const StoreMaster = () => {
     onCheckedAllChange(checkAll);
   };
 
+  //商铺下架的相关函数
   const deleteBtn = () => {
     //把商铺的 ID 和用户的 id 发送给后端
     //获取商铺的 id
@@ -65,14 +66,14 @@ const StoreMaster = () => {
     //将两者一起发送给后端
     //如果成功则刷新页面
     // console.log(checkedGoodId,userId);
-    // window.location.href = "/admin";
+    window.location.href = "/admin";
   };
 
   const Footer = (
     <div className="footer-check">
       <Modal
         visible={visible}
-        title="被选中的商铺将被关闭"
+        title="被选中的商铺将被关停"
         okText="确认"
         cancelText="再想想"
         onCancel={() => {
@@ -98,7 +99,7 @@ const StoreMaster = () => {
           setVisible(true);
         }}
       >
-        下架
+        关停
       </Button>
     </div>
   );

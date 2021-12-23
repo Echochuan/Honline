@@ -96,13 +96,13 @@ const ItemCard = React.memo((props: Props) => {
       <p>
         <div className="btn-store-delete">
           <Popconfirm
-            title="确认要从您的店铺中下架吗？"
+            title="确认要关停该店铺吗？"
             onConfirm={confirm}
             onCancel={cancel}
             okText="是的"
             cancelText="再想想"
           >
-            <Button type="primary" danger>下架</Button>
+            <Button type="primary" danger>关停</Button>
           </Popconfirm>
         </div>
       </p>
