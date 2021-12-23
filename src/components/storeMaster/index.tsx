@@ -26,21 +26,25 @@ interface CollectionCreateFormProps {
   onCancel: () => void;
 }
 
-const getData = () => {
-  return axios("../../mock/shopping.json");
-};
-
 const StoreMaster = () => {
   const [visible, setVisible] = useState(false);
   const [Uploadvisible, setUploadVisible] = useState(false);
   const [value, setValue] = useState(1);
+
+  //获取数据判断当前网络状态
+  const getData = () => {
+    //请求数据判断当前网站状态是否为维护状态
+    //如果是，则修改当前状态
+    //1 为 开启，2 为关闭
+    setValue(2)
+    return 0;
+  };
 
   const onChange = (e:any) => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
 
-  // console.log(getData());
   const goodList = storeList;
   const goodsList = goodList.list;
   console.log(goodsList);
@@ -123,6 +127,7 @@ const StoreMaster = () => {
     onCancel
   }) => {
     const [form] = Form.useForm();
+    getData();
     return (
       <Modal
         visible={Uploadvisible}
@@ -142,7 +147,7 @@ const StoreMaster = () => {
             });
         }}
       >
-        <Radio.Group onChange={onChange} value={value}>
+        <Radio.Group onChange={onChange} value={value} >
           <Radio value={1}>开启</Radio>
           <Radio value={2}>关闭</Radio>
         </Radio.Group>
