@@ -2,7 +2,7 @@ import { BankOutlined } from "@ant-design/icons";
 import { Button, Form, Input, List, Modal, Typography } from "antd";
 import axios from "axios";
 import { useState } from "react";
-import shopping from "../../mock/storeMenu.json";
+import storeList from "../../mock/storeList.json";
 import store from "../../redux/store";
 import "./index.css";
 import ItemCard from "./ItemCard";
@@ -10,11 +10,7 @@ import { useChecked } from "./use-check";
 
 export interface CartItem {
   id: number;
-  goodsSrc: string;
-  goodsTitle: string;
-  goodsSubtitle: string;
-  goodsPrice: string;
-  goodsNum: string;
+  storeName: string;
 }
 
 interface Values {
@@ -38,10 +34,9 @@ const StoreMaster = () => {
   const [Uploadvisible, setUploadVisible] = useState(false);
 
   // console.log(getData());
-  const goodList = shopping;
-  const userid = shopping.userId;
-  const storeName = shopping.storeName;
+  const goodList = storeList;
   const goodsList = goodList.list;
+  console.log(goodsList)
   // console.log(userid);
   // console.log(goodsList);
 
@@ -56,21 +51,6 @@ const StoreMaster = () => {
   const onWrapCheckedAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const checkAll = e.target.checked;
     onCheckedAllChange(checkAll);
-  };
-
-  const uploadGood = (values: any) => {
-    console.log("Received values of form: ", values);
-    //获取商品的名称
-    console.log(values.goodsTitle);
-    //获取商品的描述
-    console.log(values.goodsSubtitle);
-    //获取商品的价格
-    console.log(values.goodsPrice);
-    //获取用户的 id
-    console.log(store.getState().name);
-    //将上述数据传送给后端，如果成功，则刷新页面
-    window.location.href = "/storeMenu";
-    setUploadVisible(false);
   };
 
   const deleteBtn = () => {
@@ -199,7 +179,7 @@ const StoreMaster = () => {
     <div>
       <div className="store-name">
         <BankOutlined />
-        {storeName}
+        {/* {storeName} */}
       </div>
       <div className="btn-upload">
         <Button
@@ -212,7 +192,7 @@ const StoreMaster = () => {
         </Button>
         <CollectionCreateForm
           Uploadvisible={Uploadvisible}
-          onCreate={uploadGood}
+          onCreate={() => {console.log("loading")}}
           onCancel={() => {
             setUploadVisible(false);
           }}

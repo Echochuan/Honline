@@ -36,7 +36,7 @@ const ItemCard = React.memo((props: Props) => {
 
   console.log("cart item rerender");
   const { item, checked, onCheckedChange } = props;
-  const { id, goodsTitle, goodsPrice, goodsSrc, goodsSubtitle } = item;
+  const { id, storeName } = item;
 
   const onWrapCheckedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target;
@@ -49,7 +49,7 @@ const ItemCard = React.memo((props: Props) => {
     //获取用户的 id
     const userId = store.getState().name;
     //将数据发给后端，后端返回正确的状态码之后刷新页面
-    window.location.href = "/storeMenu";
+    window.location.href = "/admin";
   };
 
   //气泡确认框的相关函数
@@ -92,20 +92,8 @@ const ItemCard = React.memo((props: Props) => {
           onChange={onWrapCheckedChange}
         />
       </div>
+      <div className="each-store-name">{storeName}</div>
       <p>
-        <div>
-          <img
-            className="shopping-img"
-            src={goodsSrc}
-            style={{ width: "100px", height: "100px" }}
-            alt=""
-          />
-        </div>
-        <div className="shopping-title">{goodsTitle}</div>
-        <div className="shopping-content">{goodsSubtitle}</div>
-        <Typography.Text mark className="shopping-price">
-          ${goodsPrice}
-        </Typography.Text>
         <div className="btn-delete">
           <Popconfirm
             title="确认要从您的店铺中下架吗？"
@@ -116,83 +104,6 @@ const ItemCard = React.memo((props: Props) => {
           >
             <a href="#">下架</a>
           </Popconfirm>
-        </div>
-        <div className="btn-comment">
-          <a href="#" type="primary" onClick={showDrawer}>
-            编辑
-          </a>
-          <Drawer
-            title="编辑你的商品信息"
-            width={720}
-            onClose={onClose}
-            visible={visible}
-            bodyStyle={{ paddingBottom: 80 }}
-            extra={
-              <Space>
-                <Button onClick={onClose}>取消</Button>
-              </Space>
-            }
-          >
-            <Form
-              layout="vertical"
-              onFinish={values => {
-                update(values)
-              }}
-              hideRequiredMark
-            >
-              <Row gutter={16}>
-                <Col span={12}>
-                  <Form.Item
-                    name="goodsTitle"
-                    label="商品名称"
-                    rules={[{ required: false }]}
-                    initialValue={goodsTitle}
-                  >
-                    <Input placeholder={goodsTitle} />
-                  </Form.Item>
-                </Col>
-                <Col span={12}>
-                  <Form.Item
-                    name="goodsPrice"
-                    label="商品描述"
-                    rules={[{ required: false }]}
-                    initialValue={goodsPrice}
-                  >
-                    <Input placeholder={goodsPrice} />
-                  </Form.Item>
-                </Col>
-              </Row>
-              <Row gutter={16}>
-                <Col span={24}>
-                  <Form.Item
-                    name="goodsSubtitle"
-                    label="商品描述"
-                    rules={[
-                      {
-                        required: false
-                      }
-                    ]}
-                    initialValue={goodsSubtitle}
-                  >
-                    <Input.TextArea
-                      rows={4}
-                      placeholder={goodsSubtitle}
-                      defaultValue={goodsSubtitle}
-                    />
-                  </Form.Item>
-                  <Row gutter={16}>
-                    <Col span={24}>
-                      <Form.Item>
-                        <Button style={{ width: "100%" }} type="primary" htmlType="submit">
-                          更新
-                        </Button>
-                      </Form.Item>
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
-            </Form>
-          </Drawer>
         </div>
       </p>
     </div>

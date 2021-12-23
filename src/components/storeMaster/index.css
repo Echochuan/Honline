@@ -8,3 +8,8 @@
     font-size: 30px;
     text-align: center;
 }
+
+.each-store-name {
+    position: absolute;
+    margin-top:3vh;
+}

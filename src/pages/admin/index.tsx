@@ -1,6 +1,8 @@
 import { Layout } from "antd";
 import "./index.css";
 
+import StoreMaster from "../../components/storeMaster"
+
 const { Header, Footer, Content } = Layout;
 
 const Admin = () => {
@@ -13,7 +15,7 @@ const Admin = () => {
         </Header>
         <Layout>
           <Content className="content-list">
-              这里是管理员模块
+              <StoreMaster />
           </Content>
         </Layout>
         <Footer>Copyright © 2021 Created by 524 & 525</Footer>
