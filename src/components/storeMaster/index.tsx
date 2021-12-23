@@ -1,5 +1,5 @@
 import { BankOutlined } from "@ant-design/icons";
-import { Button, Form, Input, List, Modal, Typography } from "antd";
+import { Button, Form, Input, List, Modal, Typography, Radio } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import storeList from "../../mock/storeList.json";
@@ -32,11 +32,17 @@ const getData = () => {
 const StoreMaster = () => {
   const [visible, setVisible] = useState(false);
   const [Uploadvisible, setUploadVisible] = useState(false);
+  const [value, setValue] = useState(1);
+
+  const onChange = (e:any) => {
+    console.log('radio checked', e.target.value);
+    setValue(e.target.value);
+  };
 
   // console.log(getData());
   const goodList = storeList;
   const goodsList = goodList.list;
-  console.log(goodsList)
+  console.log(goodsList);
   // console.log(userid);
   // console.log(goodsList);
 
@@ -53,12 +59,16 @@ const StoreMaster = () => {
     onCheckedAllChange(checkAll);
   };
 
-  //商铺下架的相关函数
+  const safeguard = () => {
+    console.log("系统维护中");
+  };
+
+  //商铺关停的相关函数
   const deleteBtn = () => {
     //把商铺的 ID 和用户的 id 发送给后端
     //获取商铺的 id
     const checkedGoodId = filterChecked().map(item => {
-      console.log(item.id)
+      console.log(item.id);
       return item.id;
     });
     //获取用户的 id
@@ -114,8 +124,8 @@ const StoreMaster = () => {
     return (
       <Modal
         visible={Uploadvisible}
-        title="上架商品"
-        okText="上架"
+        title="开启系统维护"
+        okText="确定"
         cancelText="再想想"
         onCancel={onCancel}
         onOk={() => {
@@ -130,58 +140,19 @@ const StoreMaster = () => {
             });
         }}
       >
-        <Form
-          form={form}
-          layout="vertical"
-          name="form_in_modal"
-          initialValues={{ modifier: "public" }}
-        >
-          <Form.Item
-            name="goodsTitle"
-            label="商品名称"
-            rules={[
-              {
-                required: true,
-                message: "商品名称不能为空"
-              }
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="goodsSubtitle"
-            label="商品描述"
-            rules={[
-              {
-                required: true,
-                message: "商品描述不能为空"
-              }
-            ]}
-          >
-            <Input type="textarea" />
-          </Form.Item>
-          <Form.Item
-            name="goodsPrice"
-            label="商品价格"
-            rules={[
-              {
-                required: true,
-                message: "商品价格不能为空"
-              }
-            ]}
-          >
-            <Input />
-          </Form.Item>
-        </Form>
+        <Radio.Group onChange={onChange} value={value}>
+          <Radio value={1}>A</Radio>
+          <Radio value={2}>B</Radio>
+          <Radio value={3}>C</Radio>
+          <Radio value={4}>D</Radio>
+        </Radio.Group>
       </Modal>
     );
   };
 
   return (
     <div>
-      <div className="store-name">
-        欢迎您，管理员
-      </div>
+      <div className="store-name">欢迎您，管理员</div>
       <div className="btn-upload">
         <Button
           type="primary"
@@ -193,7 +164,7 @@ const StoreMaster = () => {
         </Button>
         <CollectionCreateForm
           Uploadvisible={Uploadvisible}
-          onCreate={() => {console.log("loading")}}
+          onCreate={safeguard}
           onCancel={() => {
             setUploadVisible(false);
           }}
