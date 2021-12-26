@@ -1,8 +1,6 @@
 import { Button, List, Modal, Typography } from "antd";
-import axios from "axios";
 import { useState } from "react";
 import shopping from "../../mock/shopping.json";
-import store from "../../redux/store";
 import "./index.css";
 import ItemCard from "./ItemCard";
 import { useChecked } from "./use-check";
@@ -17,16 +15,12 @@ export interface CartItem {
   goodsNum: string;
 }
 
-const getData = () => {
-  return axios("../../mock/shopping.json");
-};
-
 const ShoppingList = () => {
   const [visible, setVisible] = useState(false);
 
   // console.log(getData());
   const goodList = shopping;
-  const userid = shopping.userId;
+  // const userid = shopping.userId;
   const goodsList = goodList.list;
   // console.log(userid);
   // console.log(goodsList);
@@ -54,9 +48,9 @@ const ShoppingList = () => {
   const payBtn = () => {
     //把商品的 ID 和用户的 id 发送给后端
     //获取商品的 id 
-    const checkedGoodId = filterChecked().map((item) => {return item.id})
+    // const checkedGoodId = filterChecked().map((item) => {return item.id})
     //获取用户的 id
-    const userId = store.getState().name;
+    // const userId = store.getState().name;
     //将两者一起发送给后端
     //如果成功则刷新页面
     window.location.href="/shoppingCar"

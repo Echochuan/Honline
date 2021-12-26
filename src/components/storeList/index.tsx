@@ -1,6 +1,5 @@
 import { BankOutlined } from "@ant-design/icons";
 import { Button, Form, Input, List, Modal } from "antd";
-import axios from "axios";
 import { useState } from "react";
 import shopping from "../../mock/storeMenu.json";
 import store from "../../redux/store";
@@ -29,17 +28,13 @@ interface CollectionCreateFormProps {
   onCancel: () => void;
 }
 
-const getData = () => {
-  return axios("../../mock/shopping.json");
-};
-
 const StoreList = () => {
   const [visible, setVisible] = useState(false);
   const [Uploadvisible, setUploadVisible] = useState(false);
 
   // console.log(getData());
   const goodList = shopping;
-  const userid = shopping.userId;
+  // const userid = shopping.userId;
   const storeName = shopping.storeName;
   const goodsList = goodList.list;
   // console.log(userid);
@@ -50,7 +45,7 @@ const StoreList = () => {
     checkedMap,
     onCheckedAllChange,
     onCheckedChange,
-    filterChecked
+    // filterChecked
   } = useChecked(goodsList);
 
   const onWrapCheckedAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,11 +71,11 @@ const StoreList = () => {
   const deleteBtn = () => {
     //把商品的 ID 和用户的 id 发送给后端
     //获取商品的 id
-    const checkedGoodId = filterChecked().map(item => {
-      return item.id;
-    });
+    // const checkedGoodId = filterChecked().map(item => {
+    //   return item.id;
+    // });
     //获取用户的 id
-    const userId = store.getState().name;
+    // const userId = store.getState().name;
     //将两者一起发送给后端
     //如果成功则刷新页面
     // console.log(checkedGoodId,userId);

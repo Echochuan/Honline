@@ -16,7 +16,6 @@ import {
   Avatar
 } from "antd";
 import "./index.css";
-import store from "../../redux/store";
 
 import commentsList from '../../mock/comments.json';
 import { BankOutlined } from "@ant-design/icons";
@@ -51,7 +50,7 @@ const ItemCard = React.memo((props: Props) => {
     //获取商品的 id
     console.log(id);
     //获取用户的 id
-    const userId = store.getState().name;
+    // const userId = store.getState().name;
     //将数据发给后端，后端返回正确的状态码之后刷新页面
     window.location.href = "/shoppingCar";
   };
@@ -89,7 +88,7 @@ const ItemCard = React.memo((props: Props) => {
     //获取评论内容
     console.log(values);
     //获取用户的 id 
-    const userId = store.getState().name;
+    // const userId = store.getState().name;
     //将商品的 id , 用户的 id 和评论内容提交给后端存储起来
 
     //清空表单内容
@@ -158,11 +157,11 @@ const ItemCard = React.memo((props: Props) => {
             okText="是的"
             cancelText="再想想"
           >
-            <a href="#">删除</a>
+            <a href="# ">删除</a>
           </Popconfirm>
         </div>
         <div className="btn-comment">
-          <a href="#" type="primary" onClick={showDrawer}>
+          <a href="# " type="primary" onClick={showDrawer}>
             评论
           </a>
           <Drawer

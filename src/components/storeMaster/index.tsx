@@ -1,7 +1,7 @@
 import { Button, Form, List, Modal, Radio, message } from "antd";
 import { useState } from "react";
 import storeList from "../../mock/storeList.json";
-import store from "../../redux/store";
+// import store from "../../redux/store";
 import "./index.css";
 import ItemCard from "./ItemCard";
 import { useChecked } from "./use-check";
@@ -52,7 +52,7 @@ const StoreMaster = () => {
     checkedMap,
     onCheckedAllChange,
     onCheckedChange,
-    filterChecked
+    // filterChecked
   } = useChecked(goodsList);
 
   const onWrapCheckedAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -80,12 +80,12 @@ const StoreMaster = () => {
   const deleteBtn = () => {
     //把商铺的 ID 和用户的 id 发送给后端
     //获取商铺的 id
-    const checkedGoodId = filterChecked().map(item => {
-      console.log(item.id);
-      return item.id;
-    });
+    // const checkedGoodId = filterChecked().map(item => {
+    //   console.log(item.id);
+    //   return item.id;
+    // });
     //获取用户的 id
-    const userId = store.getState().name;
+    // const userId = store.getState().name;
     //将两者一起发送给后端
     //如果成功则刷新页面
     // console.log(checkedGoodId,userId);

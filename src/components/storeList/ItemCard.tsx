@@ -4,7 +4,6 @@ import { OnCheckedChange } from "./use-check";
 import {
   Typography,
   Popconfirm,
-  message,
   Button,
   Drawer,
   Form,
@@ -15,8 +14,6 @@ import {
 } from "antd";
 import "./index.css";
 import store from "../../redux/store";
-
-import storeMenu from "../../mock/storeMenu.json";
 
 interface Props {
   item: CartItem;
@@ -32,7 +29,7 @@ function areEqual(prevProps: Props, nextProps: Props) {
 const ItemCard = React.memo((props: Props) => {
   const [visible, setVisible] = useState(false);
 
-  const [form] = Form.useForm();
+  // const [form] = Form.useForm();
 
   console.log("cart item rerender");
   const { item, checked, onCheckedChange } = props;
@@ -47,7 +44,7 @@ const ItemCard = React.memo((props: Props) => {
     //获取商品的 id
     console.log(id);
     //获取用户的 id
-    const userId = store.getState().name;
+    // const userId = store.getState().name;
     //将数据发给后端，后端返回正确的状态码之后刷新页面
     window.location.href = "/storeMenu";
   };
@@ -114,11 +111,11 @@ const ItemCard = React.memo((props: Props) => {
             okText="是的"
             cancelText="再想想"
           >
-            <a href="#">下架</a>
+            <a href="# ">下架</a>
           </Popconfirm>
         </div>
         <div className="btn-comment">
-          <a href="#" type="primary" onClick={showDrawer}>
+          <a href="# " type="primary" onClick={showDrawer}>
             编辑
           </a>
           <Drawer

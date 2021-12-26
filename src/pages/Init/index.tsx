@@ -20,12 +20,12 @@ import { useState } from "react";
 
 const { Header, Footer, Content } = Layout;
 
-interface dataList {
-  id: string;
-  img: string;
-  context: string;
-  price: string;
-}
+// interface dataList {
+//   id: string;
+//   img: string;
+//   context: string;
+//   price: string;
+// }
 
 interface Values {
   title: string;
@@ -124,7 +124,7 @@ const Init = () => {
           {" "}
           <div>
             <a
-              href="#"
+              href="# "
               className="btn-store"
               type="primary"
               onClick={() => {
