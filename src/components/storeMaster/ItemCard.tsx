@@ -36,8 +36,8 @@ const ItemCard = React.memo((props: Props) => {
   const deleteGood = () => {
     //获取商品的 id
     console.log(id);
-    //获取用户的 id
-    // const userId = store.getState().name;
+    const arr: any[] = [id]
+    console.log(arr)
     //将数据发给后端，后端返回正确的状态码之后刷新页面
     window.location.href = "/admin";
   };
@@ -50,27 +50,6 @@ const ItemCard = React.memo((props: Props) => {
   const cancel = () => {
     console.log("click no");
   };
-
-  // //抽屉的相关函数
-  // const showDrawer = () => {
-  //   setVisible(true);
-  // };
-
-  // const onClose = () => {
-  //   setVisible(false);
-  // };
-
-  // const update = (values: any) => {
-  //   //用户更新的内容
-  //   console.log(values);
-  //   //商品的 id 
-  //   console.log(id);
-  //   //用户的 id
-  //   console.log(store.getState().name);
-  //   //将用户的 id , 商品的 id , 用户更新的内容传输给后端
-  //   //若成功则刷新页面
-  //   window.location.href="/storeMenu"
-  // };
 
   return (
     <div className="each-shopping-good">

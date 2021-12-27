@@ -48,12 +48,13 @@ const ShoppingList = () => {
   const payBtn = () => {
     //把商品的 ID 和用户的 id 发送给后端
     //获取商品的 id 
-    // const checkedGoodId = filterChecked().map((item) => {return item.id})
+    const checkedGoodId = filterChecked().map((item) => {return item.id})
     //获取用户的 id
     // const userId = store.getState().name;
     //将两者一起发送给后端
     //如果成功则刷新页面
     window.location.href="/shoppingCar"
+    // console.log(checkedGoodId)
   };
 
   const Footer = (

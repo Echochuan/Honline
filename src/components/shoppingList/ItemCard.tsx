@@ -112,7 +112,7 @@ const ItemCard = React.memo((props: Props) => {
         <Comment
         style={{ width:"80%", margin: "0 auto" }}
         author={<p>{item.id}</p>}
-        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt={ item.id } />}
+        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt={ item.id.toString() } />}
         content={
           <p>
             {item.comment}

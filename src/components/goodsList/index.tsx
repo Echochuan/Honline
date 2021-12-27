@@ -6,7 +6,7 @@ import goods from "../../mock/goods.json";
 import "./index.css";
 
 interface dataList {
-  id: string;
+  id: number;
   storeName: string,
   img: string;
   context: string;

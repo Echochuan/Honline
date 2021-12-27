@@ -1,42 +1,42 @@
 {
     "goodsList":[
     {
-        "id":"0",
+        "id":0,
         "storeName": "NewYear",
         "img":"https://img20.360buyimg.com/jdcms/s150x150_jfs/t1/193136/5/8477/126879/60c9d65cEd00e2ff4/d5af6518ae358860.jpg.webp",
         "context":"多功能清洁泥",
         "price":"¥30"
     },
     {
-        "id":"1",
+        "id":1,
         "storeName": "NewYear",
         "img":"https://img10.360buyimg.com/jdcms/s150x150_jfs/t1/143777/37/12455/76388/5f9a55c1Ebcda14fa/1e09524ec6ab713b.jpg.webp",
         "context":"SanDisk闪迪U盘",
         "price":"¥110"
     },
     {
-        "id":"2",
+        "id":2,
         "storeName": "NewYear",
         "img":"https://img20.360buyimg.com/jdcms/s150x150_jfs/t1/193136/5/8477/126879/60c9d65cEd00e2ff4/d5af6518ae358860.jpg.webp",
         "context":"多功能清洁泥",
         "price":"¥30"
     },
     {
-        "id":"3",
+        "id":3,
         "storeName": "NewYear",
         "img":"https://img10.360buyimg.com/jdcms/s150x150_jfs/t1/143777/37/12455/76388/5f9a55c1Ebcda14fa/1e09524ec6ab713b.jpg.webp",
         "context":"SanDisk闪迪U盘",
         "price":"¥110"
     },    
     {
-        "id":"4",
+        "id":4,
         "storeName": "NewYear",
         "img":"https://img20.360buyimg.com/jdcms/s150x150_jfs/t1/193136/5/8477/126879/60c9d65cEd00e2ff4/d5af6518ae358860.jpg.webp",
         "context":"多功能清洁泥",
         "price":"¥30"
     },
     {
-        "id":"5",
+        "id":5,
         "storeName": "NewYear",
         "img":"https://img10.360buyimg.com/jdcms/s150x150_jfs/t1/143777/37/12455/76388/5f9a55c1Ebcda14fa/1e09524ec6ab713b.jpg.webp",
         "context":"SanDisk闪迪U盘",

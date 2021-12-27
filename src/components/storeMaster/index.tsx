@@ -33,6 +33,9 @@ const StoreMaster = () => {
   //如果是，则修改当前状态
   //1 为 开启，2 为关闭
   const state = 2;
+  if (state === 2) {
+    console.log("1");
+  }
 
   const [value, setValue] = useState(state);
 
@@ -78,15 +81,12 @@ const StoreMaster = () => {
 
   //商铺关停的相关函数
   const deleteBtn = () => {
-    //把商铺的 ID 和用户的 id 发送给后端
+    //把商铺的 ID 发送给后端
     //获取商铺的 id
     // const checkedGoodId = filterChecked().map(item => {
     //   console.log(item.id);
     //   return item.id;
     // });
-    //获取用户的 id
-    // const userId = store.getState().name;
-    //将两者一起发送给后端
     //如果成功则刷新页面
     // console.log(checkedGoodId,userId);
     window.location.href = "/admin";

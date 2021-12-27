@@ -28,3 +28,9 @@ p {
 .btn2 {
   text-align: right;
 }
+
+.loginTip {
+  position: absolute;
+  margin-left: 8%;
+  font-size: 30px;
+}

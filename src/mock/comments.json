@@ -1,15 +1,15 @@
 {
     "comments":[
         {
-            "id" : "1",
+            "id" : 1,
             "comment": "hahah"
         },
         {
-            "id" : "2",
+            "id" : 2,
             "comment": "不错不错"
         },
         {
-            "id" : "3",
+            "id" : 3,
             "comment": "还行还行"
         }
     ]

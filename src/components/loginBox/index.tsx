@@ -47,6 +47,7 @@ const LoginBox = () => {
 
   return (
     <div className="loginBox">
+      <div className="loginTip">账号登陆</div>
       <div className="loginBox1">
         <Form
           name="basic"
