@@ -131,7 +131,6 @@ const Init = () => {
     } else {
       return (
         <div className="shortcut">
-          {" "}
           <div>
             <a
               href="# "
@@ -180,54 +179,60 @@ const Init = () => {
             <div className="banner">
               <Row>
                 <Col span={6}>
-                  <div className="banner-left">
-                  </div>
+                  <div className="banner-left"></div>
                 </Col>
                 <Col span={12}>
-              <Carousel autoplay>
-                <div>
-                  <h3 className="banneritem">
-                    <img
-                      width="500px"
-                      alt="1"
-                      src="https://img10.360buyimg.com/pop/s1180x940_jfs/t1/169365/40/26675/52069/61c5bbf9Ef1471228/faa5b81f7d65fd21.jpg.webp"
-                    ></img>
-                  </h3>
-                </div>
-                <div>
-                  <h3 className="banneritem">
-                    <img
-                      width="500px"
-                      alt="2"
-                      src="https://img30.360buyimg.com/pop/s1180x940_jfs/t1/131845/14/20897/83634/61cab273Ebd0fec46/8405a8e5bd168565.jpg.webp"
-                    ></img>
-                  </h3>
-                </div>
-                <div>
-                  <h3 className="banneritem">
-                    <img
-                      width="500px"
-                      alt="3"
-                      src="https://imgcps.jd.com/ling4/100008631911/5bCP5a6255S15pqW5Yas5a2j/5Y-W5pqW54iG5qy-55u06ZmN/p-5bd8253082acdd181d02f9fa/f471380f/cr/s/q.jpg"
-                    ></img>
-                  </h3>
-                </div>
-                <div>
-                  <h3 className="banneritem">
-                    <img
-                      width="500px"
-                      alt="4"
-                      src="https://img30.360buyimg.com/pop/s1180x940_jfs/t1/216211/29/7199/81887/61b30f8dE3c9c8dc9/06a14751ba10a2b2.jpg.webp"
-                    ></img>
-                  </h3>
-                </div>
-              </Carousel>
-              </Col>
-              <Col span={6}>
-                  <div className="banner-right">
-                  </div>
+                  <Carousel autoplay>
+                    <div>
+                      <h3 className="banneritem">
+                        <img
+                          width="500px"
+                          alt="1"
+                          src="https://img10.360buyimg.com/pop/s1180x940_jfs/t1/169365/40/26675/52069/61c5bbf9Ef1471228/faa5b81f7d65fd21.jpg.webp"
+                        ></img>
+                      </h3>
+                    </div>
+                    <div>
+                      <h3 className="banneritem">
+                        <img
+                          width="500px"
+                          alt="2"
+                          src="https://img30.360buyimg.com/pop/s1180x940_jfs/t1/131845/14/20897/83634/61cab273Ebd0fec46/8405a8e5bd168565.jpg.webp"
+                        ></img>
+                      </h3>
+                    </div>
+                    <div>
+                      <h3 className="banneritem">
+                        <img
+                          width="500px"
+                          alt="3"
+                          src="https://imgcps.jd.com/ling4/100008631911/5bCP5a6255S15pqW5Yas5a2j/5Y-W5pqW54iG5qy-55u06ZmN/p-5bd8253082acdd181d02f9fa/f471380f/cr/s/q.jpg"
+                        ></img>
+                      </h3>
+                    </div>
+                    <div>
+                      <h3 className="banneritem">
+                        <img
+                          width="500px"
+                          alt="4"
+                          src="https://img30.360buyimg.com/pop/s1180x940_jfs/t1/216211/29/7199/81887/61b30f8dE3c9c8dc9/06a14751ba10a2b2.jpg.webp"
+                        ></img>
+                      </h3>
+                    </div>
+                  </Carousel>
+                </Col>
+                <Col span={6}>
+                  <div className="banner-right"></div>
                 </Col>
               </Row>
+            </div>
+            <div className="under-search">
+              <Button className="button-item">秒杀</Button>
+              <Button className="button-item">优惠劵</Button>
+              <Button className="button-item">品牌闪购</Button>
+              <Button className="button-item">限时拍卖</Button>
+              <Button className="button-item">家电机器</Button>
+              <Button className="button-item">活力生鲜</Button>
             </div>
             <div className="floor">
               <Row>

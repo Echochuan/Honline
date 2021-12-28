@@ -66,6 +66,18 @@
   color: #999;
 }
 
+.under-search {
+  position: absolute;
+  top: 18vh;
+  left: 25%;
+  margin: 0 auto;
+}
+
+.button-item {
+  border : none;
+  margin-left: 2vw;
+}
+
 .banneritem {
   margin: 0 auto;
   height: 400px;
