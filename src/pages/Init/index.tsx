@@ -8,7 +8,8 @@ import {
   message,
   Input,
   Form,
-  Modal
+  Modal,
+  Carousel
 } from "antd";
 import { ShoppingCartOutlined, SmileOutlined } from "@ant-design/icons";
 
@@ -38,6 +39,14 @@ interface CollectionCreateFormProps {
   onCreate: (values: Values) => void;
   onCancel: () => void;
 }
+
+const contentStyle = {
+  height: "160px",
+  color: "#fff",
+  lineHeight: "160px",
+  textAlign: "center",
+  background: "#364d79"
+};
 
 const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
   visible,
@@ -167,7 +176,47 @@ const Init = () => {
         </Header>
         <Layout style={{ height: "auto", display: "block" }}>
           <Content className="content-list">
-            <div className="banner"></div>
+            <div className="banner">
+              <Carousel autoplay>
+                <div>
+                  <h3 className="banneritem">
+                    <img
+                      width="500px"
+                      alt="1"
+                      src="https://img10.360buyimg.com/pop/s1180x940_jfs/t1/169365/40/26675/52069/61c5bbf9Ef1471228/faa5b81f7d65fd21.jpg.webp"
+                    ></img>
+                  </h3>
+                </div>
+                <div>
+                  <h3 className="banneritem">
+                    <img
+                      width="500px"
+                      alt="2"
+                      src="https://img30.360buyimg.com/pop/s1180x940_jfs/t1/131845/14/20897/83634/61cab273Ebd0fec46/8405a8e5bd168565.jpg.webp"
+                    ></img>
+                  </h3>
+                </div>
+                <div>
+                  <h3 className="banneritem">
+                    <img
+                      width="500px"
+                      alt="3"
+                      src="https://imgcps.jd.com/ling4/100008631911/5bCP5a6255S15pqW5Yas5a2j/5Y-W5pqW54iG5qy-55u06ZmN/p-5bd8253082acdd181d02f9fa/f471380f/cr/s/q.jpg"
+                    ></img>
+                  </h3>
+                </div>
+                <div>
+                  <h3 className="banneritem">
+                    <img
+                      width="500px"
+                      alt="4"
+                      src="https://img30.360buyimg.com/pop/s1180x940_jfs/t1/216211/29/7199/81887/61b30f8dE3c9c8dc9/06a14751ba10a2b2.jpg.webp"
+                    ></img>
+                  </h3>
+                </div>
+              </Carousel>
+              ,
+            </div>
             <div className="floor">
               <Row>
                 <Col span={8}></Col>

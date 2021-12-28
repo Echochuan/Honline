@@ -4,6 +4,8 @@ import Meta from "antd/lib/card/Meta";
 import { Button } from "antd";
 import goods from "../../mock/goods.json";
 import "./index.css";
+import axios from "axios";
+import store from "../../redux/store";
 
 interface dataList {
   id: number;
@@ -13,18 +15,61 @@ interface dataList {
   price: string;
 }
 
-const enterCar = (item: dataList) => {
+const userId = store.getState().name;
+
+//	
+
+// const abc = () => {axios({
+//   method: "GET",
+//   headers: { "Content-type": "application/json" },
+//   url: `https://geoapi.qweather.com/v2/city/lookup?location=beij&key=`+ "7fbf5638d73e41f8ba50ec5370c7466b"
+// })
+// .then(function (response) {
+//   console.log(response);
+// })
+// }
+
+// abc();
+
+const enterCar = (item: dataList) => {axios({
+  method: "POST",
+  headers: { "Content-type": "application/json" },
+  url: "http://101.132.145.198:8080/homepage",
+  data: {
+    "gid" : item.id.toString(),
+    "uid" : userId.toString(),
+  },
+})
+.then(function (response) {
+  console.log(response);
+  return 0;
+})
+.catch(function (error) {
+  console.log(error);
+})
+}
   //点击后将商品的 id ，用户的id，发送给后端
   //获取用户的 ID 
-  // const userId = store.getState().name;
+
   // console.log(userId);
   // 获取商品的 id 
   // const goodId = item.id
   //将他们作为参数发送给后端
   //如果成功则弹出 message.success 
-  message.success("添加成功");
-  //如果失败则弹出 message.error
-};
+//   const enter = (item: dataList) => {axios({
+//     method: "POST",
+//     headers: { "Content-type": "application/json" },
+//     url: "http://101.132.145.198:8080/homepage",
+//     data: {
+//       "gid" : item.id,
+//       "uid" : userId,
+//     },
+//   })
+
+//   message.success("添加成功");
+//   enter(item);
+//   //如果失败则弹出 message.error
+// };
 
 const List = (goodsList: dataList[]) => {
   let stageList: any = [];
