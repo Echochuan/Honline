@@ -18,6 +18,7 @@ import GoodsList from "../../components/goodsList/index";
 import FeedTab from "../../components/feedTab/index";
 import store from "../../redux/store";
 import { useState } from "react";
+import { url } from "inspector";
 
 const { Header, Footer, Content } = Layout;
 
@@ -177,6 +178,12 @@ const Init = () => {
         <Layout style={{ height: "auto", display: "block" }}>
           <Content className="content-list">
             <div className="banner">
+              <Row>
+                <Col span={6}>
+                  <div className="banner-left">
+                  </div>
+                </Col>
+                <Col span={12}>
               <Carousel autoplay>
                 <div>
                   <h3 className="banneritem">
@@ -215,7 +222,12 @@ const Init = () => {
                   </h3>
                 </div>
               </Carousel>
-              ,
+              </Col>
+              <Col span={6}>
+                  <div className="banner-right">
+                  </div>
+                </Col>
+              </Row>
             </div>
             <div className="floor">
               <Row>
