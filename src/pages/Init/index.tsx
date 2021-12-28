@@ -234,6 +234,14 @@ const Init = () => {
               <Button className="button-item">家电机器</Button>
               <Button className="button-item">活力生鲜</Button>
             </div>
+            <div className="fourAd" style={{ width:"900px", margin: "0 auto" }}>
+              <Row>
+                <Col span={6} className="item1"></Col>
+                <Col span={6} className="item2"></Col>
+                <Col span={6} className="item3"></Col>
+                <Col span={6} className="item4"></Col>
+              </Row>
+            </div>
             <div className="floor">
               <Row>
                 <Col span={8}></Col>
