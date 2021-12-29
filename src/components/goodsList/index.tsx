@@ -9,7 +9,7 @@ import store from "../../redux/store";
 
 interface dataList {
   id: number;
-  storeName: string,
+  storeName: string;
   img: string;
   context: string;
   price: string;
@@ -17,68 +17,33 @@ interface dataList {
 
 const userId = store.getState().name;
 
-//	
-
-const abc = () => {axios({
-  method: "GET",
-  headers: { "Content-type": "application/json" },
-  url: "http://101.132.145.198:8080/comment" + "?gId=1"
-})
-.then(function (response) {
-  console.log(response);
-})
-}
-
-abc();
-
 const enterCar = (item: dataList) => {
-  console.log(item.id,userId);
   axios({
-  method: "POST",
-  headers: { "Content-type": "application/json" },
-  url: "http://101.132.145.198:8080/homepage",
-  data: {
-    "gid" : 1,
-    "uid" : 1,
-  },
-})
-.then(function (response) {
-  console.log(response);
-  return 0;
-})
-.catch(function (error) {
-  console.log(error);
-})
-}
-  //点击后将商品的 id ，用户的id，发送给后端
-  //获取用户的 ID 
-
-  // console.log(userId);
-  // 获取商品的 id 
-  // const goodId = item.id
-  //将他们作为参数发送给后端
-  //如果成功则弹出 message.success 
-//   const enter = (item: dataList) => {axios({
-//     method: "POST",
-//     headers: { "Content-type": "application/json" },
-//     url: "http://101.132.145.198:8080/homepage",
-//     data: {
-//       "gid" : item.id,
-//       "uid" : userId,
-//     },
-//   })
-
-//   message.success("添加成功");
-//   enter(item);
-//   //如果失败则弹出 message.error
-// };
+    method: "POST",
+    headers: { "Content-type": "application/json" },
+    url: "http://101.132.145.198:8080/homepage",
+    data: {
+      gid: item.id,
+      uid: userId
+    }
+  }).then(function(response) {
+    if (response.data.code === 200) {
+      message.success("添加成功");
+    } else {
+      message.error("添加失败");
+    }
+  });
+};
 
 const List = (goodsList: dataList[]) => {
+  console.log('11')
   let stageList: any = [];
   //可以给每一个商品卡片套一层栅格
   //eslint-disable-next-line
   {
     goodsList.map((item, i) => {
+      console.log(item)
+      console.log("111")
       stageList.push(
         <Col span={4.8}>
           <div key={i} className="eachGood">
@@ -97,7 +62,10 @@ const List = (goodsList: dataList[]) => {
                 ></Button>
               }
             >
-              <Meta title={item.context} description={item.storeName+item.price} />
+              <Meta
+                title={item.context}
+                description={item.storeName + item.price}
+              />
             </Card>
           </div>
         </Col>
@@ -109,8 +77,18 @@ const List = (goodsList: dataList[]) => {
 };
 
 const GoodsList = () => {
-  const goodsList: dataList[] = goods.goodsList;
+  var goodsList :dataList[] = [];
+  axios({
+    method: "GET",
+    headers: { "Content-type": "application/json" },
+    url: "http://101.132.145.198:8080/homepage",
+  }).then(function(response) {
+    console.log(response);
+    goodsList = response.data.goodsList;
+    console.log(goodsList);
+  })
   // console.log(goodsList);
+  console.log(goods.goodsList);
   return (
     <div>
       <div className="goodsList">{List(goodsList)}</div>
