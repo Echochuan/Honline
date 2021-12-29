@@ -33,7 +33,7 @@ const RegisterBox = () => {
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/manage/get_status",
     }).then(function(response) {
-      if (response) {
+      if (!response) {
         window.location.href="/safeguard"
       }
       else {

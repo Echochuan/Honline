@@ -4,6 +4,7 @@ import { UserOutlined, KeyOutlined } from "@ant-design/icons";
 
 import { getName } from "../../redux/action";
 import store from "../../redux/store";
+import axios from "axios";
 
 const data = {
   username: "1",
@@ -14,27 +15,41 @@ const data = {
 const LoginBox = () => {
   const onFinish = (values: any) => {
     console.log(values);
-    //在这里调用登陆接口，判断返回的状态码是不是 200 ，如果是则跳转进主页， 如果不是则发出警告
-    //对返回的数据进行判断，是否为管理员，如果是则转向管理员主页，如果不为，则判断是否在维护，若在则转入维护页面
-    if (
-      values.username === data.username &&
-      values.password === data.password
-    ) {
-      message.success("登陆成功");
-      //测试存入 store
-      const action = getName(values.username);
-      console.log("coming");
-      store.dispatch(action);
-      console.log(store.getState())
-      store.subscribe(() => {
-        console.log("subscribe", store.getState());
-      });
-      window.location.href = "/init";
-      // window.location.href = "/safeguard"
-    } else {
-      message.error("账户不存在或密码错误");
-    }
-
+    axios({
+      method: "GET",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/manage/get_status"
+    }).then(function(response) {
+      if (!response) {
+        window.location.href = "/safeguard";
+      } else {
+        axios({
+          method: "POST",
+          headers: { "Content-type": "application/json" },
+          url: "http://101.132.145.198:8080/user/login",
+          data: {
+            username: values.username,
+            password: values.password
+          }
+        }).then(function(response) {
+          if (response.data.code === 200) {
+            message.success("登陆成功");
+            if (response.data.isAdmin === true) {
+              window.location.href = "/admin";
+            } else {
+              const action = getName(response.data.userId);
+              store.dispatch(action);
+              // store.subscribe(() => {
+              //   console.log("subscribe", store.getState());
+              // });
+              window.location.href="/init"
+            }
+          } else {
+            message.error("账户不存在或密码错误");
+          }
+        });
+      }
+    });
   };
 
   const onFinishFailed = (errorInfo: any) => {
