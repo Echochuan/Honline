@@ -13,6 +13,7 @@ const Register = () => {
           <div className="logo">
             <div className="welcome1">欢迎注册</div>
           </div>
+          <a href="/login" className="to-login">已有账号，去登陆</a>
         </Header>
         <Layout>
           <Content>

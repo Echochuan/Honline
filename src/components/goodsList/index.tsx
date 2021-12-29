@@ -19,17 +19,17 @@ const userId = store.getState().name;
 
 //	
 
-// const abc = () => {axios({
-//   method: "GET",
-//   headers: { "Content-type": "application/json" },
-//   url: `https://geoapi.qweather.com/v2/city/lookup?location=beij&key=`+ "7fbf5638d73e41f8ba50ec5370c7466b"
-// })
-// .then(function (response) {
-//   console.log(response);
-// })
-// }
+const abc = () => {axios({
+  method: "GET",
+  headers: { "Content-type": "application/json" },
+  url: "http://101.132.145.198:8080/comment" + "?gId=1"
+})
+.then(function (response) {
+  console.log(response);
+})
+}
 
-// abc();
+abc();
 
 const enterCar = (item: dataList) => {axios({
   method: "POST",

@@ -7,3 +7,10 @@
   left: 250px;
   font-size: 30px;
 }
+
+.to-login {
+  position: absolute;
+  left: 80vw;
+  top: 5vh;
+  font-size: 1rem;
+}
