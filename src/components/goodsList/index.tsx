@@ -31,13 +31,15 @@ const abc = () => {axios({
 
 abc();
 
-const enterCar = (item: dataList) => {axios({
+const enterCar = (item: dataList) => {
+  console.log(item.id,userId);
+  axios({
   method: "POST",
   headers: { "Content-type": "application/json" },
   url: "http://101.132.145.198:8080/homepage",
   data: {
-    "gid" : item.id.toString(),
-    "uid" : userId.toString(),
+    "gid" : 1,
+    "uid" : 1,
   },
 })
 .then(function (response) {

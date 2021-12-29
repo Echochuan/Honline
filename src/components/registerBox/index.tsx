@@ -3,27 +3,43 @@ import "./index.css";
 import { UserOutlined, KeyOutlined } from "@ant-design/icons";
 import store from "../../redux/store";
 import { getName } from "../../redux/action";
+import axios from "axios";
 
 const RegisterBox = () => {
-
   const onFinish = (values: any) => {
-
     console.log("Success:", values);
     if (values.password !== values.password2) {
       message.error("请输入两次一致的密码");
     } else {
-      //在这里调用接口，把账户和密码发送给后端存储
-      //后端返回该用户的 id 将它存入 store 中
-      const action = getName("101"); /**将这里的 101 更换为获取的用户 id */
-      store.dispatch(action);
-      console.log(store.getState())
-      store.subscribe(() => {
-        console.log("subscribe", store.getState());
+      axios({
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        url: "http://101.132.145.198:8080/user/register",
+        data: {
+          username: values.username,
+          password: values.password
+        }
+      }).then(function(response) {
+        const action = getName(response.data.data.id);
+        store.dispatch(action);
+        console.log(store.getState());
       });
-      //然后判断是否在维护中，若在 则跳转到维护页面，若不在 则正常跳转到主页
-      window.location.href = "/init";
-      // window.location.href = "/safeguard"
+      // store.subscribe(() => {
+      //   console.log("subscribe", store.getState());
+      // });
     }
+    axios({
+      method: "GET",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/manage/get_status",
+    }).then(function(response) {
+      if (response) {
+        window.location.href="/safeguard"
+      }
+      else {
+        window.location.href="/init"
+      }
+    })
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -85,7 +101,5 @@ const RegisterBox = () => {
     </div>
   );
 };
-
-
 
 export default RegisterBox;

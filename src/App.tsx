@@ -7,6 +7,7 @@ import ShoppingCar from "./pages/shoppingCar/index"
 import StoreMenu from "./pages/storeMenu/index"
 import Admin from "./pages/admin";
 import InSafeguard from "./pages/inSafeguard";
+import Webwork from "./pages/webwork";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       <Route path="/storeMenu" element={<StoreMenu />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/safeguard" element={<InSafeguard />} />
+      <Route path="/webwork" element={<Webwork />} />
     </Routes>
   );
 };
