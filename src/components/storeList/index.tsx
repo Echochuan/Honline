@@ -1,7 +1,7 @@
 import { BankOutlined } from "@ant-design/icons";
 import { Button, Form, Input, List, message, Modal } from "antd";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import shopping from "../../mock/storeMenu.json";
 import store from "../../redux/store";
 import "./index.css";
@@ -33,11 +33,36 @@ const StoreList = () => {
   const [visible, setVisible] = useState(false);
   const [Uploadvisible, setUploadVisible] = useState(false);
 
+  const [goodsList, setstate] = useState<CartItem[]>([
+    {
+      id: 1,
+      goodsSrc: "string",
+      goodsTitle: "string",
+      goodsSubtitle: "string",
+      goodsPrice: "string",
+      goodsNum: "string",
+    }
+  ]);
+
+  // var goodsList: dataList[] = [];
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios({
+        method: "GET",
+        headers: { "Content-type": "application/json" },
+        url: "http://101.132.145.198:8080/store/show?uId=" + store.getState().name
+      })
+      console.log(result);
+      setstate(result.data.list);
+    };
+
+    fetchData();
+  }, []);
   // console.log(getData());
-  const goodList = shopping;
+  // const goodList = shopping;
   // const userid = shopping.userId;
-  const storeName = shopping.storeName;
-  const goodsList = goodList.list;
+  // const storeName = goodsList.storeName;
+  // const goodsList = goodList.list;
   // console.log(userid);
   // console.log(goodsList);
 
@@ -45,8 +70,8 @@ const StoreList = () => {
     checkedAll,
     checkedMap,
     onCheckedAllChange,
-    onCheckedChange
-    // filterChecked
+    onCheckedChange,
+    filterChecked
   } = useChecked(goodsList);
 
   const onWrapCheckedAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,15 +104,29 @@ const StoreList = () => {
   const deleteBtn = () => {
     //把商品的 ID 和用户的 id 发送给后端
     //获取商品的 id
-    // const checkedGoodId = filterChecked().map(item => {
-    //   return item.id;
-    // });
-    //获取用户的 id
-    // const userId = store.getState().name;
-    //将两者一起发送给后端
-    //如果成功则刷新页面
-    // console.log(checkedGoodId,userId);
-    window.location.href = "/storeMenu";
+    const checkedGoodId = filterChecked().map(item => {
+          console.log(item.id, store.getState().name)
+      axios({
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        url: "http://101.132.145.198:8080/store/delete",
+        data: {
+          "gid" : item.id,
+          "uid" : store.getState().name
+        }
+      }).then(function(response) {
+        if (response.data.code === 200) {
+          message.success("删除成功")
+          console.log(response);
+          window.location.href = "/storeMenu";
+          return;
+        } else {
+          message.error("删除失败")
+          return;
+        }
+      })
+    });
+    console.log(checkedGoodId);
   };
 
   const Footer = (
@@ -202,7 +241,7 @@ const StoreList = () => {
     <div>
       <div className="store-name">
         <BankOutlined />
-        {storeName}
+        {/* {storeName} */}
       </div>
       <div className="btn-upload">
         <Button

@@ -10,10 +10,12 @@ import {
   Row,
   Col,
   Input,
-  Space
+  Space,
+  message
 } from "antd";
 import "./index.css";
 import store from "../../redux/store";
+import axios from "axios";
 
 interface Props {
   item: CartItem;
@@ -41,12 +43,22 @@ const ItemCard = React.memo((props: Props) => {
   };
 
   const deleteGood = () => {
-    //获取商品的 id
-    console.log(id);
-    //获取用户的 id
-    // const userId = store.getState().name;
-    //将数据发给后端，后端返回正确的状态码之后刷新页面
-    window.location.href = "/storeMenu";
+    axios({
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/store/delete",
+      data: {
+        "gid" : id,
+        "uid" : store.getState().name,
+      }
+    }).then(function(response) {
+      if (response.data.code === 200) {
+        message.success("删除成功");
+        window.location.href = "/storeMenu";
+      } else {
+        message.error("删除失败")
+      }
+    })
   };
 
   //气泡确认框的相关函数
@@ -68,15 +80,23 @@ const ItemCard = React.memo((props: Props) => {
   };
 
   const update = (values: any) => {
-    //用户更新的内容
-    console.log(values);
-    //商品的 id 
-    console.log(id);
-    //用户的 id
-    console.log(store.getState().name);
-    //将用户的 id , 商品的 id , 用户更新的内容传输给后端
-    //若成功则刷新页面
-    window.location.href="/storeMenu"
+    axios({
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/store/update",
+      data: {
+        "update" : values,
+        "gid" : id,
+        "uid" : store.getState().name,
+      }
+    }).then(function(response) {
+      if (response.data.code === 200) {
+        message.success("更新成功");
+        window.location.href="/storeMenu"
+      } else {
+        message.error("更新失败")
+      }
+    })
   };
 
   return (

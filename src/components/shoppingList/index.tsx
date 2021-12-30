@@ -40,7 +40,7 @@ const ShoppingList = () => {
       const result = await axios({
         method: "GET",
         headers: { "Content-type": "application/json" },
-        url: "http://101.132.145.198:8080/cart/get?uId=" + userId
+        url: "http://101.132.145.198:8080/cart/get?uId=" + store.getState().name
       });
       console.log(result);
       setstate(result.data.list);

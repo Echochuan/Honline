@@ -1,5 +1,6 @@
 import { Button, Form, List, Modal, Radio, message } from "antd";
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import storeList from "../../mock/storeList.json";
 // import store from "../../redux/store";
 import "./index.css";
@@ -26,26 +27,56 @@ interface CollectionCreateFormProps {
 
 const StoreMaster = () => {
   const [visible, setVisible] = useState(false);
+  const [value, setValue] = useState(2);
   const [Uploadvisible, setUploadVisible] = useState(false);
 
 
   //请求数据判断当前网站状态是否为维护状态
   //如果是，则修改当前状态
   //1 为 开启，2 为关闭
-  const state = 2;
-  if (state === 2) {
-    console.log("1");
-  }
 
-  const [value, setValue] = useState(state);
+  axios({
+    method: "GET",
+    headers: { "Content-type": "application/json" },
+    url: "http://101.132.145.198:8080/manage/get_status",
+  }).then(function(response) {
+    console.log(response);
+    if (response.data.status === true) {
+      setValue(2)
+    } else {
+      setValue(1)
+    }
+  })
 
   const onChange = (e:any) => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
 
-  const goodList = storeList;
-  const goodsList = goodList.list;
+  const [goodsList, setstate] = useState<CartItem[]>([
+    {
+      id: 1,
+      storeName: ""
+    }
+  ]);
+
+  // var goodsList: dataList[] = [];
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios({
+        method: "GET",
+        headers: { "Content-type": "application/json" },
+        url: "http://101.132.145.198:8080/manage/get_all_store"
+      })
+      console.log(result);
+      setstate(result.data.list);
+    };
+
+    fetchData();
+  }, []);
+
+  // const goodList = storeList;
+  // const goodsList = goodList.list;
   // console.log(goodsList);
   // console.log(userid);
   // console.log(goodsList);
