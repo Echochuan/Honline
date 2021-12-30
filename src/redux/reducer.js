@@ -2,7 +2,7 @@
 
 //初始化状态，这里存放的是store里会存储的数据
 const defaultState = {
-  name: "",
+  name: 1,
   list: []
 };
 

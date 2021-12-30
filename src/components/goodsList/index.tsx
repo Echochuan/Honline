@@ -6,6 +6,8 @@ import goods from "../../mock/goods.json";
 import "./index.css";
 import axios from "axios";
 import store from "../../redux/store";
+import ReactDOM from "react-dom";
+import { useEffect, useState } from "react";
 
 interface dataList {
   id: number;
@@ -18,17 +20,20 @@ interface dataList {
 const userId = store.getState().name;
 
 const enterCar = (item: dataList) => {
+  console.log(userId, item.id);
+  console.log(typeof item.id, typeof userId);
   axios({
     method: "POST",
     headers: { "Content-type": "application/json" },
     url: "http://101.132.145.198:8080/homepage",
     data: {
-      gid: item.id,
-      uid: userId
+      "gid": userId,
+      "uid": item.id
     }
   }).then(function(response) {
     if (response.data.code === 200) {
       message.success("添加成功");
+      console.log(response);
     } else {
       message.error("添加失败");
     }
@@ -40,15 +45,21 @@ const List = (goodsList: dataList[]) => {
   //eslint-disable-next-line
   {
     goodsList.map((item, i) => {
-      console.log(item)
-      console.log("111")
+      console.log(item);
       stageList.push(
         <Col span={4.8}>
           <div key={i} className="eachGood">
             <Card
               hoverable
               style={{ width: 190, height: 266 }}
-              cover={<img alt="" src={"https://img10.360buyimg.com/jdcms/s150x150_jfs/t1/143777/37/12455/76388/5f9a55c1Ebcda14fa/1e09524ec6ab713b.jpg.webp"} />}
+              cover={
+                <img
+                  alt=""
+                  src={
+                    "https://lh3.googleusercontent.com/proxy/N7ay9W_Fc358b40cEZ4xU-BfRoSxZySFWU8fn2xe5_wEt6JLZyTXEwXHfFaMBX78_y0-ylwN4Jrvw6jXhrTu07reSznUfKCxXj0Q0Q"
+                  }
+                />
+              }
               extra={
                 <Button
                   type="text"
@@ -62,7 +73,7 @@ const List = (goodsList: dataList[]) => {
             >
               <Meta
                 title={item.context}
-                description={item.storeName + "¥" +item.price}
+                description={item.storeName + "¥" + item.price}
               />
             </Card>
           </div>
@@ -74,22 +85,31 @@ const List = (goodsList: dataList[]) => {
   return <Row className="row-goodsList">{stageList}</Row>;
 };
 
-var goodsList :dataList[] = [];
-axios({
-  method: "GET",
-  headers: { "Content-type": "application/json" },
-  url: "http://101.132.145.198:8080/homepage",
-}).then(function(response) {
-  console.log(response);
-  goodsList = response.data.goodsList;
-  console.log(goodsList);
-})
 
 const GoodsList = () => {
+  const [goodsList, setstate] = useState<dataList[]>([
+    {
+      id: 1,
+      storeName: "",
+      img: "",
+      context: "",
+      price: ""
+    }
+  ]);
 
-  // console.log(goodsList);
-  console.log(goodsList);
-  console.log(goods.goodsList);
+  // var goodsList: dataList[] = [];
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios({
+        method: "GET",
+        headers: { "Content-type": "application/json" },
+        url: "http://101.132.145.198:8080/homepage"
+      });
+      setstate(result.data.goodsList);
+    };
+
+    fetchData();
+  }, []);
   return (
     <div>
       <div className="goodsList">{List(goodsList)}</div>
