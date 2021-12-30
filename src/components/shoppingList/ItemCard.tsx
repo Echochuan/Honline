@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CartItem } from "./";
 import { OnCheckedChange } from "./use-check";
 import {
@@ -13,12 +13,14 @@ import {
   Space,
   List,
   Comment,
-  Avatar
+  Avatar,
+  message
 } from "antd";
 import "./index.css";
 
-import commentsList from '../../mock/comments.json';
 import { BankOutlined } from "@ant-design/icons";
+import axios from "axios";
+import store from "../../redux/store";
 
 interface Props {
   item: CartItem;
@@ -37,7 +39,6 @@ const ItemCard = React.memo((props: Props) => {
 
   const [form] = Form.useForm();
 
-  console.log("cart item rerender");
   const { item, checked, onCheckedChange } = props;
   const { id, storeName, goodsTitle, goodsPrice, goodsSrc, goodsSubtitle } = item;
 
@@ -47,12 +48,24 @@ const ItemCard = React.memo((props: Props) => {
   };
 
   const deleteGood = () => {
-    //获取商品的 id
-    console.log(id);
-    //获取用户的 id
-    // const userId = store.getState().name;
-    //将数据发给后端，后端返回正确的状态码之后刷新页面
-    window.location.href = "/shoppingCar";
+    console.log(typeof store.getState().name,id);
+    axios({
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/cart/delete",
+      data: {
+        "uid" : store.getState().name,
+        "gid" : id,
+      }
+    }).then(function(response) {
+      console.log(response);
+      if (response.data.code === 200) {
+        message.success("删除成功")
+        // window.location.href= "/shoppingCar"
+      } else {
+        message.error("删除失败")
+      }
+    })
   };
 
   //气泡确认框的相关函数
@@ -83,22 +96,50 @@ const ItemCard = React.memo((props: Props) => {
 
   //二级抽屉的提交函数
   const uploadComments = (values:string) => {
-    //获取商品的 id
-    console.log(id);
-    //获取评论内容
-    console.log(values);
-    //获取用户的 id 
-    // const userId = store.getState().name;
-    //将商品的 id , 用户的 id 和评论内容提交给后端存储起来
-
-    //清空表单内容
-    form.resetFields();
-    //刷新页面
-    window.location.href="/shoppingCar"
+    const userId = store.getState().name;
+    axios({
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/comment",
+      data: {
+        "gid" : id,
+        "comment" : values,
+        "uid" : userId,
+      }
+    }).then(function(response) {
+      form.resetFields();
+      if (response.data.code === 200) {
+        message.success("评论成功")
+        window.location.href="/shoppingCar"
+      } else {
+        message.error("添加失败")
+      }
+    })
   }
 
-  const commentList = commentsList.comments;
-  console.log(commentList)
+  const [commentList, setComment] = useState([
+    {
+      id: 1,
+      content: ""
+    }
+  ]);
+
+  // var goodsList: dataList[] = [];
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios({
+        method: "GET",
+        headers: { "Content-type": "application/json" },
+        url: "http://101.132.145.198:8080/comment?gId=" + id
+      });
+      console.log(result);
+      setComment(result.data.comments);
+    };
+
+    fetchData();
+  }, []);
+
+  // const commentList = commentsList.comments;
 
   const comments = (
     <List
@@ -107,7 +148,7 @@ const ItemCard = React.memo((props: Props) => {
     bordered
     dataSource={commentList}
     renderItem={item => {
-      // console.log(checked)
+      // console.log(commentList)
       return (
         <Comment
         style={{ width:"80%", margin: "0 auto" }}
@@ -115,7 +156,7 @@ const ItemCard = React.memo((props: Props) => {
         avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt={ item.id.toString() } />}
         content={
           <p>
-            {item.comment}
+            {item.content}
           </p>
         }
       />
@@ -138,7 +179,7 @@ const ItemCard = React.memo((props: Props) => {
         <div>
           <img
             className="shopping-img"
-            src={goodsSrc}
+            src={"https://lh3.googleusercontent.com/proxy/N7ay9W_Fc358b40cEZ4xU-BfRoSxZySFWU8fn2xe5_wEt6JLZyTXEwXHfFaMBX78_y0-ylwN4Jrvw6jXhrTu07reSznUfKCxXj0Q0Q"}
             style={{ width: "100px", height: "100px" }}
             alt=""
           />
@@ -147,7 +188,7 @@ const ItemCard = React.memo((props: Props) => {
         <div className="shopping-content">{goodsSubtitle}</div>
         <div className="shopping-store"><BankOutlined />{storeName}</div>
         <Typography.Text mark className="shopping-price">
-          ${goodsPrice}
+          ¥{goodsPrice}
         </Typography.Text>
         <div className="btn-delete">
           <Popconfirm

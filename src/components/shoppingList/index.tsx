@@ -1,6 +1,6 @@
 import { Button, List, Modal, Typography } from "antd";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import shopping from "../../mock/shopping.json";
 import store from "../../redux/store";
 import "./index.css";
@@ -22,17 +22,36 @@ const ShoppingList = () => {
 
   const userId = store.getState().name;
 
-  axios({
-    method:"GET",
-    headers: { "Content-type": "application/json" },
-    url: "http://101.132.145.198:8080/cart/get?uId=" + userId,
-  }).then (function(response){
-    console.log(response);
-  })
+  const [goodsList, setstate] = useState<CartItem[]>([
+    {
+      id: 1,
+      storeName: "string",
+      goodsSrc: "string",
+      goodsTitle: "string",
+      goodsSubtitle: "string",
+      goodsPrice: "string",
+      goodsNum: "string",
+    }
+  ]);
 
-  const goodList = shopping;
+  // var goodsList: dataList[] = [];
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios({
+        method: "GET",
+        headers: { "Content-type": "application/json" },
+        url: "http://101.132.145.198:8080/cart/get?uId=" + userId
+      });
+      console.log(result);
+      setstate(result.data.list);
+    };
+
+    fetchData();
+  }, []);
+
+  // const goodList = shopping;
   // const userid = shopping.userId;
-  const goodsList = goodList.list;
+  // const goodsList = goodList.list;
   // console.log(userid);
   // console.log(goodsList);
 

@@ -1,5 +1,6 @@
 import { BankOutlined } from "@ant-design/icons";
-import { Button, Form, Input, List, Modal } from "antd";
+import { Button, Form, Input, List, message, Modal } from "antd";
+import axios from "axios";
 import { useState } from "react";
 import shopping from "../../mock/storeMenu.json";
 import store from "../../redux/store";
@@ -44,7 +45,7 @@ const StoreList = () => {
     checkedAll,
     checkedMap,
     onCheckedAllChange,
-    onCheckedChange,
+    onCheckedChange
     // filterChecked
   } = useChecked(goodsList);
 
@@ -54,17 +55,24 @@ const StoreList = () => {
   };
 
   const uploadGood = (values: any) => {
-    console.log("Received values of form: ", values);
-    //获取商品的名称
-    console.log(values.goodsTitle);
-    //获取商品的描述
-    console.log(values.goodsSubtitle);
-    //获取商品的价格
-    console.log(values.goodsPrice);
-    //获取用户的 id
-    console.log(store.getState().name);
-    //将上述数据传送给后端，如果成功，则刷新页面
-    window.location.href = "/storeMenu";
+    axios({
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/store/add",
+      data: {
+        goodsName: values.goodsTitle,
+        description: values.goodsSubtitle,
+        price: values.goodsPrice,
+        uid: store.getState().name
+      }
+    }).then(function(response) {
+      if (response.data.code === 200) {
+        message.success("添加成功");
+        window.location.href = "/storeMenu";
+      } else {
+        message.error("添加失败");
+      }
+    });
     setUploadVisible(false);
   };
 

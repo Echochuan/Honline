@@ -2,11 +2,9 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Card, Col, message, Row } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { Button } from "antd";
-import goods from "../../mock/goods.json";
 import "./index.css";
 import axios from "axios";
 import store from "../../redux/store";
-import ReactDOM from "react-dom";
 import { useEffect, useState } from "react";
 
 interface dataList {

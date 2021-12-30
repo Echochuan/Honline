@@ -6,12 +6,6 @@ import { getName } from "../../redux/action";
 import store from "../../redux/store";
 import axios from "axios";
 
-const data = {
-  username: "1",
-  password: "1",
-  login: false
-};
-
 const LoginBox = () => {
   const onFinish = (values: any) => {
     console.log(values);
