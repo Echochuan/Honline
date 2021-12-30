@@ -18,7 +18,6 @@ import GoodsList from "../../components/goodsList/index";
 import FeedTab from "../../components/feedTab/index";
 import store from "../../redux/store";
 import { useState } from "react";
-import { url } from "inspector";
 
 const { Header, Footer, Content } = Layout;
 

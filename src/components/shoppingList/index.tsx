@@ -1,6 +1,8 @@
 import { Button, List, Modal, Typography } from "antd";
+import axios from "axios";
 import { useState } from "react";
 import shopping from "../../mock/shopping.json";
+import store from "../../redux/store";
 import "./index.css";
 import ItemCard from "./ItemCard";
 import { useChecked } from "./use-check";
@@ -18,7 +20,16 @@ export interface CartItem {
 const ShoppingList = () => {
   const [visible, setVisible] = useState(false);
 
-  // console.log(getData());
+  const userId = store.getState().name;
+
+  axios({
+    method:"GET",
+    headers: { "Content-type": "application/json" },
+    url: "http://101.132.145.198:8080/cart/get?uId=" + userId,
+  }).then (function(response){
+    console.log(response);
+  })
+
   const goodList = shopping;
   // const userid = shopping.userId;
   const goodsList = goodList.list;
@@ -53,7 +64,7 @@ const ShoppingList = () => {
     // const userId = store.getState().name;
     //将两者一起发送给后端
     //如果成功则刷新页面
-    window.location.href="/shoppingCar"
+    // window.location.href="/shoppingCar"
     // console.log(checkedGoodId)
   };
 

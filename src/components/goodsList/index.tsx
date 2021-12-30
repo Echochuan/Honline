@@ -36,9 +36,7 @@ const enterCar = (item: dataList) => {
 };
 
 const List = (goodsList: dataList[]) => {
-  console.log('11')
   let stageList: any = [];
-  //可以给每一个商品卡片套一层栅格
   //eslint-disable-next-line
   {
     goodsList.map((item, i) => {
@@ -50,7 +48,7 @@ const List = (goodsList: dataList[]) => {
             <Card
               hoverable
               style={{ width: 190, height: 266 }}
-              cover={<img alt="" src={item.img} />}
+              cover={<img alt="" src={"https://img10.360buyimg.com/jdcms/s150x150_jfs/t1/143777/37/12455/76388/5f9a55c1Ebcda14fa/1e09524ec6ab713b.jpg.webp"} />}
               extra={
                 <Button
                   type="text"
@@ -64,7 +62,7 @@ const List = (goodsList: dataList[]) => {
             >
               <Meta
                 title={item.context}
-                description={item.storeName + item.price}
+                description={item.storeName + "¥" +item.price}
               />
             </Card>
           </div>
@@ -76,18 +74,21 @@ const List = (goodsList: dataList[]) => {
   return <Row className="row-goodsList">{stageList}</Row>;
 };
 
+var goodsList :dataList[] = [];
+axios({
+  method: "GET",
+  headers: { "Content-type": "application/json" },
+  url: "http://101.132.145.198:8080/homepage",
+}).then(function(response) {
+  console.log(response);
+  goodsList = response.data.goodsList;
+  console.log(goodsList);
+})
+
 const GoodsList = () => {
-  var goodsList :dataList[] = [];
-  axios({
-    method: "GET",
-    headers: { "Content-type": "application/json" },
-    url: "http://101.132.145.198:8080/homepage",
-  }).then(function(response) {
-    console.log(response);
-    goodsList = response.data.goodsList;
-    console.log(goodsList);
-  })
+
   // console.log(goodsList);
+  console.log(goodsList);
   console.log(goods.goodsList);
   return (
     <div>
