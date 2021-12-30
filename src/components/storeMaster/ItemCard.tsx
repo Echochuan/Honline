@@ -1,12 +1,10 @@
 import React from "react";
 import { CartItem } from ".";
 import { OnCheckedChange } from "./use-check";
-import {
-  Popconfirm,
-  Button,
-} from "antd";
+import { Popconfirm, Button, message } from "antd";
 import "./index.css";
-// import store from "../../redux/store";
+import store from "../../redux/store";
+import axios from "axios";
 
 interface Props {
   item: CartItem;
@@ -34,12 +32,27 @@ const ItemCard = React.memo((props: Props) => {
   };
 
   const deleteGood = () => {
+    axios({
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/manage/close_store",
+      data: {
+        storeIds: [id]
+      }
+    }).then(function(response) {
+      console.log(response);
+      if (response.data.code === 200) {
+        message.success("删除成功");
+        window.location.href = "/admin";
+      } else {
+        message.error("删除失败");
+      }
+    });
     //获取商品的 id
-    console.log(id);
-    const arr: any[] = [id]
-    console.log(arr)
+    // console.log(id);
+    // const arr: any[] = [id]
+    // console.log(arr)
     //将数据发给后端，后端返回正确的状态码之后刷新页面
-    window.location.href = "/admin";
   };
 
   //气泡确认框的相关函数
@@ -71,7 +84,9 @@ const ItemCard = React.memo((props: Props) => {
             okText="是的"
             cancelText="再想想"
           >
-            <Button type="primary" danger>关停</Button>
+            <Button type="primary" danger>
+              关停
+            </Button>
           </Popconfirm>
         </div>
       </p>
