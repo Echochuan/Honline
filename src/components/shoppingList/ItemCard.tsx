@@ -40,7 +40,7 @@ const ItemCard = React.memo((props: Props) => {
   const [form] = Form.useForm();
 
   const { item, checked, onCheckedChange } = props;
-  const { id, storeName, goodsTitle, goodsPrice, goodsSrc, goodsSubtitle } = item;
+  const { id, storeName, goodsTitle, goodsPrice, goodsSubtitle } = item;
 
   const onWrapCheckedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target;
@@ -137,6 +137,7 @@ const ItemCard = React.memo((props: Props) => {
     };
 
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   // const commentList = commentsList.comments;

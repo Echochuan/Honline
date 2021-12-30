@@ -1,7 +1,6 @@
-import { Button, List, Modal, Typography } from "antd";
+import { Button, List, message, Modal, Typography } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import shopping from "../../mock/shopping.json";
 import store from "../../redux/store";
 import "./index.css";
 import ItemCard from "./ItemCard";
@@ -40,13 +39,14 @@ const ShoppingList = () => {
       const result = await axios({
         method: "GET",
         headers: { "Content-type": "application/json" },
-        url: "http://101.132.145.198:8080/cart/get?uId=" + store.getState().name
+        url: "http://101.132.145.198:8080/cart/get?uId=" + userId
       });
       console.log(result);
       setstate(result.data.list);
     };
 
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   // const goodList = shopping;
@@ -76,9 +76,21 @@ const ShoppingList = () => {
   const total = sumPrice(filterChecked());
 
   const payBtn = () => {
+    const checkedGoodId = filterChecked().map((item) => {return item.id})
+    axios({
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/cart/pay?uId=" + userId,
+      //checkedGoodId
+    }).then(function(response){
+      if (response.data.code === 200) {
+        message.success("支付成功")
+      } else {
+        message.error("支付失败")
+      }
+    })
     //把商品的 ID 和用户的 id 发送给后端
     //获取商品的 id 
-    const checkedGoodId = filterChecked().map((item) => {return item.id})
     //获取用户的 id
     // const userId = store.getState().name;
     //将两者一起发送给后端
