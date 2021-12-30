@@ -18,6 +18,7 @@ import GoodsList from "../../components/goodsList/index";
 import FeedTab from "../../components/feedTab/index";
 import store from "../../redux/store";
 import { useState } from "react";
+import axios from "axios";
 
 const { Header, Footer, Content } = Layout;
 
@@ -93,17 +94,32 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
 
 const Init = () => {
   const [visible, setVisible] = useState(false);
+  const [haveStore,setHaveStore] = useState(false);
 
   //开店确认后的函数
   const onCreate = (values: any) => {
-    //获取店铺的名称
-    console.log(values.storeName);
     const userId = store.getState().name;
-    console.log(userId);
+    axios({
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/manage/create_store",
+      data: {
+        "storeNam" : values.storeName,
+        "userKey": userId
+      }
+    }).then(function(response) {
+      if (response.data.code === 200) {
+        message.success("创建成功")
+        window.location.href = "/init";
+        setVisible(false);
+      } else {
+        message.error("创建失败")
+      }
+    });
+    //获取店铺的名称
+    // console.log(values.storeName);
+    // console.log(userId);
     //向后端发送店铺的名称，用户的 Id 告诉后端该用户开启了商店
-    message.success("注册成功");
-    window.location.href = "/init";
-    setVisible(false);
   };
 
   const onClick = () => {
@@ -116,8 +132,17 @@ const Init = () => {
 
   //头部栏
   const topMenu = () => {
+    axios({
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/manage/is_open_store",
+      data: {
+        "userId" : store.getState().name
+      }
+    }).then(function(response){
+      setHaveStore(response.data.toOpenStore)
+    })
     //向后端发送请求，询问该用户是不是已经有商店
-    const haveStore = true;
     // const donthave = false;
     if (haveStore) {
       return (

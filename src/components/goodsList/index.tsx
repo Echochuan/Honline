@@ -40,6 +40,8 @@ const enterCar = (item: dataList) => {
 
 const List = (goodsList: dataList[]) => {
   let stageList: any = [];
+  console.log(goodsList);
+
   //eslint-disable-next-line
   {
     goodsList.map((item, i) => {
@@ -88,10 +90,10 @@ const GoodsList = () => {
   const [goodsList, setstate] = useState<dataList[]>([
     {
       id: 1,
-      storeName: "",
-      img: "",
-      context: "",
-      price: ""
+      storeName: "1",
+      img: "1",
+      context: "1",
+      price: "1"
     }
   ]);
 
@@ -103,9 +105,9 @@ const GoodsList = () => {
         headers: { "Content-type": "application/json" },
         url: "http://101.132.145.198:8080/homepage"
       });
+      console.log(result)
       setstate(result.data.goodsList);
     };
-
     fetchData();
   }, []);
   return (

@@ -85,13 +85,14 @@ const StoreList = () => {
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/store/add",
       data: {
-        goodsName: values.goodsTitle,
-        description: values.goodsSubtitle,
-        price: values.goodsPrice,
-        uid: store.getState().name
+        "goodsName": values.goodsTitle,
+        "description": values.goodsSubtitle,
+        "price": values.goodsPrice,
+        "uid": store.getState().name
       }
     }).then(function(response) {
       if (response.data.code === 200) {
+        console.log(response);
         message.success("添加成功");
         window.location.href = "/storeMenu";
       } else {
