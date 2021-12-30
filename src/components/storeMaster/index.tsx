@@ -50,6 +50,38 @@ const StoreMaster = () => {
 
   const onChange = (e:any) => {
     console.log('radio checked', e.target.value);
+    if (e.target.value === 1) {
+      axios({
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        url: "http://101.132.145.198:8080/manage/change_status",
+        data: {
+          "status" : false
+        }
+      }).then(function(response) {
+        if (response.data.code === 200) {
+          message.success("切换成功")
+        } else {
+          message.error("切换失败")
+        }
+      })
+    } else {
+      axios({
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        url: "http://101.132.145.198:8080/manage/change_status",
+        data: {
+          "status" : true
+        }
+      }).then(function(response) {
+        if (response.data.code === 200) {
+          message.success("切换成功")
+        } else {
+          message.error("切换失败")
+        }
+      })
+    }
+
     setValue(e.target.value);
   };
 
@@ -94,21 +126,22 @@ const StoreMaster = () => {
     onCheckedAllChange(checkAll);
   };
 
-  const safeguard = () => {
-    //获取当前网站是否开启维护的信息
-    console.log({value})
-    const a = {value};
-    //将该信息发送给后端告知当前状态
+  // const safeguard = () => {
+  //   //获取当前网站是否开启维护的信息
+  //   console.log({value});
+  //   console.log(value);
+  //   const a = {value};
+  //   //将该信息发送给后端告知当前状态
 
-    //消息通知
-    if (a === {value: 1}) {
-      message.success("已开启系统维护")
-    }
-    else {
-      message.success("已关闭系统维护")
-    }
-    setUploadVisible(false);
-  };
+  //   //消息通知
+  //   if (a === {value: 1}) {
+  //     message.success("已开启系统维护")
+  //   }
+  //   else {
+  //     message.success("已关闭系统维护")
+  //   }
+  //   setUploadVisible(false);
+  // };
 
   //商铺关停的相关函数
   const deleteBtn = () => {
@@ -207,7 +240,7 @@ const StoreMaster = () => {
         <CollectionCreateForm
         value={value}
           Uploadvisible={Uploadvisible}
-          onCreate={safeguard}
+          onCreate={(e) => setUploadVisible(false)}
           onCancel={() => {
             setUploadVisible(false);
           }}
