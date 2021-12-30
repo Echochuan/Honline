@@ -1,0 +1,42 @@
+.count {
+  height: 150px;
+  width: 80vw;
+  background: #ffffff;
+  box-shadow: 0px 12px 35px 0px rgba(126, 174, 255, 0.2),
+    0px 1px 10px 0px rgba(40, 120, 255, 0.2);
+  border-radius: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+.count_num {
+    padding-top: 10px;
+}
+
+.card {
+    float: right;
+    top: -360px;
+    right: 20px;
+    box-shadow: 0px 12px 35px 0px rgba(126, 174, 255, 0.2),
+    0px 1px 10px 0px rgba(40, 120, 255, 0.2);
+}
+
+.counT {
+    height: 350px;
+    width: 80vw;
+    background: #ffffff;
+    box-shadow: 0px 12px 35px 0px rgba(126, 174, 255, 0.2),
+      0px 1px 10px 0px rgba(40, 120, 255, 0.2);
+    border-radius: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.coun {
+    height: 350px;
+    width: 80vw;
+    background: #ffffff;
+    box-shadow: 0px 12px 35px 0px rgba(126, 174, 255, 0.2),
+      0px 1px 10px 0px rgba(40, 120, 255, 0.2);
+    border-radius: 20px;
+}

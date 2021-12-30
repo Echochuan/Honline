@@ -29,6 +29,7 @@ const enterCar = (item: dataList) => {
       "uid": item.id
     }
   }).then(function(response) {
+    console.log(response)
     if (response.data.code === 200) {
       message.success("添加成功");
       console.log(response);
