@@ -30,7 +30,6 @@ const StoreMaster = () => {
   const [value, setValue] = useState(2);
   const [Uploadvisible, setUploadVisible] = useState(false);
 
-
   //请求数据判断当前网站状态是否为维护状态
   //如果是，则修改当前状态
   //1 为 开启，2 为关闭
@@ -38,48 +37,48 @@ const StoreMaster = () => {
   axios({
     method: "GET",
     headers: { "Content-type": "application/json" },
-    url: "http://101.132.145.198:8080/manage/get_status",
+    url: "http://101.132.145.198:8080/manage/get_status"
   }).then(function(response) {
     console.log(response);
     if (response.data.status === true) {
-      setValue(2)
+      setValue(2);
     } else {
-      setValue(1)
+      setValue(1);
     }
-  })
+  });
 
-  const onChange = (e:any) => {
-    console.log('radio checked', e.target.value);
+  const onChange = (e: any) => {
+    console.log("radio checked", e.target.value);
     if (e.target.value === 1) {
       axios({
         method: "POST",
         headers: { "Content-type": "application/json" },
         url: "http://101.132.145.198:8080/manage/change_status",
         data: {
-          "status" : false
+          status: false
         }
       }).then(function(response) {
         if (response.data.code === 200) {
-          message.success("切换成功")
+          message.success("切换成功");
         } else {
-          message.error("切换失败")
+          message.error("切换失败");
         }
-      })
+      });
     } else {
       axios({
         method: "POST",
         headers: { "Content-type": "application/json" },
         url: "http://101.132.145.198:8080/manage/change_status",
         data: {
-          "status" : true
+          status: true
         }
       }).then(function(response) {
         if (response.data.code === 200) {
-          message.success("切换成功")
+          message.success("切换成功");
         } else {
-          message.error("切换失败")
+          message.error("切换失败");
         }
-      })
+      });
     }
 
     setValue(e.target.value);
@@ -99,26 +98,19 @@ const StoreMaster = () => {
         method: "GET",
         headers: { "Content-type": "application/json" },
         url: "http://101.132.145.198:8080/manage/get_all_store"
-      })
+      });
       console.log(result);
       setstate(result.data.list);
     };
-
     fetchData();
   }, []);
-
-  // const goodList = storeList;
-  // const goodsList = goodList.list;
-  // console.log(goodsList);
-  // console.log(userid);
-  // console.log(goodsList);
 
   const {
     checkedAll,
     checkedMap,
     onCheckedAllChange,
     onCheckedChange,
-    // filterChecked
+    filterChecked
   } = useChecked(goodsList);
 
   const onWrapCheckedAllChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -145,15 +137,26 @@ const StoreMaster = () => {
 
   //商铺关停的相关函数
   const deleteBtn = () => {
-    //把商铺的 ID 发送给后端
-    //获取商铺的 id
-    // const checkedGoodId = filterChecked().map(item => {
-    //   console.log(item.id);
-    //   return item.id;
-    // });
-    //如果成功则刷新页面
-    // console.log(checkedGoodId,userId);
-    window.location.href = "/admin";
+    const checkedGoodId = filterChecked().map(item => {
+      console.log(item.id);
+      return item.id;
+    });
+    axios({
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      url: "http://101.132.145.198:8080/manage/close_store",
+      data: {
+        storeIds: checkedGoodId
+      }
+    }).then(function(response) {
+      console.log(response);
+      if (response.data.code === 200) {
+        message.success("关停成功");
+        window.location.href = "/admin";
+      } else {
+        message.error("操作失败");
+      }
+    });
   };
 
   const Footer = (
@@ -217,7 +220,7 @@ const StoreMaster = () => {
             });
         }}
       >
-        <Radio.Group onChange={onChange} value={value} >
+        <Radio.Group onChange={onChange} value={value}>
           <Radio value={1}>开启</Radio>
           <Radio value={2}>关闭</Radio>
         </Radio.Group>
@@ -238,9 +241,9 @@ const StoreMaster = () => {
           系统维护
         </Button>
         <CollectionCreateForm
-        value={value}
+          value={value}
           Uploadvisible={Uploadvisible}
-          onCreate={(e) => setUploadVisible(false)}
+          onCreate={e => setUploadVisible(false)}
           onCancel={() => {
             setUploadVisible(false);
           }}
