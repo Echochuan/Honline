@@ -23,6 +23,8 @@ const RegisterBox = () => {
         const action = getName(response.data.data.id);
         store.dispatch(action);
         console.log(store.getState());
+        window.localStorage.setItem("token", response.data.data.password_hash)
+        // console.log(localStorage.getItem("token"));
       });
       // store.subscribe(() => {
       //   console.log("subscribe", store.getState());

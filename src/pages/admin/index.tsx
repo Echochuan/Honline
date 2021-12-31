@@ -1,11 +1,21 @@
-import { Layout } from "antd";
+import { Layout, message } from "antd";
 import "./index.css";
 
 import StoreMaster from "../../components/storeMaster";
+import store from "../../redux/store";
+import axios from "axios";
 
 const { Header, Footer, Content } = Layout;
 
 const Admin = () => {
+
+  if (localStorage.getItem('token') === null) {
+    message.error("请先登陆")
+    window.location.href="/login"
+  } else {
+    message.success("Welcome!")
+  }
+  
   return (
     <div>
       <Layout style={{ height: "100vh" }}>

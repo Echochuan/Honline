@@ -1,9 +1,17 @@
-import { Layout } from "antd";
+import { Layout, message } from "antd";
 import "./index.css";
 
 const { Header, Footer, Content } = Layout;
 
 const InSafeguard = () => {
+
+  if (localStorage.getItem('token') === null) {
+    message.error("请先登陆")
+    window.location.href="/login"
+  } else {
+    message.success("Welcome!")
+  }
+
   return (
     <div>
       <Layout style={{ height: "100vh" }}>

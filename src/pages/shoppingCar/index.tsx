@@ -1,4 +1,4 @@
-import { Layout } from "antd";
+import { Layout, message } from "antd";
 import "./index.css";
 
 import ShoppingList from "../../components/shoppingList/index";
@@ -10,6 +10,13 @@ const ShoppingCar = () => {
   store.subscribe(() => {
     console.log("subscribe", store.getState());
   });
+
+  if (localStorage.getItem('token') === null) {
+    message.error("请先登陆")
+    window.location.href="/login"
+  } else {
+    message.success("Welcome!")
+  }
 
   return (
     <div>

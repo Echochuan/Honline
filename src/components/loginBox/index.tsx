@@ -36,6 +36,7 @@ const LoginBox = () => {
               // store.subscribe(() => {
               //   console.log("subscribe", store.getState());
               // });
+              window.localStorage.setItem("token", response.data.data)
               window.location.href="/init"
             }
           } else {

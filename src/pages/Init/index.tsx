@@ -96,6 +96,13 @@ const Init = () => {
   const [visible, setVisible] = useState(false);
   const [haveStore,setHaveStore] = useState(false);
 
+  if (localStorage.getItem('token') === null) {
+    message.error("请先登陆")
+    window.location.href="/login"
+  } else {
+    message.success("Welcome!")
+  }
+
   //开店确认后的函数
   const onCreate = (values: any) => {
     const userId = store.getState().name;
