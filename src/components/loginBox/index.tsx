@@ -37,6 +37,7 @@ const LoginBox = () => {
               //   console.log("subscribe", store.getState());
               // });
               window.localStorage.setItem("token", response.data.data)
+              window.sessionStorage.setItem("id", values.username)
               window.location.href="/init"
             }
           } else {

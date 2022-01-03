@@ -6,6 +6,7 @@ import "./index.css";
 import axios from "axios";
 import store from "../../redux/store";
 import { useEffect, useState } from "react";
+import defalut from '../../assets/default.png';
 
 interface dataList {
   id: number;
@@ -15,21 +16,20 @@ interface dataList {
   price: string;
 }
 
-const userId = store.getState().name;
+const userId = sessionStorage.getItem("id");
 
 const enterCar = (item: dataList) => {
-  console.log(userId, item.id);
-  console.log(typeof item.id, typeof userId);
+  // console.log(userId, item.id);
+  // console.log(typeof item.id, typeof sessionStorage.getItem("id"));
   axios({
     method: "POST",
     headers: { "Content-type": "application/json" },
     url: "http://101.132.145.198:8080/homepage",
     data: {
-      "gid": userId,
-      "uid": item.id
+      "gid": item.id,
+      "uid": sessionStorage.getItem("id")
     }
   }).then(function(response) {
-    console.log(response)
     if (response.data.code === 200) {
       message.success("添加成功");
       console.log(response);
@@ -56,9 +56,7 @@ const List = (goodsList: dataList[]) => {
               cover={
                 <img
                   alt=""
-                  src={
-                    "https://lh3.googleusercontent.com/proxy/N7ay9W_Fc358b40cEZ4xU-BfRoSxZySFWU8fn2xe5_wEt6JLZyTXEwXHfFaMBX78_y0-ylwN4Jrvw6jXhrTu07reSznUfKCxXj0Q0Q"
-                  }
+                  src={ defalut }
                 />
               }
               extra={
@@ -88,15 +86,7 @@ const List = (goodsList: dataList[]) => {
 
 
 const GoodsList = () => {
-  const [goodsList, setstate] = useState<dataList[]>([
-    {
-      id: 1,
-      storeName: "1",
-      img: "1",
-      context: "1",
-      price: "1"
-    }
-  ]);
+  const [goodsList, setstate] = useState<dataList[]>([]);
 
   // var goodsList: dataList[] = [];
   useEffect(() => {

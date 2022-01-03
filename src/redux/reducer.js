@@ -2,15 +2,18 @@
 
 //初始化状态，这里存放的是store里会存储的数据
 const defaultState = {
-  name: 1,
-  list: []
+  name: sessionStorage.getItem("id"),
 };
 
 // eslint-disable-next-line
 export default (state = defaultState, action) => {
   //在这里对type进行判断，从而更新store中存放的数据
   if (action["type"] === "get_name") {
-    return Object.assign({}, state, action);
+    console.log(action.value)
+    return {
+      ...state,
+      name: action.name
+    }
   } 
 
   return state;

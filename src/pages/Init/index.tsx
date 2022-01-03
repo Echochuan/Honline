@@ -100,19 +100,19 @@ const Init = () => {
     message.error("请先登陆")
     window.location.href="/login"
   } else {
-    message.success("Welcome!")
+    // message.success("Welcome!")
   }
 
   //开店确认后的函数
   const onCreate = (values: any) => {
-    const userId = store.getState().name;
+    console.log(typeof values.storeName, typeof Number(sessionStorage.getItem("id")))
     axios({
       method: "POST",
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/manage/create_store",
       data: {
-        "storeNam" : values.storeName,
-        "userKey": userId
+        "storeName" : values.storeName,
+        "userKey": Number(sessionStorage.getItem("id"))
       }
     }).then(function(response) {
       if (response.data.code === 200) {
@@ -123,10 +123,6 @@ const Init = () => {
         message.error("创建失败")
       }
     });
-    //获取店铺的名称
-    // console.log(values.storeName);
-    // console.log(userId);
-    //向后端发送店铺的名称，用户的 Id 告诉后端该用户开启了商店
   };
 
   const onClick = () => {
@@ -144,7 +140,7 @@ const Init = () => {
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/manage/is_open_store",
       data: {
-        "userId" : store.getState().name
+        "userId" : sessionStorage.getItem("id")
       }
     }).then(function(response){
       setHaveStore(response.data.toOpenStore)

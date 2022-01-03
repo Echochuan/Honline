@@ -13,7 +13,7 @@ const Admin = () => {
     message.error("请先登陆")
     window.location.href="/login"
   } else {
-    message.success("Welcome!")
+    // message.success("Welcome!")
   }
   
   return (

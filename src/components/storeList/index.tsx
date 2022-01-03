@@ -33,16 +33,8 @@ const StoreList = () => {
   const [visible, setVisible] = useState(false);
   const [Uploadvisible, setUploadVisible] = useState(false);
 
-  const [goodsList, setstate] = useState<CartItem[]>([
-    {
-      id: 1,
-      goodsSrc: "string",
-      goodsTitle: "string",
-      goodsSubtitle: "string",
-      goodsPrice: "string",
-      goodsNum: "string",
-    }
-  ]);
+  const [goodsList, setstate] = useState<CartItem[]>([]);
+  const [storeName, setName] = useState("")
 
   // var goodsList: dataList[] = [];
   useEffect(() => {
@@ -50,9 +42,10 @@ const StoreList = () => {
       const result = await axios({
         method: "GET",
         headers: { "Content-type": "application/json" },
-        url: "http://101.132.145.198:8080/store/show?uId=" + store.getState().name
+        url: "http://101.132.145.198:8080/store/show?uId=" + sessionStorage.getItem("id")
       })
       console.log(result);
+      setName(result.data.storeName)
       setstate(result.data.list);
     };
 
@@ -88,7 +81,7 @@ const StoreList = () => {
         "goodsName": values.goodsTitle,
         "description": values.goodsSubtitle,
         "price": values.goodsPrice,
-        "uid": store.getState().name
+        "uid": sessionStorage.getItem("id")
       }
     }).then(function(response) {
       if (response.data.code === 200) {
@@ -113,7 +106,7 @@ const StoreList = () => {
         url: "http://101.132.145.198:8080/store/delete",
         data: {
           "gid" : item.id,
-          "uid" : store.getState().name
+          "uid" : sessionStorage.getItem("id")
         }
       }).then(function(response) {
         if (response.data.code === 200) {
@@ -242,7 +235,7 @@ const StoreList = () => {
     <div>
       <div className="store-name">
         <BankOutlined />
-        {/* {storeName} */}
+        {storeName}
       </div>
       <div className="btn-upload">
         <Button

@@ -19,19 +19,12 @@ export interface CartItem {
 const ShoppingList = () => {
   const [visible, setVisible] = useState(false);
 
-  const userId = store.getState().name;
+  // const userId = sessionStorage.getItem("persist:root");
+  const userId = store.getState().name
+  // sessionStorage.setItem("id",userId);
+  console.log(userId);
 
-  const [goodsList, setstate] = useState<CartItem[]>([
-    {
-      id: 1,
-      storeName: "string",
-      goodsSrc: "string",
-      goodsTitle: "string",
-      goodsSubtitle: "string",
-      goodsPrice: "string",
-      goodsNum: "string",
-    }
-  ]);
+  const [goodsList, setstate] = useState<CartItem[]>([]);
 
   // var goodsList: dataList[] = [];
   useEffect(() => {
@@ -39,21 +32,16 @@ const ShoppingList = () => {
       const result = await axios({
         method: "GET",
         headers: { "Content-type": "application/json" },
-        url: "http://101.132.145.198:8080/cart/get?uId=" + userId
+        url: "http://101.132.145.198:8080/cart/get?uId=" + sessionStorage.getItem("id")
       });
       console.log(result);
       setstate(result.data.list);
-    };
 
+    };
     fetchData();
+    // console.log(goodsList);
     // eslint-disable-next-line
   }, []);
-
-  // const goodList = shopping;
-  // const userid = shopping.userId;
-  // const goodsList = goodList.list;
-  // console.log(userid);
-  // console.log(goodsList);
 
   const {
     checkedAll,
@@ -80,11 +68,16 @@ const ShoppingList = () => {
     axios({
       method: "POST",
       headers: { "Content-type": "application/json" },
-      url: "http://101.132.145.198:8080/cart/pay?uId=" + userId,
+      url: "http://101.132.145.198:8080/cart/buy",
+      data: {
+        "uid" : sessionStorage.getItem("id"),
+        "gids" : checkedGoodId,
+      }
       //checkedGoodId
     }).then(function(response){
       if (response.data.code === 200) {
-        message.success("支付成功")
+        message.success("支付成功");
+        window.location.href="./shoppingCar";
       } else {
         message.error("支付失败")
       }
@@ -141,6 +134,7 @@ const ShoppingList = () => {
         bordered
         dataSource={goodsList}
         renderItem={item => {
+          console.log(item);
           const checked = checkedMap[item.id] || false;
           // console.log(checked)
           return (

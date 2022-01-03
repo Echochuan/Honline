@@ -16,6 +16,7 @@ import {
 import "./index.css";
 import store from "../../redux/store";
 import axios from "axios";
+import defalt from "../../assets/default.png";
 
 interface Props {
   item: CartItem;
@@ -49,7 +50,7 @@ const ItemCard = React.memo((props: Props) => {
       url: "http://101.132.145.198:8080/store/delete",
       data: {
         "gid" : id,
-        "uid" : store.getState().name,
+        "uid" : sessionStorage.getItem("id"),
       }
     }).then(function(response) {
       if (response.data.code === 200) {
@@ -87,7 +88,7 @@ const ItemCard = React.memo((props: Props) => {
       data: {
         "update" : values,
         "gid" : id,
-        "uid" : store.getState().name,
+        "uid" : sessionStorage.getItem("id"),
       }
     }).then(function(response) {
       if (response.data.code === 200) {
@@ -113,7 +114,7 @@ const ItemCard = React.memo((props: Props) => {
         <div>
           <img
             className="shopping-img"
-            src={goodsSrc}
+            src={defalt}
             style={{ width: "100px", height: "100px" }}
             alt=""
           />

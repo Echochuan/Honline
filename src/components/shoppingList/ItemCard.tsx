@@ -22,6 +22,8 @@ import { BankOutlined } from "@ant-design/icons";
 import axios from "axios";
 import store from "../../redux/store";
 
+import defult from "../../assets/default.png";
+
 interface Props {
   item: CartItem;
   checked: boolean;
@@ -48,20 +50,20 @@ const ItemCard = React.memo((props: Props) => {
   };
 
   const deleteGood = () => {
-    console.log(typeof store.getState().name,id);
+    console.log(store.getState().name,id);
     axios({
       method: "POST",
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/cart/delete",
       data: {
-        "uid" : store.getState().name,
+        "uid" : sessionStorage.getItem("id"),
         "gid" : id,
       }
     }).then(function(response) {
       console.log(response);
       if (response.data.code === 200) {
         message.success("删除成功")
-        // window.location.href= "/shoppingCar"
+        window.location.href= "/shoppingCar"
       } else {
         message.error("删除失败")
       }
@@ -95,16 +97,16 @@ const ItemCard = React.memo((props: Props) => {
   };
 
   //二级抽屉的提交函数
-  const uploadComments = (values:string) => {
-    const userId = store.getState().name;
+  const uploadComments = (values:any) => {
+    const userId = sessionStorage.getItem("id");
     axios({
       method: "POST",
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/comment",
       data: {
         "gid" : id,
-        "comment" : values,
-        "uid" : userId,
+        "comment" : values.comment,
+        "uid" : Number(userId),
       }
     }).then(function(response) {
       form.resetFields();
@@ -180,7 +182,7 @@ const ItemCard = React.memo((props: Props) => {
         <div>
           <img
             className="shopping-img"
-            src={"https://lh3.googleusercontent.com/proxy/N7ay9W_Fc358b40cEZ4xU-BfRoSxZySFWU8fn2xe5_wEt6JLZyTXEwXHfFaMBX78_y0-ylwN4Jrvw6jXhrTu07reSznUfKCxXj0Q0Q"}
+            src={ defult }
             style={{ width: "100px", height: "100px" }}
             alt=""
           />

@@ -84,12 +84,7 @@ const StoreMaster = () => {
     setValue(e.target.value);
   };
 
-  const [goodsList, setstate] = useState<CartItem[]>([
-    {
-      id: 1,
-      storeName: ""
-    }
-  ]);
+  const [goodsList, setstate] = useState<CartItem[]>([]);
 
   // var goodsList: dataList[] = [];
   useEffect(() => {
