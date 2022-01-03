@@ -20,10 +20,12 @@ const RegisterBox = () => {
           password: values.password
         }
       }).then(function(response) {
-        const action = getName(response.data.data.id);
+        console.log(response)
+        const action = getName(response.data.userId);
         store.dispatch(action);
         console.log(store.getState());
-        window.localStorage.setItem("token", response.data.data.password_hash)
+        window.localStorage.setItem("token", response.data.data)
+        window.sessionStorage.setItem("id", response.data.userId)
         // console.log(localStorage.getItem("token"));
       });
       // store.subscribe(() => {

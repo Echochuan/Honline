@@ -13,38 +13,39 @@ const LoginBox = () => {
       method: "GET",
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/manage/get_status"
-    }).then(function(response) {
-      if (!response) {
-        window.location.href = "/safeguard";
-      } else {
-        axios({
-          method: "POST",
-          headers: { "Content-type": "application/json" },
-          url: "http://101.132.145.198:8080/user/login",
-          data: {
-            username: values.username,
-            password: values.password
-          }
-        }).then(function(response) {
-          if (response.data.code === 200) {
-            message.success("登陆成功");
-            if (response.data.isAdmin === true) {
-              window.location.href = "/admin";
+    }).then(function(res) {
+      console.log(res);
+      axios({
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        url: "http://101.132.145.198:8080/user/login",
+        data: {
+          username: values.username,
+          password: values.password
+        }
+      }).then(function(response) {
+        if (response.data.code === 200) {
+          message.success("登陆成功");
+          if (response.data.isAdmin === true) {
+            window.location.href = "/admin";
+          } else {
+            if (res.data.status === false) {
+              window.location.href = "/safeguard";
             } else {
               const action = getName(response.data.userId);
               store.dispatch(action);
               // store.subscribe(() => {
               //   console.log("subscribe", store.getState());
               // });
-              window.localStorage.setItem("token", response.data.data)
-              window.sessionStorage.setItem("id", values.username)
-              window.location.href="/init"
+              window.localStorage.setItem("token", response.data.data);
+              window.sessionStorage.setItem("id", values.username);
+              window.location.href = "/init";
             }
-          } else {
-            message.error("账户不存在或密码错误");
           }
-        });
-      }
+        } else {
+          message.error("账户不存在或密码错误");
+        }
+      });
     });
   };
 
