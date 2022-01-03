@@ -41,14 +41,6 @@ interface CollectionCreateFormProps {
   onCancel: () => void;
 }
 
-const contentStyle = {
-  height: "160px",
-  color: "#fff",
-  lineHeight: "160px",
-  textAlign: "center",
-  background: "#364d79"
-};
-
 const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
   visible,
   onCreate,

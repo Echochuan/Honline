@@ -4,7 +4,7 @@ import Meta from "antd/lib/card/Meta";
 import { Button } from "antd";
 import "./index.css";
 import axios from "axios";
-import store from "../../redux/store";
+// import store from "../../redux/store";
 import { useEffect, useState } from "react";
 import defalut from '../../assets/default.png';
 
@@ -16,7 +16,6 @@ interface dataList {
   price: string;
 }
 
-const userId = localStorage.getItem("id");
 
 const enterCar = (item: dataList) => {
   // console.log(userId, item.id);

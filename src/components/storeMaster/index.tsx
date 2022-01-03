@@ -1,7 +1,6 @@
 import { Button, Form, List, Modal, Radio, message } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import storeList from "../../mock/storeList.json";
 // import store from "../../redux/store";
 import "./index.css";
 import ItemCard from "./ItemCard";

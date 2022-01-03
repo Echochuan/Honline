@@ -2,7 +2,6 @@ import { BankOutlined } from "@ant-design/icons";
 import { Button, Form, Input, List, message, Modal } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import shopping from "../../mock/storeMenu.json";
 import store from "../../redux/store";
 import "./index.css";
 import ItemCard from "./ItemCard";
@@ -51,13 +50,6 @@ const StoreList = () => {
 
     fetchData();
   }, []);
-  // console.log(getData());
-  // const goodList = shopping;
-  // const userid = shopping.userId;
-  // const storeName = goodsList.storeName;
-  // const goodsList = goodList.list;
-  // console.log(userid);
-  // console.log(goodsList);
 
   const {
     checkedAll,
@@ -98,6 +90,7 @@ const StoreList = () => {
   const deleteBtn = () => {
     //把商品的 ID 和用户的 id 发送给后端
     //获取商品的 id
+    // eslint-disable-next-line
     const checkedGoodId = filterChecked().map(item => {
           console.log(item.id, store.getState().name)
       axios({

@@ -14,7 +14,7 @@ import {
   message
 } from "antd";
 import "./index.css";
-import store from "../../redux/store";
+// import store from "../../redux/store";
 import axios from "axios";
 import defalt from "../../assets/default.png";
 
@@ -36,7 +36,7 @@ const ItemCard = React.memo((props: Props) => {
 
   console.log("cart item rerender");
   const { item, checked, onCheckedChange } = props;
-  const { id, goodsTitle, goodsPrice, goodsSrc, goodsSubtitle } = item;
+  const { id, goodsTitle, goodsPrice, goodsSubtitle } = item;
 
   const onWrapCheckedChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target;

@@ -3,7 +3,6 @@ import { CartItem } from ".";
 import { OnCheckedChange } from "./use-check";
 import { Popconfirm, Button, message } from "antd";
 import "./index.css";
-import store from "../../redux/store";
 import axios from "axios";
 
 interface Props {

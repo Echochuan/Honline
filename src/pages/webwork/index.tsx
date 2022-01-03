@@ -1,6 +1,5 @@
 import {
   Avatar,
-  Button,
   Card,
   Col,
   Form,
@@ -28,8 +27,6 @@ import Meta from "antd/lib/card/Meta";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { Countdown } = Statistic;
-const deadline = Date.now() + 1000 * 60 * 60 * 24 * 34 + 1000 * 30; // Moment is also OK
-console.log(1643718548333);
 
 interface Values {
   title: string;

@@ -2,8 +2,6 @@ import { Layout, message } from "antd";
 import "./index.css";
 
 import StoreMaster from "../../components/storeMaster";
-import store from "../../redux/store";
-import axios from "axios";
 
 const { Header, Footer, Content } = Layout;
 
