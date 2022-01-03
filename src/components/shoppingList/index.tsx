@@ -19,9 +19,9 @@ export interface CartItem {
 const ShoppingList = () => {
   const [visible, setVisible] = useState(false);
 
-  // const userId = sessionStorage.getItem("persist:root");
+  // const userId = localStorage.getItem("persist:root");
   const userId = store.getState().name
-  // sessionStorage.setItem("id",userId);
+  // localStorage.setItem("id",userId);
   console.log(userId);
 
   const [goodsList, setstate] = useState<CartItem[]>([]);
@@ -32,7 +32,7 @@ const ShoppingList = () => {
       const result = await axios({
         method: "GET",
         headers: { "Content-type": "application/json" },
-        url: "http://101.132.145.198:8080/cart/get?uId=" + sessionStorage.getItem("id")
+        url: "http://101.132.145.198:8080/cart/get?uId=" + localStorage.getItem("id")
       });
       console.log(result);
       setstate(result.data.list);
@@ -70,7 +70,7 @@ const ShoppingList = () => {
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/cart/buy",
       data: {
-        "uid" : sessionStorage.getItem("id"),
+        "uid" : localStorage.getItem("id"),
         "gids" : checkedGoodId,
       }
       //checkedGoodId

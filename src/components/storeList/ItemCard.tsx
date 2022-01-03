@@ -50,7 +50,7 @@ const ItemCard = React.memo((props: Props) => {
       url: "http://101.132.145.198:8080/store/delete",
       data: {
         "gid" : id,
-        "uid" : sessionStorage.getItem("id"),
+        "uid" : localStorage.getItem("id"),
       }
     }).then(function(response) {
       if (response.data.code === 200) {
@@ -88,7 +88,7 @@ const ItemCard = React.memo((props: Props) => {
       data: {
         "update" : values,
         "gid" : id,
-        "uid" : sessionStorage.getItem("id"),
+        "uid" : localStorage.getItem("id"),
       }
     }).then(function(response) {
       if (response.data.code === 200) {

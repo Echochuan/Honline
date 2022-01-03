@@ -38,7 +38,8 @@ const LoginBox = () => {
               //   console.log("subscribe", store.getState());
               // });
               window.localStorage.setItem("token", response.data.data);
-              window.sessionStorage.setItem("id", values.username);
+              console.log(response)
+              window.localStorage.setItem("id", response.data.userId);
               window.location.href = "/init";
             }
           }

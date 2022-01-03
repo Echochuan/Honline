@@ -25,25 +25,26 @@ const RegisterBox = () => {
         store.dispatch(action);
         console.log(store.getState());
         window.localStorage.setItem("token", response.data.data)
-        window.sessionStorage.setItem("id", response.data.userId)
+        window.localStorage.setItem("id", response.data.userId)
+        axios({
+          method: "GET",
+          headers: { "Content-type": "application/json" },
+          url: "http://101.132.145.198:8080/manage/get_status",
+        }).then(function(response) {
+          if (!response) {
+            window.location.href="/safeguard"
+          }
+          else {
+            window.location.href="/init"
+          }
+        })
         // console.log(localStorage.getItem("token"));
       });
       // store.subscribe(() => {
       //   console.log("subscribe", store.getState());
       // });
     }
-    axios({
-      method: "GET",
-      headers: { "Content-type": "application/json" },
-      url: "http://101.132.145.198:8080/manage/get_status",
-    }).then(function(response) {
-      if (!response) {
-        window.location.href="/safeguard"
-      }
-      else {
-        window.location.href="/init"
-      }
-    })
+
   };
 
   const onFinishFailed = (errorInfo: any) => {

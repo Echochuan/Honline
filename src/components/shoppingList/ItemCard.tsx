@@ -56,7 +56,7 @@ const ItemCard = React.memo((props: Props) => {
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/cart/delete",
       data: {
-        "uid" : sessionStorage.getItem("id"),
+        "uid" : localStorage.getItem("id"),
         "gid" : id,
       }
     }).then(function(response) {
@@ -98,7 +98,7 @@ const ItemCard = React.memo((props: Props) => {
 
   //二级抽屉的提交函数
   const uploadComments = (values:any) => {
-    const userId = sessionStorage.getItem("id");
+    const userId = localStorage.getItem("id");
     axios({
       method: "POST",
       headers: { "Content-type": "application/json" },

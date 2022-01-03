@@ -16,18 +16,18 @@ interface dataList {
   price: string;
 }
 
-const userId = sessionStorage.getItem("id");
+const userId = localStorage.getItem("id");
 
 const enterCar = (item: dataList) => {
   // console.log(userId, item.id);
-  // console.log(typeof item.id, typeof sessionStorage.getItem("id"));
+  // console.log(typeof item.id, typeof localStorage.getItem("id"));
   axios({
     method: "POST",
     headers: { "Content-type": "application/json" },
     url: "http://101.132.145.198:8080/homepage",
     data: {
       "gid": item.id,
-      "uid": sessionStorage.getItem("id")
+      "uid": localStorage.getItem("id")
     }
   }).then(function(response) {
     if (response.data.code === 200) {

@@ -105,14 +105,14 @@ const Init = () => {
 
   //开店确认后的函数
   const onCreate = (values: any) => {
-    console.log(typeof values.storeName, typeof Number(sessionStorage.getItem("id")))
+    console.log(typeof values.storeName, typeof Number(localStorage.getItem("id")))
     axios({
       method: "POST",
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/manage/create_store",
       data: {
         "storeName" : values.storeName,
-        "userKey": Number(sessionStorage.getItem("id"))
+        "userKey": Number(localStorage.getItem("id"))
       }
     }).then(function(response) {
       if (response.data.code === 200) {
@@ -140,7 +140,7 @@ const Init = () => {
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/manage/is_open_store",
       data: {
-        "userId" : sessionStorage.getItem("id")
+        "userId" : localStorage.getItem("id")
       }
     }).then(function(response){
       setHaveStore(response.data.toOpenStore)
