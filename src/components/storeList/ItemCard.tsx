@@ -81,6 +81,7 @@ const ItemCard = React.memo((props: Props) => {
   };
 
   const update = (values: any) => {
+    console.log(typeof values.goodsPrice)
     axios({
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -93,10 +94,12 @@ const ItemCard = React.memo((props: Props) => {
     }).then(function(response) {
       if (response.data.code === 200) {
         message.success("更新成功");
-        window.location.href="/storeMenu"
+        // window.location.href="/storeMenu"
       } else {
         message.error("更新失败")
       }
+    }).catch(function(error) {
+      message.error("价格只能为纯数字")
     })
   };
 
@@ -122,7 +125,7 @@ const ItemCard = React.memo((props: Props) => {
         <div className="shopping-title">{goodsTitle}</div>
         <div className="shopping-content">{goodsSubtitle}</div>
         <Typography.Text mark className="shopping-price">
-          ${goodsPrice}
+          ¥{goodsPrice}
         </Typography.Text>
         <div className="btn-delete">
           <Popconfirm

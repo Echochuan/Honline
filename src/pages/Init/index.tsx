@@ -109,7 +109,7 @@ const Init = () => {
     }).then(function(response) {
       if (response.data.code === 200) {
         message.success("创建成功")
-        window.location.href = "/init";
+        window.location.href = "/storeMenu";
         setVisible(false);
       } else {
         message.error("创建失败")

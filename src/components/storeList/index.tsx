@@ -83,6 +83,8 @@ const StoreList = () => {
       } else {
         message.error("添加失败");
       }
+    }).catch(function(error) {
+      message.error("价格只能为纯数字")
     });
     setUploadVisible(false);
   };
