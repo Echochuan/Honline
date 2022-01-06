@@ -1,45 +1,198 @@
 {
-    "goodsList":[
+    "likeList":[
     {
         "id":0,
         "storeName": "NewYear",
-        "img":"https://img20.360buyimg.com/jdcms/s150x150_jfs/t1/193136/5/8477/126879/60c9d65cEd00e2ff4/d5af6518ae358860.jpg.webp",
-        "context":"多功能清洁泥",
+        "img":"https://img11.360buyimg.com/jdcms/s150x150_jfs/t1/145556/2/21570/340071/61d3a6a9E186a2328/0fdbb5f6db789f9d.jpg.webp",
+        "context":"小熊（Bear）取暖器暖风机电暖器电热器 办公室桌面台式便携",
         "price":"¥30"
     },
     {
         "id":1,
         "storeName": "NewYear",
-        "img":"https://img10.360buyimg.com/jdcms/s150x150_jfs/t1/143777/37/12455/76388/5f9a55c1Ebcda14fa/1e09524ec6ab713b.jpg.webp",
-        "context":"SanDisk闪迪U盘",
+        "img":"https://img12.360buyimg.com/jdcms/s150x150_jfs/t1/178997/20/9466/98863/60c9d60fE37bb101f/b7023aa928e0d1e7.jpg.webp",
+        "context":"绿巨能（llano）Macbook笔记本电脑屏幕清洁剂套装苹果拯救者小新液晶清洁液键盘相机手机平板工具5合1 ",
         "price":"¥110"
     },
     {
-        "id":2,
+        "id":1,
         "storeName": "NewYear",
-        "img":"https://img20.360buyimg.com/jdcms/s150x150_jfs/t1/193136/5/8477/126879/60c9d65cEd00e2ff4/d5af6518ae358860.jpg.webp",
-        "context":"多功能清洁泥",
-        "price":"¥30"
-    },
-    {
-        "id":3,
-        "storeName": "NewYear",
-        "img":"https://img10.360buyimg.com/jdcms/s150x150_jfs/t1/143777/37/12455/76388/5f9a55c1Ebcda14fa/1e09524ec6ab713b.jpg.webp",
-        "context":"SanDisk闪迪U盘",
+        "img":"https://img20.360buyimg.com/jdcms/s150x150_jfs/t1/177668/39/3174/106535/609882efE082f863d/7fcdc295bd01d030.jpg.webp",
+        "context":"小熊（Bear）加湿器卧室迷你办公室便携轻音补水USB空气加湿器伴侣JSQ-B03A1",
         "price":"¥110"
-    },    
+    },
     {
-        "id":4,
+        "id":1,
         "storeName": "NewYear",
-        "img":"https://img20.360buyimg.com/jdcms/s150x150_jfs/t1/193136/5/8477/126879/60c9d65cEd00e2ff4/d5af6518ae358860.jpg.webp",
-        "context":"多功能清洁泥",
+        "img":"    https://img12.360buyimg.com/jdcms/s150x150_jfs/t1/213206/22/10234/384705/61d63fe7Ef219960b/37eaddd7c5e91b0a.jpg.webp",
+        "context":"佳佰【京东自有品牌】暖手宝充电暖宝宝 热水袋无水热手宝送男女朋友礼物迷你便携复古暖手充电宝二合一 迷绿",
+        "price":"¥110"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"       https://img14.360buyimg.com/jdcms/s150x150_jfs/t1/143934/16/27025/92369/61d423b0Ec5daf13d/efdcb226c1f7abe5.jpg.webp",
+        "context":"AIRMX秒新 H6变频暖风机标准版象牙白 智能暖风机取暖器家用办公暖风机客厅卧室冷暖两用暖风机",
+        "price":"¥110"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"       https://img14.360buyimg.com/jdcms/s150x150_jfs/t1/143934/16/27025/92369/61d423b0Ec5daf13d/efdcb226c1f7abe5.jpg.webp",
+        "context":"酷极 后现代简约北欧式轻奢led落地灯客厅卧室书房间床头阅读沙发茶几带置物架网红落坐地站立式灯饰 A款 黑体-翡翠玻璃 12W三色调光",
+        "price":"¥110"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"       //img20.360buyimg.com/jdcms/s150x150_jfs/t1/164426/11/24273/107663/61bd274fE4a3bc012/f564414fc2c69f5d.jpg.webp",
+        "context":"TCL-TN21-S06AY\\\/S08A小太阳取暖器家用烤火器节能电暖气热扇速热小型暖风机烤火炉 白色小号摇头款",
+        "price":"¥110"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"       //img11.360buyimg.com/jdcms/s150x150_jfs/t1/190698/16/17684/138822/6111ddd5E5912f832/525a5b5c6d017dfb.jpg.webp",
+        "context":"小熊（Bear）除螨仪家用床上吸尘器除螨机螨虫仪器手持吸去螨仪床用床单沙发地毯紫外线杀菌除螨虫大吸力",
+        "price":"¥110"
+    }
+
+],
+"zhineng":[
+    {
+        "id":0,
+        "storeName": "NewYear",
+        "img":"https://img11.360buyimg.com/jdcms/s150x150_jfs/t1/145556/2/21570/340071/61d3a6a9E186a2328/0fdbb5f6db789f9d.jpg.webp",
+        "context":"小熊（Bear）取暖器暖风机电暖器电热器 办公室桌面台式便携",
         "price":"¥30"
     },
     {
-        "id":5,
+        "id":1,
         "storeName": "NewYear",
-        "img":"https://img10.360buyimg.com/jdcms/s150x150_jfs/t1/143777/37/12455/76388/5f9a55c1Ebcda14fa/1e09524ec6ab713b.jpg.webp",
-        "context":"SanDisk闪迪U盘",
+        "img":"https://img12.360buyimg.com/jdcms/s150x150_jfs/t1/178997/20/9466/98863/60c9d60fE37bb101f/b7023aa928e0d1e7.jpg.webp",
+        "context":"绿巨能（llano）Macbook笔记本电脑屏幕清洁剂套装苹果拯救者小新液晶清洁液键盘相机手机平板工具5合1 ",
+        "price":"¥110"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"//img11.360buyimg.com/babel/s150x150_jfs/t1/207307/21/9599/43620/61946a84Ee22fa968/1f7205ac1ab1327a.jpg.webp",
+        "context":"【准新机】雅马哈KAX2500 KAX3500 kax5000 KAX7000 专业纯后级功放 PX5-500W*2 ",
+        "price":"¥110"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"//img12.360buyimg.com/babel/s150x150_jfs/t1/162307/17/21541/33841/6177741bE7d2e5008/d55a7aa28822dc7c.jpg.webp",
+        "context":"APPLE苹果 2021年新款 AirPods3 (第三代) 无线蓝牙耳机 Apple通用 ",
+        "price":"¥110"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"//img11.360buyimg.com/babel/s150x150_jfs/t1/208397/31/15113/143781/61d6b705Eccde3e12/562caf5dec80682f.jpg.webp",
+        "context":"关心 无线洗车机高压水枪锂电大功率家用清洗机电动洗车水枪手持便携式刷车泵洗车神器单电款 ",
+        "price":"¥110"
+    },
+    {
+        "id":0,
+        "storeName": "NewYear",
+        "img":"//img10.360buyimg.com/babel/s150x150_jfs/t1/163918/31/1608/580209/5ff7fa39E8fcb0dc8/60aed90f46f35cb1.png.webp",
+        "context":"【二手99新】任天堂（Nintendo） Switch NS 家用游戏主机游戏卡带 限购*1 死亡或学校 死亡或学院 中文",
+        "price":"¥30"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"//img11.360buyimg.com/babel/s150x150_jfs/t1/172289/9/12419/65873/60b5d2b9E5a8af333/d83c61cb8b81c01b.jpg.webp",
+        "context":"神火（SupFire）G19带磁铁工作灯多功能强磁头灯手电筒 定做 1个 ",
+        "price":"¥110"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"//img13.360buyimg.com/babel/s150x150_jfs/t1/160552/9/12006/72159/604acc42Ebeab4886/63e38356eaab7ad8.jpg.webp",
+        "context":"JBLFlip5音乐万花筒5代蓝牙音箱无线迷你音响户外便携音箱低音 黑色 ",
+        "price":"¥110"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"//img14.360buyimg.com/babel/s150x150_jfs/t1/196910/1/5901/53916/612f1b1dEd69ee27f/806f331dd9154128.jpg.webp",
+        "context":"沃特罗伦（WaterRower）Club 双轨实木 水阻划船机 ",
+        "price":"¥110"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"//img14.360buyimg.com/babel/s150x150_jfs/t1/147848/6/1745/96695/5efaf81dE9ed91a31/a78e7fe665a225bc.jpg.webp",
+        "context":"【二手99新】任天堂（Nintendo） Switch NS 游戏主机掌机游戏 Switch游戏卡 真人快打11 更新后中文 ",
+        "price":"¥110"
+    }
+
+
+],
+"jujia":[
+    {
+        "id":0,
+        "storeName": "NewYear",
+        "img":"https://img11.360buyimg.com/jdcms/s150x150_jfs/t1/145556/2/21570/340071/61d3a6a9E186a2328/0fdbb5f6db789f9d.jpg.webp",
+        "context":"小熊（Bear）取暖器暖风机电暖器电热器 办公室桌面台式便携",
+        "price":"¥30"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"https://img12.360buyimg.com/jdcms/s150x150_jfs/t1/178997/20/9466/98863/60c9d60fE37bb101f/b7023aa928e0d1e7.jpg.webp",
+        "context":"绿巨能（llano）Macbook笔记本电脑屏幕清洁剂套装苹果拯救者小新液晶清洁液键盘相机手机平板工具5合1 ",
+        "price":"¥110"
+    }
+],
+"chaoshi":[
+    {
+        "id":0,
+        "storeName": "NewYear",
+        "img":"https://img11.360buyimg.com/jdcms/s150x150_jfs/t1/145556/2/21570/340071/61d3a6a9E186a2328/0fdbb5f6db789f9d.jpg.webp",
+        "context":"小熊（Bear）取暖器暖风机电暖器电热器 办公室桌面台式便携",
+        "price":"¥30"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"https://img12.360buyimg.com/jdcms/s150x150_jfs/t1/178997/20/9466/98863/60c9d60fE37bb101f/b7023aa928e0d1e7.jpg.webp",
+        "context":"绿巨能（llano）Macbook笔记本电脑屏幕清洁剂套装苹果拯救者小新液晶清洁液键盘相机手机平板工具5合1 ",
+        "price":"¥110"
+    }
+],
+"shishang":[
+    {
+        "id":0,
+        "storeName": "NewYear",
+        "img":"https://img11.360buyimg.com/jdcms/s150x150_jfs/t1/145556/2/21570/340071/61d3a6a9E186a2328/0fdbb5f6db789f9d.jpg.webp",
+        "context":"小熊（Bear）取暖器暖风机电暖器电热器 办公室桌面台式便携",
+        "price":"¥30"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"https://img12.360buyimg.com/jdcms/s150x150_jfs/t1/178997/20/9466/98863/60c9d60fE37bb101f/b7023aa928e0d1e7.jpg.webp",
+        "context":"绿巨能（llano）Macbook笔记本电脑屏幕清洁剂套装苹果拯救者小新液晶清洁液键盘相机手机平板工具5合1 ",
+        "price":"¥110"
+    }
+],
+"jinkou":[
+    {
+        "id":0,
+        "storeName": "NewYear",
+        "img":"https://img11.360buyimg.com/jdcms/s150x150_jfs/t1/145556/2/21570/340071/61d3a6a9E186a2328/0fdbb5f6db789f9d.jpg.webp",
+        "context":"小熊（Bear）取暖器暖风机电暖器电热器 办公室桌面台式便携",
+        "price":"¥30"
+    },
+    {
+        "id":1,
+        "storeName": "NewYear",
+        "img":"https://img12.360buyimg.com/jdcms/s150x150_jfs/t1/178997/20/9466/98863/60c9d60fE37bb101f/b7023aa928e0d1e7.jpg.webp",
+        "context":"绿巨能（llano）Macbook笔记本电脑屏幕清洁剂套装苹果拯救者小新液晶清洁液键盘相机手机平板工具5合1 ",
         "price":"¥110"
     }
 ]

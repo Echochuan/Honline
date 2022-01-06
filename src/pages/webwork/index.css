@@ -40,3 +40,40 @@
       0px 1px 10px 0px rgba(40, 120, 255, 0.2);
     border-radius: 20px;
 }
+
+.info{
+	width:1000px;
+	height:150px;
+	background-color:white;
+	border:1px solid #f1f1f1;
+  margin: 0 auto;
+  margin-top: 5vh;
+	border-top:3px solid #F1F1F1;
+}
+.info li{
+	float:left;
+	margin-top:20px;
+  font-size:12px;
+  /* margin-left: 20px; */
+}
+
+.info_2{
+	margin-right: 30px;
+	border:1px solid #f1f1f1;
+}
+
+.info_3{
+	width:200px;
+	height:10px;
+}
+.info_4{
+	margin-left:50px;
+}
+
+.info_5{
+	margin-left:130px;
+}
+
+.info_7{
+	margin-left: 65px;
+}

@@ -86,12 +86,14 @@
   line-height: 160px;
   text-align: center;
   align-items: center;
+  min-width: 50%;;
   background: #364d79;
 }
 
 .banner-left {
   background: url("../../assets//banner-left.png");
   width: 300px;
+  float: left;
   height: 420px;
   background-size: 100% 100%;
   margin-left: 45%;
@@ -107,23 +109,8 @@
   margin-top: -10px;
 }
 
-.item1 {
-  background: url("../../assets/item1.png");
-  height: 300px;
-  background-size: 100% 100%;
-}
-.item2 {
-  background: url("../../assets/item2.png");
-  height: 300px;
-  background-size: 100% 100%;
-}
-.item3 {
-  background: url("../../assets/item3.png");
-  height: 300px;
-  background-size: 100% 100%;
-}
-.item4 {
-  background: url("../../assets/item4.png");
-  height: 300px;
+.fourAd {
+  background: url("../../assets/fourAd.png");
+  height: 420px;
   background-size: 100% 100%;
 }

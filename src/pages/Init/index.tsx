@@ -146,7 +146,8 @@ const Init = () => {
     if (haveStore) {
       return (
         <div className="shortcut">
-          <a href="/storeMenu" className="btn-store">
+          {/* <a href="/storeMenu" className="btn-store"> */}
+          <a href="/webwork" className="btn-store">
             我的店铺
           </a>
         </div>
@@ -275,14 +276,8 @@ const Init = () => {
             </div>
             <div
               className="fourAd"
-              style={{ width: "900px", margin: "0 auto" }}
+              style={{ width: "60vw", margin: "0 auto" }}
             >
-              <Row>
-                <Col span={6} className="item1"></Col>
-                <Col span={6} className="item2"></Col>
-                <Col span={6} className="item3"></Col>
-                <Col span={6} className="item4"></Col>
-              </Row>
             </div>
             <div className="floor">
               <Row>
@@ -294,7 +289,7 @@ const Init = () => {
               </Row>
             </div>
             <FeedTab />
-            <GoodsList />
+            {/* <GoodsList /> */}
           </Content>
         </Layout>
         <Footer>Copyright © 2021 Created by 524 & 525</Footer>
