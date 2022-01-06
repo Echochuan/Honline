@@ -86,39 +86,43 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
 
 const Init = () => {
   const [visible, setVisible] = useState(false);
-  const [haveStore,setHaveStore] = useState(false);
+  const [haveStore, setHaveStore] = useState(false);
 
-  if (localStorage.getItem('token') === null) {
-    message.error("请先登陆")
-    window.location.href="/login"
+  if (localStorage.getItem("token") === null) {
+    message.error("请先登陆");
+    window.location.href = "/login";
   } else {
     // message.success("Welcome!")
   }
 
   //开店确认后的函数
   const onCreate = (values: any) => {
-    console.log(typeof values.storeName, typeof Number(localStorage.getItem("id")))
+    console.log(
+      typeof values.storeName,
+      typeof Number(localStorage.getItem("id"))
+    );
     axios({
       method: "POST",
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/manage/create_store",
       data: {
-        "storeName" : values.storeName,
-        "userKey": Number(localStorage.getItem("id"))
+        storeName: values.storeName,
+        userKey: Number(localStorage.getItem("id"))
       }
     }).then(function(response) {
       if (response.data.code === 200) {
-        message.success("创建成功")
+        message.success("创建成功");
         window.location.href = "/storeMenu";
         setVisible(false);
       } else {
-        message.error("创建失败")
+        message.error("创建失败");
       }
     });
   };
 
   const onClick = () => {
-    window.location.href = "/shoppingCar";
+    // window.location.href = "/shoppingCar";
+    window.location.href = "http://127.0.0.1:5500/src/pages/jiesuan/index.html";
   };
 
   store.subscribe(() => {
@@ -132,11 +136,11 @@ const Init = () => {
       headers: { "Content-type": "application/json" },
       url: "http://101.132.145.198:8080/manage/is_open_store",
       data: {
-        "userId" : localStorage.getItem("id")
+        userId: localStorage.getItem("id")
       }
-    }).then(function(response){
-      setHaveStore(response.data.toOpenStore)
-    })
+    }).then(function(response) {
+      setHaveStore(response.data.toOpenStore);
+    });
     //向后端发送请求，询问该用户是不是已经有商店
     // const donthave = false;
     if (haveStore) {
@@ -205,6 +209,10 @@ const Init = () => {
                     <div>
                       <h3 className="banneritem">
                         <img
+                          onClick={e =>
+                            (window.location.href =
+                              "http://127.0.0.1:5500/src/pages/xiangqing/index.html")
+                          }
                           width="500px"
                           alt="1"
                           src="https://img10.360buyimg.com/pop/s1180x940_jfs/t1/169365/40/26675/52069/61c5bbf9Ef1471228/faa5b81f7d65fd21.jpg.webp"
@@ -214,6 +222,10 @@ const Init = () => {
                     <div>
                       <h3 className="banneritem">
                         <img
+                          onClick={e =>
+                            (window.location.href =
+                              "http://127.0.0.1:5500/src/pages/xiangqing/index.html")
+                          }
                           width="500px"
                           alt="2"
                           src="https://img30.360buyimg.com/pop/s1180x940_jfs/t1/131845/14/20897/83634/61cab273Ebd0fec46/8405a8e5bd168565.jpg.webp"
@@ -223,6 +235,10 @@ const Init = () => {
                     <div>
                       <h3 className="banneritem">
                         <img
+                          onClick={e =>
+                            (window.location.href =
+                              "http://127.0.0.1:5500/src/pages/xiangqing/index.html")
+                          }
                           width="500px"
                           alt="3"
                           src="https://imgcps.jd.com/ling4/100008631911/5bCP5a6255S15pqW5Yas5a2j/5Y-W5pqW54iG5qy-55u06ZmN/p-5bd8253082acdd181d02f9fa/f471380f/cr/s/q.jpg"
@@ -232,6 +248,10 @@ const Init = () => {
                     <div>
                       <h3 className="banneritem">
                         <img
+                          onClick={e =>
+                            (window.location.href =
+                              "http://127.0.0.1:5500/src/pages/xiangqing/index.html")
+                          }
                           width="500px"
                           alt="4"
                           src="https://img30.360buyimg.com/pop/s1180x940_jfs/t1/216211/29/7199/81887/61b30f8dE3c9c8dc9/06a14751ba10a2b2.jpg.webp"
@@ -253,7 +273,10 @@ const Init = () => {
               <Button className="button-item">家电机器</Button>
               <Button className="button-item">活力生鲜</Button>
             </div>
-            <div className="fourAd" style={{ width:"900px", margin: "0 auto" }}>
+            <div
+              className="fourAd"
+              style={{ width: "900px", margin: "0 auto" }}
+            >
               <Row>
                 <Col span={6} className="item1"></Col>
                 <Col span={6} className="item2"></Col>

@@ -1,0 +1,69 @@
+
+.qrcode {
+    z-index: 100;
+    position: fixed;
+    left: 2%;
+    top: 450px;
+    visibility: visible;
+    background: #FF510A;
+    width: 150px;
+    height: 175px;
+    border-radius: 10px;
+}
+.qrcode_close {
+    float: right;
+}
+.qrdescription {
+    width: 150px;
+    height: 40px;
+    font: 12px/40px 'Microsoft YaHei UI';
+    text-align: center;
+    color: #fff;
+}
+.qrimg {
+    width: 120px;
+    height: 120px;
+    margin: auto;
+}
+
+.sprite_bar {
+    width: 32px;
+    z-index: 100;
+    position: fixed;
+    right: 3%;
+    top: 550px;
+    visibility: visible;
+    border-radius: 10px;
+}
+.sprite {
+    background-image: url(../img/sprite.png);
+    height: 32px;
+    width: 32px;
+    float: left;
+    margin-bottom: 10px;
+}
+.sprite:hover {
+    background-position-y: -32px;
+}
+
+
+/*.sidebar {*/
+/*    z-index: 50;*/
+/*    position: fixed;*/
+/*    right: 0%;*/
+/*    visibility: visible;*/
+/*    width: 25px;*/
+/*    height: 1000px;*/
+/*}*/
+/*.sidebar_border {*/
+/*    z-index: 100;*/
+/*    background: #896969;*/
+/*    width: 7px;*/
+/*    float: right;*/
+/*}*/
+/*.sidebar_button {*/
+/*    z-index: 100;*/
+/*    width: 25px;*/
+/*    height: 25px;*/
+/*    background: #896969;*/
+/*}*/

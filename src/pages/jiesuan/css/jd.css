@@ -1,0 +1,221 @@
+
+/*导航框*/
+.nav{
+	height:30px;
+	background-color: #f1f1f1;
+}
+.warp{
+	width:1000px;
+	margin:0px auto;	
+	/*div自动居中*/
+	/*border：1px solid red;*/
+}
+.nav_ul1,.nav_ul1 li,.nav_ul2 li{float:left;}
+	/* 将需要左浮动的对象统一设置*/
+	
+.nav_ul2{float:right;}
+	/*右浮动*/
+	
+.nav_ul1 li{
+	line-height:30px;
+	/*将行高设置为 div的高度，即可竖直方向居中*/
+	margin-right:20px;
+	/*调整表格之间的距离*/
+}
+.nav_ul1 a,.nav_ul2 a,.nav_ul2 span{
+	font-size:10px;
+	color:gray;
+}
+.nav_ul2 li,.nav_ul2 span{
+	line-height:30px;
+	/*将行高设置为 div的高度，即可竖直方向居中*/
+	margin-left:10px;
+	/*调整表格之间的距离*/
+}
+.nav a:hover{color:red;}
+/*给nav下的a标签设置浮标*/
+
+
+
+/*搜索框*/
+.search img{
+	clear:both;
+	/*清楚之前的样式*/
+	float:left;
+	height:60px;
+}
+.search{
+	margin-top:20px;
+}
+.search p{
+	float:left;
+	margin-left:20px;
+	font-size:20px;
+}
+.search-input{
+	float:right;
+	margin-top:20px;
+}
+.search-text{
+	width:265px;
+	height:20px;
+	border:2px solid red;
+	position:relative;
+	left:5px;
+	top:-1px;
+}
+.search-but{
+	width:50px;
+	height:26px;
+	background-color: red;
+	border:0px;
+	color:white;
+}
+
+/*标题框*/
+.title{
+	margin-top:130px;
+}
+.title h3{
+	float:left;
+	font-size:25px;
+	color:red;
+}
+.title div{
+	float:right;
+	font-size:15px;
+	color:gray;
+}
+
+
+/*显示*/
+.tips{
+	width:1000px;
+	height:50px;
+	background-color:#f1f1f1;
+	margin-top:170px;
+	border:1px solid #E9E9E9;
+}
+.tips li{
+	float:left;
+	line-height:50px;
+	/*将行高设置为 div的高度，即可竖直方向居中*/
+	font-size:13px;
+	color:gray;
+}
+.tips li:nth-child(1){
+	width:100px;
+	border-top:2px solid red;
+}
+.tips li:nth-child(2){margin-left:80px;}
+.tips li:nth-child(3){margin-left:430px;}
+.tips li:nth-child(4){margin-left:70px;}
+.tips li:nth-child(5){margin-left:100px;}
+.tips li:nth-child(6){margin-left:50px;}
+
+
+/*<!--商品详情-->*/
+.info{
+	width:1000px;
+	height:150px;
+	background-color:white;
+	border:1px solid #f1f1f1;
+	margin-top:20px;
+	border-top:3px solid #F1F1F1;
+}
+.info li{
+	float:left;
+	margin-top:20px;
+	font-size:12px;
+}
+.info_1{
+	margin-left: 27px;
+}
+.info_2{
+	margin-left: 10px;
+	border:1px solid #f1f1f1;
+}
+.info_3{
+	width:200px;
+	height:10px;
+}
+.info_4{
+	margin-left:50px;
+}
+.info_5{
+	margin-left:130px;
+}
+.info_6{
+	margin-left: 38px;
+}
+.info_6 input{
+	width:30px;
+	text-align: center;
+}
+.info_7{
+	margin-left: 65px;
+}
+.info_8{
+	position:absolute;/*绝对位置*/
+	left:1280px;
+}
+.info_9{
+	margin-left: 80px;
+}
+.info_10{
+	margin-left: 38px;
+}
+.info_10 input{
+	width:30px;
+	text-align: center;
+}
+.info_11{
+	margin-left:55px;
+}
+
+/*结算*/
+.balance{
+	width:1000px;
+	height:50px;
+	border:1px solid #F1F1F1;
+	margin-top:20px;
+	border-top:2px solid #F1F1F1;
+}
+.balance_ul1,.balance_ul1>li{
+	float:left;
+	font-size:12px;
+	line-height: 50px;
+	/*将行高设置为 div的高度，即可竖直方向居中*/
+	margin-left:13px;
+}
+.balance_ul2{
+	float:right;
+	/*指定了右浮框，无需要再指定宽度*/
+}
+.balance_ul2>li{
+	float:left;
+	font-size:12px;
+	line-height: 50px;
+	/*将行高设置为 div的高度，即可竖直方向居中*/
+	margin-left:18px;
+}
+.butt{
+	width:102px;
+	height:50px;
+	background-color: red;
+	border:0px;
+	font-size:20px;
+	font-weight:bold;
+	color:white;
+}
+.balance b{
+	color:red;
+	font-size:16px;
+}
+.icon{
+	height:16px;
+	width:20px;
+	line-height:50px;
+}
+
+

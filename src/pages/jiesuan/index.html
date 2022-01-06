@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="*.css"/>指定被link链接的css文档为本文档的样式描述文件-->
+		<link rel="stylesheet" type="text/css" href="css/jd.css"/>
+		<link rel="stylesheet" type="text/css" href="icon/iconfont.css" />
+		<script src="icon/iconfont.js"></script>
+		<script  type="text/javascript" src="js/jd.js"></script>
+		<!--在使用javascript标签<script>时，type最常用的就是text/javascript,表示添加引用-->
+	</head>
+	<body onload="checkTest7(),checkTest2()">
+		<!--导航-->
+		<div class="nav">
+			<div class="warp">
+				<ul class="nav_ul1">
+					<li><a href=""><i class="iconfont">&#xe604;</i>京东首页</a></li>
+					<!--名称必须是iconfont-->
+					<li><a href="">配送至：北京</a></li>
+				</ul>
+				<ul class="nav_ul2">
+					<li><a href="">用户名</a><span>|</span></li>
+					<li><a href="">我的订单</a><span>|</span></li>
+					<li><a href="">我的京东</a><span>|</span></li>
+					<li><a href="">京东会员</a><span>|</span></li>
+					<li><a href="">企业采购</a><span>|</span></li>
+					<li><a href="">客户服务</a><span>|</span></li>
+					<li><a href="">网站导航</a><span>|</span></li>
+					<li><a href="">关注京东</a><span>|</span></li>
+					<li><a href="">手机京东</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--搜索框-->
+		<div class="search">
+			<div class="warp">
+				<img src="http://misc.360buyimg.com/jdf/1.0.0/unit/global-header/5.0.0/i/jdlogo-201708-@2x.png"/>
+				<p>购物车</p>
+				<div class="search-input">
+					<input type="text" class="search-text" />
+					<input type="button" value="搜索" class="search-but"/>
+				</div>
+			</div>
+		</div>
+		<!--标题-->
+		<div class="title warp">
+			<!--共用两个属性名,warp定义位置居中和宽度-->
+			<h3>全部商品</h3>
+			<div>
+				<span>配送到</span>
+				<select>
+					<option value="">东城区</option>
+					<option value="">西城区</option>
+					<option value="">昌平区</option>
+					<option value="">朝阳区</option>
+					<option value="">海淀区</option>
+					<option value="">通州区</option>
+					<option value="">顺义区</option>
+					<option value="">丰台区</option>
+					<option value="">房山区</option>
+					<option value="">大兴区</option>
+					<option value="">平谷区</option>
+					<option value="">石景山区</option>
+					<option value="">门头沟区</option>
+					<option value="">密云区</option>
+					<option value="">怀柔区</option>
+					<option value="">延庆区</option>
+				</select>
+			</div>
+		</div>
+		<!--显示-->
+		<div class="tips warp">
+			<ul>
+				<li>
+					<input type="checkbox" name="fav" id="all" onclick="checkTest1(this),checkTest2()"/>全选
+					<!--this表示多选框本身；同时执行两个函数-->
+				</li>
+				<li>商品</li>
+				<li>单价</li>
+				<li>数量</li>
+				<li>小计</li>
+				<li>操作</li>
+			</ul>
+		</div>
+		<!--商品详情-->
+		<div class="info warp">
+			<ul>
+				<li class="info_1"><input type="checkbox" name="fav" onclick="checkTest2()"/></li>
+				<li class="info_2">
+					<img src="http://img14.360buyimg.com/n0/s80x80_jfs/t3175/73/3059174447/32671/4cb0c2ae/57eb3810N83818680.jpg.dpg"
+						width="100px"/>
+				</li>
+				<li class="info_3"><a>Python机器学习及实践：<br/>从零开始通往Kaggle竞赛之路</a></li>
+				<li class="info_4">Python机器学习</li>
+				<li class="info_5">37.60</li>
+				<li class="info_6">
+					<button onclick="checkTest3(this,1),checkTest2()">-</button>
+					<input type="text" name="nu" value="1" onblur="checkTest5(this),checkTest2()"/>
+					<button onclick="checkTest3(this,2),checkTest2()">+</button>
+				</li>
+				<li class="info_7">¥0.00</li>
+				<li class="info_8">
+					<a href="javascript:viod(0)" onclick="checkTest4(this),checkTest2()">删除</a><br />
+					<!--javascript:void(0)中最关键的 void关键字， void是 JavaScript中非常重要的关键字，			
+					该操作符指定要计算一个表达式但是不返回值。
+					含义：让超链接去执行一个js函数，而不是去跳转到一个地址，
+					而void(0)表示一个空的方法，也就是不执行js函数。-->
+					<a>移入关注</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="info warp">
+			<ul>
+				<li class="info_1"><input type="checkbox" name="fav" onclick="checkTest2()"/></li>
+				<li class="info_2">
+					<img src="http://img30.360buyimg.com/n0/s80x80_jfs/t1/139354/34/9663/173427/5f74138cE93033060/a814d51095a2de35.jpg.dpg"
+						width="100px"/>
+				</li>
+				<li class="info_3"><a>Python编程从入门到实践 <br/>第2版(图灵出品)</a></li>
+				<li class="info_4">Python编程从入门到实践</li>
+				<li class="info_9">62.40</li>
+				<li class="info_10">
+					<button onclick="checkTest3(this,1),checkTest2()">-</button>
+					<input type="text" name="nu" value="1" onblur="checkTest5(this),checkTest2()"/>
+					<button onclick="checkTest3(this,2),checkTest2()">+</button>
+				</li>
+				<li class="info_7">¥0.00</li>
+				<li class="info_8">
+					<a href="javascript:viod(0)" onclick="checkTest4(this),checkTest2()">删除</a><br />					
+					<a>移入关注</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="info warp">
+			<ul>
+				<li class="info_1"><input type="checkbox" name="fav" onclick="checkTest2()"/></li>
+				<li class="info_2">
+					<img src="http://img13.360buyimg.com/n0/s80x80_jfs/t1/130661/24/3344/187455/5efc4b5eE9ce30652/2fc2906441aa5d81.jpg.dpg"
+						width="100px"/>
+				</li>
+				<li class="info_3"><a>Python数据分析从入门到实践<br/>（全彩版）</a></li>
+				<li class="info_4">Python数据分析从入门到实践</li>
+				<li class="info_11">46.10</li>
+				<li class="info_10">
+					<button onclick="checkTest3(this,1),checkTest2()">-</button>
+					<input type="text" name="nu" value="1" onblur="checkTest5(this),checkTest2()"/>
+					<button onclick="checkTest3(this,2),checkTest2()">+</button>
+				</li>
+				<li class="info_7">¥0.00</li>
+				<li class="info_8">
+					<a href="javascript:viod(0)" onclick="checkTest4(this),checkTest2()">删除</a><br />
+					<a>移入关注</a>
+				</li>
+			</ul>
+		</div>
+		
+		<!--结算-->
+		<div class="balance warp">
+			<ul class="balance_ul1">
+				<li>
+					<input type="checkbox" name="fav" onclick="checkTest1(this),checkTest2()"/>
+					全选
+				</li>
+				<li><a href="javascript:void(0)" onclick="checkTest6(),checkTest2()">删除选中的商品</a></li>
+				<li><a>移到关注</a></li>
+				<li><a>清理购物车</a></li>
+			</ul>
+			<ul class="balance_ul2">
+				<li>已选择&nbsp;<b id="tn">0</b>&nbsp;件商品</li>
+				<!--b标签：加粗加黑-->
+				<li>总价：<b id="tp">¥0.00</b>&nbsp;
+					<svg class="icon" aria-hidden="true" onmouseover="tips()">
+					  <use xlink:href="#icon-dengpao1hao"></use>
+					</svg>
+					<!--导入灯泡符号,名称必须是iconfont-->
+				</li>
+				<li><button class="butt">去结算</button></li>
+			</ul>
+		</div>
+	</body>
+</html>
+
+

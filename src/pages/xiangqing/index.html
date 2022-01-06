@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>【OPPOFind N】OPPO Find N 全新折叠旗舰 云端 多角度自由悬停 120Hz镜面折叠屏 黄金折叠比例 骁龙888 5G手机</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/sidebar.css">
+<!--    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>-->
+</head>
+
+<script>
+    var click1, click2;
+    var myTimer = -1;
+    var appointTime = 0;
+
+    function hide() {       // 我靠之前试了七八遍都没用，原来是因为当时设的函数名是close，是保留字
+        var i = document.getElementById("ad");
+        i.style.visibility = 'hidden';
+    }
+    function add() {
+        var i = parseInt(document.getElementById("num").value);
+        document.getElementById("num").value = i + 1;
+    }
+    function minus() {
+        var i = parseInt(document.getElementById("num").value);
+        if (i <= 1) {
+            document.getElementById("num").value = 1;
+        } else {
+            document.getElementById("num").value = i - 1;
+        }
+    }
+    function select1() {
+        var i = document.getElementById("type1");
+        var pic = document.getElementById("image");
+        i.style.borderColor = '#d31010';
+        click1 = 1;
+        if (click2 == 1) {
+            click2 = 0;
+            var j = document.getElementById("type2");
+            j.style.borderColor = '#ddd';
+        }
+        document.getElementById("price").innerText = "￥7699.00";
+        pic.src = "./img/findn.jpg";
+    }
+    function select2() {
+        var i = document.getElementById("type2");
+        var pic = document.getElementById("image");
+        i.style.borderColor = '#d31010';
+        click2 = 1;
+        if (click1 == 1) {
+            click1 = 0;
+            var j = document.getElementById("type1");
+            j.style.borderColor = '#ddd';
+        }
+        document.getElementById("price").innerText = "￥8999.00";
+        pic.src = "./img/findn8999.jpg";
+    }
+    function appoint() {
+        if (appointTime == 0) {
+            alert("预约成功！");
+            appointTime++;
+        } else {
+            alert("您已经预约过了。")
+        }
+    }
+    function topFunction() {
+        var height = document.documentElement.scrollHeight;     // 网页实际高度
+        var scrollTo = document.documentElement.scrollTop || document.body.scrollTop
+        if(myTimer = -1){
+            myTimer = setInterval(() => {
+                if (height / scrollTo < 4) {
+                    scrollTo -= 400;
+                } else if (height / scrollTo < 6) {
+                    scrollTo -= 200;
+                } else if (height / scrollTo < 8) {
+                    scrollTo -= 100;
+                } else {
+                    scrollTo -= 60;
+                }
+                if(scrollTo <= 0){
+                    scrollTo = 0;
+                    window.clearInterval(myTimer);
+                    myTimer = -1;
+                }
+                window.scrollTo(0, scrollTo);                //指离开网页顶部的距离
+            }, 10);
+        }
+    }
+    function fav() {
+        var i = document.getElementById("hidden");
+        i.style.visibility = 'visible';
+        var j = document.getElementById("favbutton");
+        j.style.backgroundColor = '#d31010';
+    }
+    function blocked() {
+        alert("暂未实现");
+    }
+</script>
+
+<body>
+
+<!--左下角二维码广告浮窗和右下角雪碧图浮窗-->
+<div class="qrcode" id="ad">
+    <a href="js:" class="qrcode_close" onclick="hide()">
+        <img src="./img/close.png">
+    </a>
+    <div class="qrdescription">
+        随时随地，想淘就淘
+    </div>
+    <div class="qrimg">
+        <img src="./img/qrcode.png">
+    </div>
+</div>
+
+<div class="sprite_bar">
+    <a href="js:" class="sprite" onclick="topFunction()"></a>
+    <div class="sprite" style="background-position-x: -32px"></div>
+    <div class="sprite" style="background-position-x: -64px"></div>
+</div>
+
+<!--未实现内容：京东侧边栏-->
+<!--<div class="sidebar_border"></div>-->
+
+<!-- 顶部信息 -->
+<div class="header_con">
+    <div class="header">
+        <div class="welcome">欢迎来到京东!</div>
+        <div class="user_login">
+            <a href="">你好，请登录</a>
+            <span>|</span>
+            <a href="">我的京东</a>
+            <span>|</span>
+            <a href="">我的购物车</a>
+            <span>|</span>
+            <a href="">我的订单</a>
+            <span>|</span>
+            <a href="">PLUS会员</a>
+            <span>|</span>
+            <a href="">企业采购</a>
+            <span>|</span>
+            <a href="">手机京东</a>
+            <span>|</span>
+            <a href="">前往淘宝</a>
+        </div>
+    </div>
+</div>
+
+<!--搜索栏-->
+<div class="search_bar clearfix">
+    <a href="#" class="logo fl"><img src="./img/jdlogo.png"></a>
+    <div class="search_con fl">
+        <input type="text" class="input_text fl" placeholder="搜索商品">
+        <input type="button" class="input_btn fr" value="搜索">
+    </div>
+    <div class="guest_card fr">
+        <a href="js:" class="card_name fl" onclick="blocked()">我的购物车</a>
+        <a href="" class="goods_count fl" onclick="blocked()"><img src="./img/down.png"></a>
+    </div>
+</div>
+
+<!-- 商品分类 -->
+<div class="navbar_con">
+    <div class="navbar clearfix">
+        <div class="subnav_con fl">
+            <h1>全部商品分类</h1>
+        </div>
+        <ul class="navlist fl">
+            <li><a href="">首页</a></li>
+            <li><a href="">京东时尚</a></li>
+            <li><a href="">超市</a></li>
+            <li><a href="">生鲜</a></li>
+            <li><a href="">京东国际</a></li>
+            <li><a href="">闪购</a></li>
+            <li><a href="">拍卖</a></li>
+        </ul>
+    </div>
+</div>
+
+<!--该商品所在分区-->
+<div class="submena clearfix">
+    <a href=" ">全部分类</a>
+    <span>></span>
+    <a href=" ">手机通讯</a>
+    <span>></span>
+    <a href=" ">手机</a>
+    <span>></span>
+    <a href=" ">OPPO</a>
+</div>
+
+<!--商品主要内容-->
+<div class="center_con clearfix">
+<!--    左侧预览图-->
+    <div class="main_menu fl">
+        <img id="image" src="./img/findn.jpg" alt="" />
+    </div>
+
+<!--    标题及副标题-->
+    <div class="goods_detail_list fr">
+        <p id = "title" style="font-size: 18px; font-weight: bold"><img src="./img/tag-new.png">OPPO Find N 全新折叠旗舰 云端
+            多角度自由悬停 120Hz镜面折叠屏 黄金折叠比例 骁龙888 5G手机</p>
+        <p style="color: #d31010">【1.1日10点再次开抢，晒单赢50元京豆，赠2T云空间丨稀缺货源，数量有限。12.27购买用户以订单支付为顺序陆续发货，先买先发货】 【立即查看物流说明】</p>
+<!--        价格-->
+        <div class="prize_bar">
+            <div class="show_jdprice fl">京东价</div>
+            <span class="show_prize" id="price">￥7699.00起</span>
+            <div class="distribute">配送至: 江西省南昌市红谷滩区 <em>无货</em></div>
+        </div>
+<!--        数量及颜色规格选项-->
+        <div class="goods_num clearfix">
+            <div class="num_name fl">数量：</div>
+            <div class="num_add fl">
+                <input type="text" class="num_show fl" id="num" value="1">
+                <a href="js:" class="add fr" onclick="add()">+</a>
+                <a href="js:" class="minus fr" onclick="minus()">-</a>
+            </div>
+            <a href="js:" class="type" id="type1" onclick="select1()">云端 8+256G</a>
+            <a href="js:" class="type" id="type2" onclick="select2()">星夜 12+256G</a>
+        </div>
+<!--        收藏选项-->
+        <div class="fav">
+            <a class="favbutton" id="favbutton" href="js:" onclick="fav()"><img src="./img/fav.png" style="margin: 6px 6px"></a>
+            <div class="favhidden" id="hidden">已收藏该商品！</div>
+        </div>
+
+<!--        <div class="total">总价：<em style="color: #d31010"><a id="totalPrice">7699.00</a>元</em></div>-->
+
+<!--        购买和加购选项-->
+        <div class="operate_btn">
+            <a href="" class="buy_btn">立即购买</a>
+            <a href="" class="add_cart">加入购物车</a>
+        </div>
+
+
+    </div>
+</div>
+
+<!--预约图片-->
+<div class="appoint">
+    <img src="./img/appoint.png">
+</div>
+
+<div class="detailbar_con">
+    <div class="detailbar clearfix">
+        <div class="subdetail_con fl">
+            <h1>商品介绍</h1>
+        </div>
+        <ul class="detaillist fl">
+            <li><a href="">规格与包装</a></li>
+            <li><a href="">售后保障</a></li>
+            <li><a href="">商品评价(2000+)</a></li>
+            <li><a href="">预约说明</a></li>
+        </ul>
+        <div class="appointbutton">
+            <a href="js:" onclick="appoint()">
+                开始预约
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="detail">
+    <img src="./img/detail1.jpg">
+    <img src="./img/detail2.jpg">
+    <img src="./img/detail3.jpg">
+    <img src="./img/detail4.jpg">
+    <img src="./img/detail5.jpg">
+    <img src="./img/detail6.jpg">
+    <img src="./img/detail7.jpg">
+    <img src="./img/detail8.jpg">
+    <img src="./img/detailend.jpg">
+    <img src="./img/detailend2.jpg">
+</div>
+
+<div class="buttom">
+    <div class="buttom_con">
+        <div class="buttom_list">
+            <div class="buttom_title">
+                购物指南
+            </div>
+            <ul>
+                <li><a href="">购物流程</a></li>
+                <li><a href="">会员介绍</a></li>
+                <li><a href="">生活旅行</a></li>
+                <li><a href="">常见问题</a></li>
+                <li><a href="">大家电</a></li>
+            </ul>
+        </div>
+        <div class="buttom_list">
+            <div class="buttom_title">
+                购物指南
+            </div>
+            <ul>
+                <li><a href="">购物流程</a></li>
+                <li><a href="">会员介绍</a></li>
+                <li><a href="">生活旅行</a></li>
+                <li><a href="">常见问题</a></li>
+                <li><a href="">大家电</a></li>
+            </ul>
+        </div>
+        <div class="buttom_list">
+            <div class="buttom_title">
+                购物指南
+            </div>
+            <ul>
+                <li><a href="">购物流程</a></li>
+                <li><a href="">会员介绍</a></li>
+                <li><a href="">生活旅行</a></li>
+                <li><a href="">常见问题</a></li>
+                <li><a href="">大家电</a></li>
+            </ul>
+        </div>
+        <div class="buttom_list">
+            <div class="buttom_title">
+                购物指南
+            </div>
+            <ul>
+                <li><a href="">购物流程</a></li>
+                <li><a href="">会员介绍</a></li>
+                <li><a href="">生活旅行</a></li>
+                <li><a href="">常见问题</a></li>
+                <li><a href="">大家电</a></li>
+            </ul>
+        </div>
+        <div class="end_list_line">
+            <hr style="color: #9d9d9d;">
+        </div>
+        <ul class="end_list fl">
+            <li><a href="">关于我们</a></li>
+            <li><a href="">联系我们</a></li>
+            <li><a href="">联系客服</a></li>
+            <li><a href="">合作招商</a></li>
+            <li><a href="">营销中心</a></li>
+            <li><a href="">商家帮助</a></li>
+            <li><a href="">手机京东</a></li>
+            <li><a href="">友情链接</a></li>
+            <li><a href="">销售中心</a></li>
+            <li><a href="">前往淘宝</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+</body>
+</html>

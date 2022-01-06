@@ -1,0 +1,10 @@
+body,div,h1,h2,h3,h4,h5,h6,li,ol,ul{margin:0px;padding:0px;}
+/*边距设置为0*/
+body{text-align:center;font-size:15px;}
+/*文本居中*/
+a{text-decoration: none;}
+/*去除下划线*/
+li{list-style:none;}
+/*去除列表前面的点*/
+
+

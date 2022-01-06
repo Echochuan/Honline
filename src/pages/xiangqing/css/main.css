@@ -1,0 +1,546 @@
+body {
+    /*font-family: 'Microsoft YaHei';*/
+    color: #666;
+    font-size: 12px;
+}
+
+/*顶部条*/
+.header_con {
+    height: 29px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
+.header {
+    width: 1200px;
+    height: 29px;
+    margin: 0 auto;
+}
+
+.welcome {
+    font-size: 12px;
+    padding-top: 5px;
+    float: left;
+}
+
+.user_login {
+    height: 29px;
+    line-height: 29px;
+    float: right;
+}
+
+.user_login a {
+    color: #666;
+}
+
+.user_login a:hover {
+    color: #d31010;
+    text-decoration: underline;
+}
+
+/*搜索栏*/
+.search_bar {
+    width: 1200px;
+    height: 115px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 151px;
+    height: 59px;
+    margin: 29px 0 0 17px;
+}
+
+.search_con {
+    width: 616px;
+    height: 38px;
+    border: 1px solid #d31010;
+    margin: 34px 0 0 123px;
+    background: url(../img/search.png) 8px 8px no-repeat;
+}
+
+.search_con .input_text {
+    width: 470px;
+    height: 37px;
+    border: 0px;
+    margin-left: 37px;
+    outline: none;
+}
+
+.search_con .input_btn {
+    width: 100px;
+    height: 38px;
+    background-color: #d31010;
+    border: 0;
+    font: 14px/38px 'Microsoft YaHei UI';
+    color: #fff;
+    /*鼠标变成手*/
+    cursor: not-allowed;
+}
+
+.search_con .input_btn:hover {
+    background-color: #999;
+}
+
+/*右上角购物车*/
+.guest_card {
+    width: 200px;
+    height: 40px;
+    margin-top: 34px;
+}
+
+.card_name {
+    width: 158px;
+    height: 38px;
+    border: 1px solid #ddd;
+    font: 14px/38px 'Microsoft YaHei UI';
+    color: #d31010;
+    text-indent: 56px;
+    background: url(../img/cart.png) 8px -2px no-repeat #f7f7f7;
+}
+
+.card_name:hover {
+    color: #999;
+    cursor: not-allowed;
+}
+
+.goods_count {
+    width: 40px;
+    height: 40px;
+    background-color: #a60505;
+    font: bold 18px/40px 'Microsoft YaHei UI';
+    text-align: center;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.goods_count:hover {
+    background-color: #999;
+}
+
+/*商品分类*/
+.navbar_con {
+    height: 40px;
+    border-bottom: 2px solid #d31010;
+    /*background: #ececec;*/
+}
+
+.navbar {
+    width: 1200px;
+    height: 40px;
+    margin: 0 auto;
+    /*background: #ececec;*/
+}
+
+.subnav_con h1 {
+    width: 200px;
+    height: 40px;
+    background-color: #d31010;
+    font: 14px/40px 'Microsoft YaHei UI';
+    text-align: center;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.subnav_con i {
+    width: 11px;
+    height: 7px;
+    background: url(../img/down.png) left center no-repeat;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.navlist {
+    overflow: hidden;
+}
+
+.navlist li {
+    float: left;
+    padding: 0 40px;
+    font-size: 14px;
+    border-left: 1px solid #666;
+    margin-left: -2px;
+    margin-top: 10px;
+}
+
+.navlist a {
+    color: #666;
+}
+
+.navlist a:hover {
+    color: #d31010;
+}
+
+.submena {
+    padding: 10px;
+    width: 1200px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+.submena a {
+    color: #d31010;
+    line-height: 30px;
+}
+
+.submena a:hover {
+    text-decoration: underline;
+}
+
+.pic_box {
+    margin: 15px auto;
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+}
+
+/*商品主要内容*/
+.center_con {
+    width: 1200px;
+    height: 350px;
+    margin: 0 auto;
+    /*background: #ececec;*/
+}
+
+.center_con .main_menu {
+    margin: 15px auto;
+    width: 400px;
+    height: 350px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.goods_detail_list {
+    width: 730px;
+    height: 350px;
+}
+
+.goods_detail_list h3 {
+    font-size: 24px;
+    line-height: 24px;
+    color: #666;
+    font-weight: normal;
+}
+
+.goods_detail_list p {
+    color: #666;
+    line-height: 40px;
+}
+
+.prize_bar {
+    height: 72px;
+    background-color: #fff5f5;
+    line-height: 72px;
+    border-radius: 5px;
+}
+
+.prize_bar .show_prize {
+    font-size: 20px;
+    color: #d31010;
+    padding-left: 20px
+}
+
+.prize_bar .show_prize em {
+    font-style: normal;
+    font-size: 36px;
+    padding-left: 10px
+}
+
+.prize_bar .show_jdprice {
+    padding-left: 20px;
+}
+
+.prize_bar .distribute {
+    float: right;
+    padding-right: 250px;
+    font-size: 14px;
+}
+
+.prize_bar .distribute em {
+    font-weight: bold;
+    color: #d31010;
+}
+
+.goods_num {
+    height: 52px;
+    margin-top: 19px;
+    /*background: yellow;*/
+}
+
+.goods_num .num_name {
+    width: 70px;
+    height: 52px;
+    line-height: 52px;
+}
+
+.goods_num .num_add {
+    width: 75px;
+    height: 50px;
+    border: 1px solid #dddddd;
+}
+
+.goods_num .num_add .num_show {
+    width: 49px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border: 0px;
+    outline: none;
+    font-size: 14px;
+    color: #666;
+}
+
+.goods_num .num_add .add, .goods_num .num_add .minus {
+    width: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: #666;
+    font-size: 14px;
+}
+
+.goods_num .num_add .minus {
+    border-bottom: 0px;
+}
+
+.type {
+    float: left;
+    margin-left: 50px;
+    height: 36px;
+    width: 120px;
+    text-align: center;
+    border: 2px solid #ddd;
+    font-size: 14px;
+    color: #666666;
+    padding-top: 12px;
+}
+
+.type:hover {
+    border: 2px solid #999;
+}
+
+/*.total {*/
+/*    height: 35px;*/
+/*    line-height: 35px;*/
+/*    margin-top: 25px;*/
+/*    !*background: yellow;*!*/
+/*}*/
+
+/*.total em {*/
+/*    font-style: normal;*/
+/*    color: #d31010;*/
+/*    font-size: 18px*/
+/*}*/
+
+.operate_btn {
+    height: 40px;
+    margin-top: 35px;
+    font-size: 0;
+    position: relative;
+}
+
+.operate_btn .buy_btn, .operate_btn .add_cart {
+    display: inline-block;
+    width: 178px;
+    height: 38px;
+    border: 1px solid #c40000;
+    font-size: 14px;
+    color: #c40000;
+    line-height: 38px;
+    text-align: center;
+    background-color: #ffeded;
+    border-radius: 5px;
+}
+
+.operate_btn .buy_btn:hover {
+    background-color: #ecbecb;
+}
+
+.operate_btn .add_cart {
+    background-color: #c40000;
+    color: #fff;
+    margin-left: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.operate_btn .add_cart:hover {
+    background-color: #a40000;
+    color: #dddddd;
+}
+
+.fav .favbutton {
+    margin-top: -45px;
+    float: right;
+    height: 36px;
+    width: 36px;
+    background-color: #999;
+    border-radius: 20px;
+}
+
+.fav .favbutton:hover {
+    background-color: #a60505;
+}
+
+.fav .favhidden {
+    float: right;
+    font-size: 14px;
+    margin-top: -35px;
+    margin-right: 40px;
+    visibility: hidden;
+    color: #d31010;
+}
+
+/*预约*/
+.appoint {
+    width: 1200px;
+    height: 40px;
+    margin: 100px auto 0px auto;
+}
+
+/*详情内容*/
+.detailbar_con {
+    height: 40px;
+    /*border-bottom:2px solid #d31010;*/
+    /*background: #ececec;*/
+}
+
+.detailbar {
+    width: 1200px;
+    height: 40px;
+    border-bottom: 2px solid #d31010;
+    margin: 50px auto;
+    background: #ececec;
+}
+
+.subdetail_con h1 {
+    width: 200px;
+    height: 40px;
+    background-color: #d31010;
+    font: 14px/40px 'Microsoft YaHei UI';
+    text-align: center;
+    color: #fff;
+}
+
+.subdetail_con i {
+    width: 11px;
+    height: 7px;
+    background: url(../img/down.png) left center no-repeat;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.detaillist {
+    overflow: hidden;
+}
+
+.detaillist li {
+    float: left;
+    padding: 0 40px;
+    font-size: 14px;
+    border-left: 1px solid #666;
+    margin-left: -2px;
+    margin-top: 10px;
+}
+
+.detaillist a {
+    color: #666;
+}
+
+.detaillist a:hover {
+    color: #d31010;
+}
+
+.appointbutton a {
+    float: right;
+    width: 75px;
+    height: 20px;
+    border: 1px solid #a60505;
+    padding-top: 3px;
+    font-size: 12px;
+    background-color: #d31010;
+    text-align: center;
+    margin: 8px 30px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.appointbutton a:hover {
+    background-color: #a60505;
+    color: #fff;
+}
+
+.detail {
+    width: 790px;
+    margin: 20px auto;
+}
+
+/*以下均为底栏*/
+.buttom {
+    height: 300px;
+    background-color: #e3e3e3;
+}
+
+.buttom_con {
+    width: 1000px;
+    margin: 15px auto;
+}
+
+.buttom_list {
+    font-size: 12px;
+    width: 150px;
+    float: left;
+    padding-left: 100px;
+}
+
+.buttom_list li {
+    padding-top: 10px;
+}
+
+.buttom_list a {
+    color: #666;
+}
+
+.buttom_list a:hover {
+    color: #d31010;
+}
+
+.buttom_title {
+    margin-top: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.end_list_line {
+    padding-top: 200px;
+}
+
+.end_list {
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.end_list li {
+    float: left;
+    padding: 0 25px;
+    font-size: 12px;
+    border-left: 1px solid #666;
+    margin-left: -2px;
+    margin-top: 0px;
+}
+
+.end_list a {
+    color: #666;
+}
+
+.end_list a:hover {
+    color: #d31010;
+}
+
+
+
+
+
+

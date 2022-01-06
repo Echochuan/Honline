@@ -57,7 +57,7 @@ const Webwork = () => {
     return (
       <Modal
         visible={visible}
-        title="更改商铺xinxi "
+        title="更改商铺信息"
         okText="确认更改"
         cancelText="取消更改"
         onCancel={onCancel}
